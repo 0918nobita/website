@@ -12,7 +12,7 @@
     "serve": "browser-sync start --server --files 'index.html, lib/*.js'",
     "watch": "npm-run-all --parallel type-check:watch build:watch serve",
     "lint": "eslint --config .eslintrc.js --ext .ts,.tsx ./src",
-    "format": "prettier --config .prettierrc.js --write src/*.{ts,tsx}"
+    "format": "prettier --config .prettierrc.js --write src/*.{ts,tsx} index.html"
   },
   "repository": "git@github.com:0918nobita/vision.git",
   "author": "0918nobita <nobita.0918@gmail.com>",
