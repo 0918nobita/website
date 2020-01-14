@@ -4,7 +4,7 @@ import { jsx } from '/web_modules/@emotion/core.js';
 (async (): Promise<void> => {
   if ('serviceWorker' in navigator) {
     try {
-      const registration = await navigator.serviceWorker.register('lib/serviceWorker.js');
+      const registration = await navigator.serviceWorker.register('lib/serviceWorker.js', { scope: '../' });
       registration.update();
       console.log('serviceWorker registered successfully!');
     } catch (err) {
