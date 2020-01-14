@@ -5,5 +5,14 @@
       "src": "package.json",
       "use": "@now/static-build"
     }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "headers": {
+        "Service-Worker-Allowed": "/"
+      },
+      "dest": "$1"
+    }
   ]
 }
