@@ -7,6 +7,7 @@
     "type-check:watch": "tsc --watch",
     "build": "babel src --out-dir lib --extensions \".ts,.tsx\" --source-maps inline",
     "build:watch": "yarn build --watch",
+    "now-build": "yarn build && mkdir dist && mv web_modules dist/web_modules && mv lib dist/lib && mv index.html dist/index.html",
     "serve": "browser-sync start --server --files 'index.html, lib/*.js'",
     "watch": "npm-run-all --parallel type-check:watch build:watch serve",
     "lint": "eslint --config .eslintrc.js --ext .ts,.tsx ./src",
@@ -39,5 +40,8 @@
     "@emotion/core": "^10.0.27",
     "react": "npm:@reactesm/react",
     "react-dom": "npm:@reactesm/react-dom"
+  },
+  "engines": {
+    "node": "12.x"
   }
 }
