@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "/index.html",
+      "use": "@now/static"
+    },
+    {
+      "src": "/lib/*",
+      "use": "@now/static"
+    },
+    {
+      "src": "/web_modules/*",
+      "use": "@now/static"
+    }
+  ]
+}
