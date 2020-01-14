@@ -1,0 +1,8 @@
+{
+  "name": "kodai.vision",
+  "short_name": "kodai",
+  "icons": [],
+  "start_url": "index.html",
+  "theme_color": "#8968CC",
+  "display": "standalone"
+}
