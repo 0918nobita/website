@@ -1,0 +1,10 @@
+node_modules
+web_modules
+
+lib
+
+public/*
+!index.html
+
+# BrowserSync
+debug.log
