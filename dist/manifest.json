@@ -2,7 +2,7 @@
   "name": "kodai.vision",
   "short_name": "kodai",
   "icons": [],
-  "start_url": ".",
+  "start_url": "/",
   "theme_color": "#8968CC",
   "display": "standalone"
 }

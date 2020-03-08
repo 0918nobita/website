@@ -2,7 +2,7 @@ const CACHE_NAME = 'vision-cache';
 
 const CACHE_KEYS = [CACHE_NAME];
 
-const CACHE_TARGETS = ['index.html', 'main.js', 'legacy-main.js'];
+const CACHE_TARGETS = ['/', '/index.html', '/main.js', '/legacy-main.js'];
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 self.addEventListener('install', (event: any) => {
