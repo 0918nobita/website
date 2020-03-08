@@ -30,3 +30,10 @@ self.addEventListener('activate', (event: any) => {
         })()
     );
 });
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+self.addEventListener('fetch', (event: any) => {
+    event.respondWith(
+        caches.match(event.request).then(res => res || fetch(event.request))
+    );
+});
