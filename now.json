@@ -12,7 +12,7 @@
       "headers": {
         "Service-Worker-Allowed": "/"
       },
-      "dest": "$1"
+      "dest": "dist/$1"
     }
   ]
 }
