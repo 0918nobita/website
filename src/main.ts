@@ -6,16 +6,13 @@
                 { scope: './' }
             );
             registration.update();
-            console.log('serviceWorker registered successfully!');
         } catch (err) {
-            console.log('ServiceWorker registration failed');
             console.error(err);
         }
     }
 })();
 
-const elem = document.getElementById('app');
-
-if (elem) {
-    console.log(elem.textContent + '!');
-}
+console.log(
+    `%cWhat are you lookin' at?`,
+    'color: purple; font-size: large; font-weight: bold'
+);
