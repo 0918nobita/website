@@ -4,5 +4,6 @@ yarn-error.log
 
 dist/*
 !icons
+!favicon.ico
 !index.html
 !manifest.json
