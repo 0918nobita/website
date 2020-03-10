@@ -1,0 +1,5 @@
+dist/*
+!icons
+!favicon.ico
+!index.html
+!manifest.json

@@ -2,8 +2,8 @@
   "version": 2,
   "builds": [
     {
-      "src": "package.json",
-      "use": "@now/static-build"
+      "src": "workspaces/static/dist/*",
+      "use": "@now/static"
     }
   ],
   "routes": [
@@ -12,7 +12,7 @@
       "headers": {
         "Service-Worker-Allowed": "/"
       },
-      "dest": "dist/$1"
+      "dest": "/workspaces/static/dist/$1"
     }
   ]
 }

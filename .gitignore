@@ -2,8 +2,4 @@ node_modules
 yarn-error.log
 .yarn
 
-dist/*
-!icons
-!favicon.ico
-!index.html
-!manifest.json
+.now
