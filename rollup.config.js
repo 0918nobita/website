@@ -1,4 +1,5 @@
 import resolve from '@rollup/plugin-node-resolve';
+import jscc from 'rollup-plugin-jscc';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 
@@ -38,6 +39,7 @@ export default [
                     },
                 },
             }),
+            jscc(),
         ],
     },
     // for legacy browsers
@@ -55,6 +57,11 @@ export default [
                     compilerOptions: {
                         target: 'es5',
                     },
+                },
+            }),
+            jscc({
+                values: {
+                    _LEGACY: true,
                 },
             }),
         ],

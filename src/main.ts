@@ -1,3 +1,4 @@
+// #if !_LEGACY
 (async (): Promise<void> => {
     if ('serviceWorker' in navigator) {
         try {
@@ -11,6 +12,7 @@
         }
     }
 })();
+// #endif
 
 console.log(
     `%cWhat are you lookin' at?`,
