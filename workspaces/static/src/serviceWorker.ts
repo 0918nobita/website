@@ -1,4 +1,11 @@
-const CACHE_NAME = 'vision-cache';
+interface Self {
+    clients: {
+        claim(): Promise<void>;
+    };
+    skipWaiting(): void;
+}
+
+const CACHE_NAME = 'vision-cache-BUILD_HASH';
 
 const CACHE_KEYS = [CACHE_NAME];
 
@@ -9,6 +16,10 @@ self.addEventListener('install', (event: any) => {
     event.waitUntil(
         (async (): Promise<void> => {
             const cache = await caches.open(CACHE_NAME);
+            // Check if the browser supports self.skipWaiting method.
+            if ('skipWaiting' in self) {
+                ((self as unknown) as Self).skipWaiting();
+            }
             cache.addAll(CACHE_TARGETS);
         })()
     );
@@ -26,6 +37,11 @@ self.addEventListener('activate', (event: any) => {
 
             for (const key of needlessCaches) {
                 caches.delete(key);
+            }
+
+            // Check if the browser supports Client API.
+            if ('clients' in self) {
+                await ((self as unknown) as Self).clients.claim();
             }
         })()
     );

@@ -1,7 +1,9 @@
 import resolve from '@rollup/plugin-node-resolve';
 import jscc from 'rollup-plugin-jscc';
+import replace from '@rollup/plugin-replace';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
+import { createHash } from 'crypto';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -13,8 +15,16 @@ const outputBase = {
     dir: './dist',
 };
 
+const sha256 = createHash('sha256');
+sha256.update(new Date().toString());
+
+const buildHash = sha256.digest('hex');
+
 const plugins = [
     resolve(),
+    replace({
+        BUILD_HASH: buildHash,
+    }),
     // minify only in production
     production && terser(),
 ];
