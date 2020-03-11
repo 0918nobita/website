@@ -2,7 +2,9 @@
   "name": "vision",
   "version": "1.0.0",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "build": "yarn workspace @vision/static build"
+  },
   "workspaces": [
     "workspaces/*"
   ]
