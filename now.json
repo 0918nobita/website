@@ -2,11 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "workspaces/static/package.json",
-      "use": "@now/static-build"
+      "src": "workspaces/static/build.sh",
+      "use": "@now/static-build",
+      "config": {
+        "distDir": "dist"
+      }
     },
     {
-      "src": "workspaces/static/dist/*",
+      "src": "workspaces/static/dist/**/*",
       "use": "@now/static"
     }
   ],

@@ -20,6 +20,8 @@ sha256.update(new Date().toString());
 
 const buildHash = sha256.digest('hex');
 
+console.log(`Build hash: ${buildHash}`);
+
 const plugins = [
     resolve(),
     replace({
