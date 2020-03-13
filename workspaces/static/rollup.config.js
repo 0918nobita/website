@@ -1,6 +1,7 @@
 import resolve from '@rollup/plugin-node-resolve';
 import jscc from 'rollup-plugin-jscc';
 import replace from '@rollup/plugin-replace';
+import serve from 'rollup-plugin-serve';
 import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 import { createHash } from 'crypto';
@@ -22,11 +23,27 @@ const buildHash = sha256.digest('hex');
 
 console.log(`Build hash: ${buildHash}`);
 
+const devServerConfig = {
+    open: true,
+    openPage: '/',
+    verbose: true,
+    contentBase: 'dist',
+    host: 'localhost',
+    port: 8080,
+    historyApiFallback: '/404.html',
+    headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Service-Worker-Allowed': '/',
+    },
+};
+
 const plugins = [
     resolve(),
     replace({
         BUILD_HASH: buildHash,
     }),
+    // launch dev server only in development
+    !production && serve(devServerConfig),
     // minify only in production
     production && terser(),
 ];

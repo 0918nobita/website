@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "rollup -c",
-    "serve": "sirv start ./dist --cors",
+    "serve": "rollup -c -w",
     "lint": "eslint ./**/*.ts",
     "format": "eslint --fix ./**/*.ts && prettier --write ./**/*.js"
   },
@@ -26,9 +26,9 @@
     "prettier": "^1.19.1",
     "rollup": "^2.0.2",
     "rollup-plugin-jscc": "^1.0.0",
+    "rollup-plugin-serve": "^1.0.1",
     "rollup-plugin-terser": "^5.2.0",
     "rollup-plugin-typescript2": "^0.26.0",
-    "sirv-cli": "^0.4.5",
     "typescript": "^3.7.4"
   },
   "engines": {
