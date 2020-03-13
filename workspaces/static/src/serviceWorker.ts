@@ -9,7 +9,18 @@ const CACHE_NAME = 'vision-cache-BUILD_HASH';
 
 const CACHE_KEYS = [CACHE_NAME];
 
-const CACHE_TARGETS = ['/', '/index.html', '/main.js', '/legacy-main.js'];
+const CACHE_TARGETS = [
+    '/',
+    '/index.html',
+    '/articles.html',
+    '/404.html',
+    '/main.js',
+    '/legacy-main.js',
+    '/global.css',
+    '/icons/apple-touch-icon.png',
+    '/icons/icon-32x32.png',
+    '/manifest.json',
+];
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 self.addEventListener('install', (event: any) => {

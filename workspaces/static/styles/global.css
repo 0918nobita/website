@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.app {
+  background-color: #333;
+}
+
+.title {
+  font-family: "M PLUS 1p", sans-serif;
+  color: #eee;
+}
+
+.text {
+  font-family: "M PLUS 1p", sans-serif;
+  font-size: "1.5em";
+  color: #eee;
+}
+
+.link {
+  color: #eee;
+  text-decoration: none;
+}

@@ -2,9 +2,17 @@
   "name": "@vision/static",
   "version": "1.0.0",
   "scripts": {
-    "build": "rollup -c",
-    "serve": "rollup -c -w",
-    "lint": "eslint ./**/*.ts",
+    "build": "run-p rollup:build postcss:build",
+    "serve": "run-p rollup:watch postcss:watch",
+    "rollup:build": "rollup -c",
+    "rollup:watch": "rollup -c -w",
+    "postcss:build": "postcss ./styles/**/*.css --dir dist",
+    "postcss:watch": "yarn postcss:build --watch --verbose",
+    "lint:html": "prettier --check ./dist/*.html",
+    "lint:js": "prettier --check ./**/*.js",
+    "lint:ts": "eslint ./**/*.ts",
+    "lint:css": "stylelint ./styles/**/*.css",
+    "lint": "run-s lint:html lint:js lint:ts lint:css",
     "format": "eslint --fix ./**/*.ts && prettier --write ./**/*.js"
   },
   "license": "MIT",
@@ -14,24 +22,33 @@
     "@babel/core": "^7.8.7",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@primer/css": "^14.2.0",
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
     "@rollup/plugin-replace": "^2.3.1",
     "@typescript-eslint/eslint-plugin": "^2.16.0",
     "@typescript-eslint/parser": "^2.16.0",
+    "autoprefixer": "^9.7.4",
+    "cssnano": "^4.1.10",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-prettier": "^3.1.2",
     "npm-run-all": "^4.1.5",
+    "postcss-cli": "^7.1.0",
     "prettier": "^1.19.1",
     "rollup": "^2.0.2",
     "rollup-plugin-jscc": "^1.0.0",
     "rollup-plugin-serve": "^1.0.1",
     "rollup-plugin-terser": "^5.2.0",
     "rollup-plugin-typescript2": "^0.26.0",
+    "stylelint": "^13.2.1",
+    "stylelint-config-primer": "^9.0.0",
     "typescript": "^3.7.4"
   },
   "engines": {
     "node": "12.x"
+  },
+  "browserslist": {
+    "browsers": "defaults"
   }
 }
