@@ -20,9 +20,12 @@ module.exports = {
             },
         },
     },
+    rules: {
+        'no-undef': 'off',
+    },
     overrides: [
         {
-            files: ['workspaces/ssg/src/@types/generated/contentful.d.ts'],
+            files: ['workspaces/ssg/src/contentful.d.ts'],
             rules: {
                 '@typescript-eslint/interface-name-prefix': 'off',
                 '@typescript-eslint/no-unused-vars': 'off',

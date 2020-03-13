@@ -1,3 +1,4 @@
 dist
-src/@types
 build.sh
+run.sh
+src/contentful.d.ts
