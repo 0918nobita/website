@@ -2,4 +2,6 @@ dist/*
 !icons
 !favicon.ico
 !index.html
+!articles.html
+!404.html
 !manifest.json
