@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "build": "yarn workspace @vision/static build",
-    "serve": "yarn workspace @vision/static serve"
+    "serve": "yarn workspace @vision/static serve",
+    "lint": "yarn workspace @vision/static lint",
+    "format": "yarn workspace @vision/static format"
   },
   "workspaces": [
     "workspaces/*"
