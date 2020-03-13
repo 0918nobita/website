@@ -1,1 +1,3 @@
 dist
+src/@types
+build.sh

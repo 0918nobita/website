@@ -20,4 +20,13 @@ module.exports = {
             },
         },
     },
+    overrides: [
+        {
+            files: ['workspaces/ssg/src/@types/generated/contentful.d.ts'],
+            rules: {
+                '@typescript-eslint/interface-name-prefix': 'off',
+                '@typescript-eslint/no-unused-vars': 'off',
+            },
+        },
+    ],
 };
