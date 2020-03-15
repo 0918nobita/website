@@ -1,13 +1,9 @@
 # `@vision/ssg`
 
-## `build.sh`
+## Build
 
 ```bash
-MANAGEMENT_ACCESS_TOKEN="..." \
-SPACE_ID="..." \
-ENV="..." \
-yarn contentful-typescript-codegen --output src/contentful.d.ts && \
-yarn tsc
+yarn build
 ```
 
 ## `run.sh`

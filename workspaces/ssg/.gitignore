@@ -1,4 +1,2 @@
 dist
-build.sh
 run.sh
-src/contentful.d.ts
