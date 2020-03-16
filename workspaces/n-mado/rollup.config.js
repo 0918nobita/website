@@ -26,7 +26,7 @@ export default {
     plugins: [
         elm({
             exclude: 'elm_stuff/**',
-            compiler: { optimize: production, debug: false },
+            compiler: { optimize: production, debug: !production },
         }),
         production && terser(),
         !production && serve(devServerConfig),
