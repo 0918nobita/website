@@ -1,8 +1,9 @@
 module Main exposing (main)
 
 import Browser exposing (sandbox)
-import Html exposing (Html, button, div, h2, p, text)
-import Html.Events exposing (onClick)
+import Html exposing (Html, button, div, h2, input, p, text)
+import Html.Attributes exposing (placeholder)
+import Html.Events exposing (onClick, onInput)
 
 
 main : Program () Model Msg
@@ -11,39 +12,52 @@ main =
 
 
 type alias Model =
-    Int
+    { count : Int
+    , content : String
+    }
 
 
 init : Model
 init =
-    0
+    { count = 0, content = "" }
 
 
 type Msg
     = Increment
     | Decrement
     | Reset
+    | Change String
 
 
 update : Msg -> Model -> Model
 update msg model =
     case msg of
         Increment ->
-            model + 1
+            { model | count = model.count + 1 }
 
         Decrement ->
-            model - 1
+            { model | count = model.count - 1 }
 
         Reset ->
-            0
+            { model | count = 0 }
+
+        Change newContent ->
+            { model | content = newContent }
 
 
 view : Model -> Html Msg
 view model =
     div []
-        [ h2 [] [ text "Counter" ]
-        , p [] [ text <| String.fromInt model ]
-        , button [ onClick Increment ] [ text "+" ]
-        , button [ onClick Decrement ] [ text "-" ]
-        , button [ onClick Reset ] [ text "reset" ]
+        [ div []
+            [ h2 [] [ text "Counter" ]
+            , p [] [ text <| String.fromInt model.count ]
+            , button [ onClick Increment ] [ text "+" ]
+            , button [ onClick Decrement ] [ text "-" ]
+            , button [ onClick Reset ] [ text "reset" ]
+            ]
+        , div []
+            [ h2 [] [ text "Text Reverser" ]
+            , input [ onInput Change, placeholder "Text to reverse" ] []
+            , p [] [ text <| "Result: " ++ String.reverse model.content ]
+            ]
         ]
