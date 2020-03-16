@@ -3,6 +3,7 @@ module Form exposing (Model, Msg, init, update, view)
 import Html exposing (Html, div, form, h2, input, label, text)
 import Html.Attributes exposing (for, id, style, type_)
 import Html.Events exposing (onInput)
+import Html.Lazy exposing (lazy, lazy2)
 
 
 type alias Model =
@@ -44,10 +45,13 @@ view model =
     div []
         [ h2 [] [ text "Form" ]
         , form []
-            [ viewInput NameForm
-            , viewInput PasswordForm
-            , viewInput PasswordAgainForm
-            , viewValidation model
+            [ lazy viewInput NameForm
+            , lazy viewInput PasswordForm
+            , lazy viewInput PasswordAgainForm
+            , lazy2
+                viewValidation
+                model.password
+                model.passwordAgain
             ]
         ]
 
@@ -95,10 +99,10 @@ viewInput formKind =
                 ]
 
 
-viewValidation : Model -> Html msg
-viewValidation model =
-    if model.passwordAgain /= "" then
-        if model.password == model.passwordAgain then
+viewValidation : String -> String -> Html msg
+viewValidation password passwordAgain =
+    if passwordAgain /= "" then
+        if password == passwordAgain then
             div [ style "color" "green" ] [ text "OK" ]
 
         else
