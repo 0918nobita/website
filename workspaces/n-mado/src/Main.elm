@@ -2,9 +2,10 @@ module Main exposing (main)
 
 import Browser exposing (sandbox)
 import Counter
-import Html exposing (Html, div, form, h2, input, label, p, text)
-import Html.Attributes exposing (for, id, placeholder, style, type_)
+import Html exposing (Html, div, form, h2, input, label, text)
+import Html.Attributes exposing (for, id, style, type_)
 import Html.Events exposing (onInput)
+import Reverser
 
 
 main : Program () Model Msg
@@ -14,7 +15,7 @@ main =
 
 type alias Model =
     { counter : Counter.Model
-    , content : String
+    , reverser : Reverser.Model
     , name : String
     , password : String
     , passwordAgain : String
@@ -24,7 +25,7 @@ type alias Model =
 init : Model
 init =
     { counter = Counter.init
-    , content = ""
+    , reverser = Reverser.init
     , name = ""
     , password = ""
     , passwordAgain = ""
@@ -33,7 +34,7 @@ init =
 
 type Msg
     = CounterMsg Counter.Msg
-    | Change String
+    | ReverserMsg Reverser.Msg
     | Name String
     | Password String
     | PasswordAgain String
@@ -49,8 +50,12 @@ update msg model =
             in
             { model | counter = newCounterModel }
 
-        Change newContent ->
-            { model | content = newContent }
+        ReverserMsg reverserMsg ->
+            let
+                newReverserModel =
+                    Reverser.update reverserMsg model.reverser
+            in
+            { model | reverser = newReverserModel }
 
         Name name ->
             { model | name = name }
@@ -66,9 +71,7 @@ view : Model -> Html Msg
 view model =
     div []
         [ Counter.view model.counter |> Html.map CounterMsg
-        , h2 [] [ text "Text Reverser" ]
-        , input [ onInput Change, placeholder "Text to reverse" ] []
-        , p [] [ text <| "Result: " ++ String.reverse model.content ]
+        , Reverser.view model.reverser |> Html.map ReverserMsg
         , h2 [] [ text "Form" ]
         , form []
             [ viewInput NameForm
