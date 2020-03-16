@@ -8,19 +8,19 @@
   },
   "private": true,
   "dependencies": {
-    "@contentful/rich-text-html-renderer": "^13.4.0",
-    "contentful": "^7.14.0",
-    "jsdom": "^16.2.1",
-    "typescript": "^3.8.3"
+    "@contentful/rich-text-html-renderer": "13.4.0",
+    "contentful": "7.14.0",
+    "jsdom": "16.2.1",
+    "typescript": "3.8.3"
   },
   "devDependencies": {
-    "@contentful/rich-text-types": "^14.1.0",
-    "@types/jsdom": "^16.1.0",
-    "@types/node": "^13.9.1",
-    "@types/vfile-message": "^2.0.0",
-    "contentful-management": "^5.13.0",
-    "eslint-plugin-simple-import-sort": "^5.0.2",
-    "typescript": "^3.8.3"
+    "@contentful/rich-text-types": "14.1.0",
+    "@types/jsdom": "16.1.0",
+    "@types/node": "13.9.1",
+    "@types/vfile-message": "2.0.0",
+    "contentful-management": "5.13.0",
+    "eslint-plugin-simple-import-sort": "5.0.2",
+    "typescript": "3.8.3"
   },
   "engines": {
     "node": "12.x"
