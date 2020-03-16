@@ -1,9 +1,10 @@
 module Main exposing (main)
 
 import Browser exposing (sandbox)
-import Html exposing (Html, button, div, form, h2, input, label, p, text)
+import Counter
+import Html exposing (Html, div, form, h2, input, label, p, text)
 import Html.Attributes exposing (for, id, placeholder, style, type_)
-import Html.Events exposing (onClick, onInput)
+import Html.Events exposing (onInput)
 
 
 main : Program () Model Msg
@@ -12,7 +13,7 @@ main =
 
 
 type alias Model =
-    { count : Int
+    { counter : Counter.Model
     , content : String
     , name : String
     , password : String
@@ -22,7 +23,7 @@ type alias Model =
 
 init : Model
 init =
-    { count = 0
+    { counter = Counter.init
     , content = ""
     , name = ""
     , password = ""
@@ -31,9 +32,7 @@ init =
 
 
 type Msg
-    = Increment
-    | Decrement
-    | Reset
+    = CounterMsg Counter.Msg
     | Change String
     | Name String
     | Password String
@@ -43,14 +42,12 @@ type Msg
 update : Msg -> Model -> Model
 update msg model =
     case msg of
-        Increment ->
-            { model | count = model.count + 1 }
-
-        Decrement ->
-            { model | count = model.count - 1 }
-
-        Reset ->
-            { model | count = 0 }
+        CounterMsg counterMsg ->
+            let
+                newCounterModel =
+                    Counter.update counterMsg model.counter
+            in
+            { model | counter = newCounterModel }
 
         Change newContent ->
             { model | content = newContent }
@@ -68,11 +65,7 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div []
-        [ h2 [] [ text "Counter" ]
-        , p [] [ text <| String.fromInt model.count ]
-        , button [ onClick Increment ] [ text "+" ]
-        , button [ onClick Decrement ] [ text "-" ]
-        , button [ onClick Reset ] [ text "reset" ]
+        [ Counter.view model.counter |> Html.map CounterMsg
         , h2 [] [ text "Text Reverser" ]
         , input [ onInput Change, placeholder "Text to reverse" ] []
         , p [] [ text <| "Result: " ++ String.reverse model.content ]
