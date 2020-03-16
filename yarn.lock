@@ -4589,10 +4589,10 @@ rimraf@2.6.3, rimraf@~2.6.2:
   dependencies:
     glob "^7.1.3"
 
-rollup-plugin-elm2@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-elm2/-/rollup-plugin-elm2-0.1.0.tgz#772a6cb7d11687965e0d5623b061f6f39bc7e764"
-  integrity sha512-m0Fvks/oTKGDvGJLSuNpqVq68aRityHkp0wkJh7By6dNk8Vx8R+mjZdgrNIJZ7J13pi3pO41YDp64V3pPvNpOA==
+rollup-plugin-elm2@0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-elm2/-/rollup-plugin-elm2-0.1.2.tgz#64925e1e9e071b08409abcf0798b4b235b580995"
+  integrity sha512-ThV3/vBZOorkSV9hjfmvNLxGYkRNY/a3c1o+NDoNoQf4G789pjOkEwLBUbX1+52+4eGb7O9booXRMPa6jwfE0A==
 
 rollup-plugin-jscc@1.0.0:
   version "1.0.0"
