@@ -1569,14 +1569,14 @@ electron-to-chromium@^1.3.363:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.376.tgz#7cb7b5205564a06c8f8ecfbe832cbd47a1224bb1"
   integrity sha512-cv/PYVz5szeMz192ngilmezyPNFkUjuynuL2vNdiqIrio440nfTDdc0JJU0TS2KHLSVCs9gBbt4CFqM+HcBnjw==
 
-elm-format@^0.8.3:
+elm-format@0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/elm-format/-/elm-format-0.8.3.tgz#74a50a6aba69c757752700f9302ccf463c747453"
   integrity sha512-shXOgfg8F5hDJagP91zJ3QT0PoMbusPfhgEeu3uRofTaN843cFpjZ8qlQip6pFQxtWyQE/P+NMg3vP6lyWI5Mg==
   dependencies:
     binwrap "^0.2.2"
 
-elm-test@^0.19.1-revision2:
+elm-test@0.19.1-revision2:
   version "0.19.1-revision2"
   resolved "https://registry.yarnpkg.com/elm-test/-/elm-test-0.19.1-revision2.tgz#e73a7240ac6fd997279c825b7dc342fb65349028"
   integrity sha512-zVs2mVeyIE+K9y7/8b333h5xRMDWAoqbBDm7ThLDhyTi7ICxeL3t5uOS4KZCrRk9+4sP6+voSbcBlgr46Q+GiQ==
@@ -1599,7 +1599,7 @@ elm-test@^0.19.1-revision2:
     which "2.0.1"
     xmlbuilder "^13.0.2"
 
-elm@^0.19.1-3:
+elm@0.19.1-3:
   version "0.19.1-3"
   resolved "https://registry.yarnpkg.com/elm/-/elm-0.19.1-3.tgz#2382aa1943bc79974b5d95b0a6acbe010ee16909"
   integrity sha512-6y36ewCcVmTOx8lj7cKJs3bhI5qMfoVEigePZ9PhEUNKpwjjML/pU2u2YSpHVAznuCcojoF6KIsrS1Ci7GtVaQ==
@@ -4589,7 +4589,7 @@ rimraf@2.6.3, rimraf@~2.6.2:
   dependencies:
     glob "^7.1.3"
 
-rollup-plugin-elm@^2.0.2:
+rollup-plugin-elm@2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/rollup-plugin-elm/-/rollup-plugin-elm-2.0.2.tgz#3d162fc0eb665100410612e29bf0d34291d5034b"
   integrity sha512-PwS4B6QO1NXQ+/+m61JlQd3np6ZXz2AeW2YI4NNA2K6gAc3+UBxrbRjcv88/lGfclxShMjYWeQ7vxB2UTVtKBQ==
@@ -4606,7 +4606,7 @@ rollup-plugin-jscc@1.0.0:
     jscc "^1.1.0"
     rollup-pluginutils "^1.5.2"
 
-rollup-plugin-serve@1.0.1, rollup-plugin-serve@^1.0.1:
+rollup-plugin-serve@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/rollup-plugin-serve/-/rollup-plugin-serve-1.0.1.tgz#2da2a784a916c5564609c7696cd9dacdbf17f6cc"
   integrity sha512-bni0pb4s1YLvn1xBmj+dH1OsLdp8gWA4zqh3yuEtT6/YHhg3nDneGU2GwMcRDQwY2tXzuI0uSeAlF1rY+ODitg==
@@ -4614,7 +4614,7 @@ rollup-plugin-serve@1.0.1, rollup-plugin-serve@^1.0.1:
     mime ">=2.0.3"
     opener "1"
 
-rollup-plugin-terser@5.3.0, rollup-plugin-terser@^5.3.0:
+rollup-plugin-terser@5.3.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/rollup-plugin-terser/-/rollup-plugin-terser-5.3.0.tgz#9c0dd33d5771df9630cd027d6a2559187f65885e"
   integrity sha512-XGMJihTIO3eIBsVGq7jiNYOdDMb3pVxuzY0uhOE/FM4x/u9nQgr3+McsjzqBn3QfHIpNSZmFnpoKAwHBEcsT7g==
@@ -4651,7 +4651,7 @@ rollup-pluginutils@^1.5.2:
     estree-walker "^0.2.1"
     minimatch "^3.0.2"
 
-rollup@2.0.6, rollup@^2.0.6:
+rollup@2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.0.6.tgz#865d6bb15a28cff3429ea1dc57236013661cb9de"
   integrity sha512-P42IlI6a/bxh52ed8hEXXe44LcHfep2f26OZybMJPN1TTQftibvQEl3CWeOmJrzqGbFxOA000QXDWO9WJaOQpA==
