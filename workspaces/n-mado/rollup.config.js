@@ -1,4 +1,4 @@
-import elm from 'rollup-plugin-elm';
+import elm from 'rollup-plugin-elm2';
 import serve from 'rollup-plugin-serve';
 import { terser } from 'rollup-plugin-terser';
 
