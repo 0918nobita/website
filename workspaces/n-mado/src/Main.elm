@@ -5,6 +5,7 @@ import Counter
 import Form
 import GetText
 import Html exposing (Html, div)
+import ParseJson
 import Reverser
 
 
@@ -23,21 +24,30 @@ type alias Model =
     , reverser : Reverser.Model
     , form : Form.Model
     , getText : GetText.Model
+    , parseJson : ParseJson.Model
     }
 
 
 init : () -> ( Model, Cmd Msg )
 init _ =
     let
-        ( model, cmd ) =
+        ( getTextModel, getTextCmd ) =
             GetText.init ()
+    in
+    let
+        ( parseJsonModel, parseJsonCmd ) =
+            ParseJson.init ()
     in
     ( { counter = Counter.init
       , reverser = Reverser.init
       , form = Form.init
-      , getText = model
+      , getText = getTextModel
+      , parseJson = parseJsonModel
       }
-    , Cmd.map GetTextMsg cmd
+    , Cmd.batch
+        [ Cmd.map GetTextMsg getTextCmd
+        , Cmd.map ParseJsonMsg parseJsonCmd
+        ]
     )
 
 
@@ -46,6 +56,7 @@ type Msg
     | ReverserMsg Reverser.Msg
     | FormMsg Form.Msg
     | GetTextMsg GetText.Msg
+    | ParseJsonMsg ParseJson.Msg
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -79,6 +90,13 @@ update msg model =
             in
             ( { model | getText = newModel }, Cmd.map GetTextMsg cmd )
 
+        ParseJsonMsg parseJsonMsg ->
+            let
+                ( newModel, cmd ) =
+                    ParseJson.update parseJsonMsg model.parseJson
+            in
+            ( { model | parseJson = newModel }, Cmd.map ParseJsonMsg cmd )
+
 
 subscriptions : Model -> Sub Msg
 subscriptions _ =
@@ -92,4 +110,5 @@ view model =
         , Reverser.view model.reverser |> Html.map ReverserMsg
         , Form.view model.form |> Html.map FormMsg
         , GetText.view model.getText |> Html.map GetTextMsg
+        , ParseJson.view model.parseJson |> Html.map ParseJsonMsg
         ]
