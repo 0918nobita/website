@@ -3,9 +3,8 @@ module Main exposing (main)
 import Browser exposing (element)
 import Counter
 import Form
-import Html exposing (Html, div, text, textarea)
-import Html.Attributes exposing (cols, readonly, rows, style)
-import Http
+import GetText
+import Html exposing (Html, div)
 import Reverser
 
 
@@ -19,31 +18,26 @@ main =
         }
 
 
-type State
-    = Failure
-    | Loading
-    | Success String
-
-
 type alias Model =
     { counter : Counter.Model
     , reverser : Reverser.Model
     , form : Form.Model
-    , state : State
+    , getText : GetText.Model
     }
 
 
 init : () -> ( Model, Cmd Msg )
 init _ =
+    let
+        ( model, cmd ) =
+            GetText.init ()
+    in
     ( { counter = Counter.init
       , reverser = Reverser.init
       , form = Form.init
-      , state = Loading
+      , getText = model
       }
-    , Http.get
-        { url = "https://elm-lang.org/assets/public-opinion.txt"
-        , expect = Http.expectString GotText
-        }
+    , Cmd.map GetTextMsg cmd
     )
 
 
@@ -51,7 +45,7 @@ type Msg
     = CounterMsg Counter.Msg
     | ReverserMsg Reverser.Msg
     | FormMsg Form.Msg
-    | GotText (Result Http.Error String)
+    | GetTextMsg GetText.Msg
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -78,13 +72,12 @@ update msg model =
             in
             ( { model | form = newFormModel }, Cmd.none )
 
-        GotText result ->
-            case result of
-                Ok fullText ->
-                    ( { model | state = Success fullText }, Cmd.none )
-
-                Err _ ->
-                    ( { model | state = Failure }, Cmd.none )
+        GetTextMsg getTextMsg ->
+            let
+                ( newModel, cmd ) =
+                    GetText.update getTextMsg model.getText
+            in
+            ( { model | getText = newModel }, Cmd.map GetTextMsg cmd )
 
 
 subscriptions : Model -> Sub Msg
@@ -98,15 +91,5 @@ view model =
         [ Counter.view model.counter |> Html.map CounterMsg
         , Reverser.view model.reverser |> Html.map ReverserMsg
         , Form.view model.form |> Html.map FormMsg
-        , textarea [ readonly True, rows 25, cols 100, style "margin" "10px", style "padding" "10px" ]
-            [ case model.state of
-                Failure ->
-                    text "Failure"
-
-                Loading ->
-                    text "Loading..."
-
-                Success fullText ->
-                    text fullText
-            ]
+        , GetText.view model.getText |> Html.map GetTextMsg
         ]
