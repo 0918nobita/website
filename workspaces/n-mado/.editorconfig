@@ -6,5 +6,8 @@ indent_style = space
 [*.{elm,js}]
 indent_size = 4
 
-[*.{json}]
+[elm.json]
+indent_size = 4
+
+[package.json]
 indent_size = 2
