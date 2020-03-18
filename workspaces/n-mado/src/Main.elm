@@ -1,15 +1,16 @@
-module Main exposing (main)
+port module Main exposing (activeUsers, cache, main)
 
 import Browser exposing (element)
 import Counter
 import Form
 import GetText
-import Html exposing (Html, div)
+import Html exposing (Html, div, h2, li, text, ul)
+import Json.Encode as E
 import ParseJson
 import Reverser
 
 
-main : Program () Model Msg
+main : Program (List String) Model Msg
 main =
     element
         { init = init
@@ -25,11 +26,12 @@ type alias Model =
     , form : Form.Model
     , getText : GetText.Model
     , parseJson : ParseJson.Model
+    , list : List String
     }
 
 
-init : () -> ( Model, Cmd Msg )
-init _ =
+init : List String -> ( Model, Cmd Msg )
+init list =
     let
         ( getTextModel, getTextCmd ) =
             GetText.init ()
@@ -43,10 +45,12 @@ init _ =
       , form = Form.init
       , getText = getTextModel
       , parseJson = parseJsonModel
+      , list = list
       }
     , Cmd.batch
         [ Cmd.map GetTextMsg getTextCmd
         , Cmd.map ParseJsonMsg parseJsonCmd
+        , cache (E.int 100)
         ]
     )
 
@@ -57,6 +61,7 @@ type Msg
     | FormMsg Form.Msg
     | GetTextMsg GetText.Msg
     | ParseJsonMsg ParseJson.Msg
+    | Received (List String)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -97,10 +102,19 @@ update msg model =
             in
             ( { model | parseJson = newModel }, Cmd.map ParseJsonMsg cmd )
 
+        Received list ->
+            ( { model | list = list }, Cmd.none )
+
+
+port cache : E.Value -> Cmd msg
+
+
+port activeUsers : (List String -> msg) -> Sub msg
+
 
 subscriptions : Model -> Sub Msg
 subscriptions _ =
-    Sub.none
+    activeUsers Received
 
 
 view : Model -> Html Msg
@@ -111,4 +125,7 @@ view model =
         , Form.view model.form |> Html.map FormMsg
         , GetText.view model.getText |> Html.map GetTextMsg
         , ParseJson.view model.parseJson |> Html.map ParseJsonMsg
+        , h2 [] [ text "List" ]
+        , ul []
+            (model.list |> List.map (\x -> li [] [ text x ]))
         ]
