@@ -1,16 +1,15 @@
 port module Main exposing (activeUsers, cache, main)
 
 import Browser exposing (element)
+import Color exposing (Color)
 import Counter
 import Form
 import GetText
-import Html exposing (Html, button, div, h2, li, text)
+import Html exposing (Html, div, h2, li, text)
 import Html.Attributes exposing (style)
-import Html.Events exposing (onClick)
 import Html.Keyed exposing (ul)
 import Json.Encode as E
 import ParseJson
-import Random
 import Reverser
 
 
@@ -30,8 +29,8 @@ type alias Model =
     , form : Form.Model
     , getText : GetText.Model
     , parseJson : ParseJson.Model
-    , dieFace : Int
     , list : List String
+    , color : Color
     }
 
 
@@ -50,8 +49,8 @@ init list =
       , form = Form.init
       , getText = getTextModel
       , parseJson = parseJsonModel
-      , dieFace = 1
       , list = list
+      , color = Color.init
       }
     , Cmd.batch
         [ Cmd.map GetTextMsg getTextCmd
@@ -67,8 +66,7 @@ type Msg
     | FormMsg Form.Msg
     | GetTextMsg GetText.Msg
     | ParseJsonMsg ParseJson.Msg
-    | Roll
-    | NewFace Int
+    | ColorMsg Color.Msg
     | Received (List String)
 
 
@@ -110,14 +108,15 @@ update msg model =
             in
             ( { model | parseJson = newModel }, Cmd.map ParseJsonMsg cmd )
 
-        Roll ->
-            ( model, Random.generate NewFace (Random.int 1 6) )
-
-        NewFace newFace ->
-            ( { model | dieFace = newFace }, Cmd.none )
-
         Received list ->
             ( { model | list = list }, Cmd.none )
+
+        ColorMsg colorMsg ->
+            let
+                ( newModel, cmd ) =
+                    Color.update colorMsg model.color
+            in
+            ( { model | color = newModel }, Cmd.map ColorMsg cmd )
 
 
 port cache : E.Value -> Cmd msg
@@ -142,6 +141,5 @@ view model =
         , h2 [ style "color" "#66CCCC" ] [ text "List" ]
         , ul []
             (model.list |> List.map (\x -> ( x, li [] [ text x ] )))
-        , h2 [ style "color" "#9966CC" ] [ text ("Dice: " ++ String.fromInt model.dieFace) ]
-        , button [ onClick Roll ] [ text "Roll" ]
+        , Color.view model.color |> Html.map ColorMsg
         ]
