@@ -4,7 +4,8 @@ import Browser exposing (element)
 import Counter
 import Form
 import GetText
-import Html exposing (Html, div, h2, li, text, ul)
+import Html exposing (Html, div, h2, li, text)
+import Html.Keyed exposing (ul)
 import Json.Encode as E
 import ParseJson
 import Reverser
@@ -127,5 +128,5 @@ view model =
         , ParseJson.view model.parseJson |> Html.map ParseJsonMsg
         , h2 [] [ text "List" ]
         , ul []
-            (model.list |> List.map (\x -> li [] [ text x ]))
+            (model.list |> List.map (\x -> ( x, li [] [ text x ] )))
         ]
