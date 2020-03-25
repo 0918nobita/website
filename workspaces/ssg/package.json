@@ -18,7 +18,7 @@
     "@types/jsdom": "16.1.0",
     "@types/node": "13.9.4",
     "@types/vfile-message": "2.0.0",
-    "contentful-management": "5.13.0",
+    "contentful-management": "5.14.0",
     "eslint-plugin-simple-import-sort": "5.0.2",
     "typescript": "3.8.3"
   },

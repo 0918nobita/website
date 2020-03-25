@@ -1111,10 +1111,10 @@ concat-map@0.0.1:
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
 
-contentful-management@5.13.0:
-  version "5.13.0"
-  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-5.13.0.tgz#bc230665e62a19214736667ba90da5371a8c8b4e"
-  integrity sha512-BSKIc4kcg5HBmYKesWkbx4WjoThPcxEIUViCW6nZOwo0qh6fj7CQIMKVmm/T+hoMsZlSWhRW/eDOdUuf5B9s0Q==
+contentful-management@5.14.0:
+  version "5.14.0"
+  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-5.14.0.tgz#3ed8d22bcab38452b760d4510aa9e93ee29053c0"
+  integrity sha512-DKMLCQFaD7YXCeELuqVEoF4zbRjhU3ddwj74lpBoBBQawa51/ligNi770kaYFGum4g+p+COV0Ip0iRhyu5eJ0A==
   dependencies:
     axios "^0.19.0"
     contentful-sdk-core "^6.4.0"
