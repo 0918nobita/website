@@ -8,26 +8,26 @@
   display: grid;
   grid-template-rows: 100px 50px;
   grid-template-columns: 150px 1fr;
+  grid-template-areas:
+    "areaA areaB"
+    "areaA areaC";
   margin: 40px;
 }
 
 #itemA {
-  grid-row: 1 / span 2;
-  grid-column: 1;
+  grid-area: areaA;
   background-color: #7f8696;
   padding: 10px;
 }
 
 #itemB {
-  grid-row: 1;
-  grid-column: 2;
+  grid-area: areaB;
   background-color: #90bddb;
   padding: 10px;
 }
 
 #itemC {
-  grid-row: 2;
-  grid-column: 2;
+  grid-area: areaC;
   background-color: #d7e8ed;
   padding: 10px;
 }
