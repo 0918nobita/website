@@ -4,22 +4,30 @@
   margin: 0;
 }
 
-.app {
-  background-color: #333;
+#container {
+  display: grid;
+  grid-template-rows: 100px 50px;
+  grid-template-columns: 150px 1fr;
+  margin: 40px;
 }
 
-.title {
-  font-family: "M PLUS 1p", sans-serif;
-  color: #eee;
+#itemA {
+  grid-row: 1 / span 2;
+  grid-column: 1;
+  background-color: #7f8696;
+  padding: 10px;
 }
 
-.text {
-  font-family: "M PLUS 1p", sans-serif;
-  font-size: "1.5em";
-  color: #eee;
+#itemB {
+  grid-row: 1;
+  grid-column: 2;
+  background-color: #90bddb;
+  padding: 10px;
 }
 
-.link {
-  color: #eee;
-  text-decoration: none;
+#itemC {
+  grid-row: 2;
+  grid-column: 2;
+  background-color: #d7e8ed;
+  padding: 10px;
 }
