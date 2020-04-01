@@ -1,3 +1,3 @@
 module.exports = {
-    extends: 'stylelint-config-primer',
+    extends: 'stylelint-config-standard',
 };
