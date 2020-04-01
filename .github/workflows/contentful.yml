@@ -16,3 +16,7 @@ jobs:
       - name: Run script
         run: racket main.rkt
         working-directory: workspaces/client
+        env:
+          SPACE_ID: ${{ secrets.SPACE_ID }}
+          ENV_ID: ${{ secrets.ENV_ID }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
