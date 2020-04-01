@@ -25,9 +25,23 @@
     />
     <link rel="stylesheet" media="all" href="./global.css" />
   </head>
-  <body class="app">
-    <h2 class="title">Kodai's Portfolio</h2>
-    <p class="text">You shall see my work here.</p>
+  <body>
+    <h2>Kodai's Portfolio</h2>
+    <!-- Grid Layout のコンテナ -->
+    <div style="display: grid;">
+      <!-- 直接の子要素はアイテム -->
+      <!-- ライン: グリッドを分ける 垂直 or 水平 の線 -->
+      <!--   上下左右それぞれの端にも存在 -->
+      <!--   上 or 左から番号が振られている (1, 2, 3, ...) -->
+      <!--   下 or 右からも番号が振られている (-1, -2, -3, ...) -->
+      <!-- トラック: グリッドの行および列 (隣接する 2 本のラインの間) -->
+      <!-- セル: 隣接するラインが作る、アイテムが配置できる最小単位 -->
+      <!-- エリア: 1 つあるいは複数のセルの集まり -->
+      <!--   名前をつけてアイテムを配置できる -->
+      <div id="itemA">Item A</div>
+      <div id="itemB">Item B</div>
+      <div id="itemC">Item C</div>
+    </div>
     <script async type="module" src="./main.js"></script>
     <script nomodule src="./legacy-main.js"></script>
   </body>
