@@ -9,5 +9,5 @@ indent_size = 4
 [elm.json]
 indent_size = 4
 
-[package.json]
+[{package,tsconfig}.json]
 indent_size = 2
