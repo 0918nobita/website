@@ -1,0 +1,11 @@
+name: Contentful Hook
+
+on: [repository_dispatch]
+
+jobs:
+  install-racket:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Racket
+        run: sudo apt-get install -y racket
