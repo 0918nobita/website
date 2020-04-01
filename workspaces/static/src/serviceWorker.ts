@@ -43,7 +43,7 @@ self.addEventListener('activate', (event: any) => {
             const keys = await caches.keys();
 
             const needlessCaches = keys.filter(
-                key => CACHE_KEYS.includes(key) === false
+                (key) => CACHE_KEYS.includes(key) === false
             );
 
             for (const key of needlessCaches) {
@@ -61,6 +61,6 @@ self.addEventListener('activate', (event: any) => {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 self.addEventListener('fetch', (event: any) => {
     event.respondWith(
-        caches.match(event.request).then(res => res || fetch(event.request))
+        caches.match(event.request).then((res) => res || fetch(event.request))
     );
 });
