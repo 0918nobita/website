@@ -9,7 +9,7 @@
   "private": true,
   "dependencies": {
     "@contentful/rich-text-html-renderer": "13.4.0",
-    "contentful": "7.14.0",
+    "contentful": "7.14.1",
     "jsdom": "16.2.2",
     "typescript": "3.8.3"
   },
