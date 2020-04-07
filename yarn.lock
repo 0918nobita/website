@@ -1065,10 +1065,10 @@ concat-map@0.0.1:
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
 
-contentful-management@5.18.3:
-  version "5.18.3"
-  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-5.18.3.tgz#bbb251a56837a6e8394e88f32490df290c56187a"
-  integrity sha512-vur6lJEkmLOb8gwu07XxSGLy3M7yDy5uFIC5rGJKc+7p3HETS+1XQFiRkOv0oVa5xPBn1BPENqDW2OgFR1Q3Ag==
+contentful-management@5.19.0:
+  version "5.19.0"
+  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-5.19.0.tgz#9133a83cda0d3095f80cd7638d2dbe019a4ce25c"
+  integrity sha512-GQoGXjL02lRzX1UWyP/ZDC1GKepcXOVr/bVQGZEpIMq1kCsV/ZbzfaLlp8ZFYTna50rr2lRi/ANu8kcHvNz+HQ==
   dependencies:
     axios "^0.19.0"
     contentful-sdk-core "^6.4.0"
