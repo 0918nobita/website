@@ -24,13 +24,5 @@ module.exports = {
         'no-undef': 'off',
         'simple-import-sort/sort': 'error',
     },
-    overrides: [
-        {
-            files: ['workspaces/ssg/src/contentful.d.ts'],
-            rules: {
-                '@typescript-eslint/interface-name-prefix': 'off',
-                '@typescript-eslint/no-unused-vars': 'off',
-            },
-        },
-    ],
+    ignorePatterns: ['node_modules/', 'dist/', '*.js'],
 };
