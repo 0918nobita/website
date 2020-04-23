@@ -2,6 +2,8 @@ node_modules
 yarn-error.log
 .yarn
 
+.env
+
 dist/*
 !icons
 !favicon.ico

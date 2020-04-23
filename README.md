@@ -14,14 +14,22 @@
 yarn
 ```
 
+## Create `/.env` file
+
+```text
+SPACE=...
+ENV=...
+ACCESS_TOKEN=...
+```
+
 ## Build
 
 ```bash
-yarn build
+yarn local-build
 ```
 
 ## Lauch dev server
 
 ```bash
-yarn serve
+yarn local-serve
 ```
