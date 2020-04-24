@@ -24,7 +24,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     });
 
     const entries = await client.getEntries<Article>({
-        /* eslint-disable @typescript-eslint/camelcase */
+        // eslint-disable-next-line @typescript-eslint/camelcase
         content_type: 'article',
         order: '-sys.createdAt',
     });
