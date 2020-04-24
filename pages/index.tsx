@@ -1,10 +1,49 @@
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { Document } from '@contentful/rich-text-types';
+import { createClient } from 'contentful';
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
-import React, { useEffect } from 'react';
+import React from 'react';
 
-const IndexPage: React.FC = () => {
-    useEffect(() => {
-        console.log('effect');
-    }, []);
+interface Article {
+    title: string;
+    content: Document;
+}
+
+interface Props {
+    articles: Article[];
+}
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+    const client = await createClient({
+        /* eslint-disable @typescript-eslint/no-non-null-assertion */
+        space: process.env.SPACE!,
+        environment: process.env.ENV!,
+        accessToken: process.env.ACCESS_TOKEN!,
+        /* eslint-enable @typescript-eslint/no-non-null-assertion */
+    });
+
+    const entries = await client.getEntries<Article>({
+        /* eslint-disable @typescript-eslint/camelcase */
+        content_type: 'article',
+        order: '-sys.createdAt',
+    });
+
+    const articles = entries.items.map<Article>((entry) => ({
+        title: entry.fields.title,
+        content: entry.fields.content,
+    }));
+
+    return { props: { articles } };
+};
+
+const IndexPage: React.FC<Props> = ({ articles }) => {
+    const list = articles.map((article) => (
+        <div key={article.title}>
+            <h3>{article.title}</h3>
+            {documentToReactComponents(article.content)}
+        </div>
+    ));
 
     return (
         <>
@@ -43,6 +82,7 @@ const IndexPage: React.FC = () => {
             </Head>
 
             <h2>Hello, Next.js!</h2>
+            {list}
         </>
     );
 };

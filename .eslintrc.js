@@ -27,6 +27,7 @@ module.exports = {
     rules: {
         'no-undef': 'off',
         'simple-import-sort/sort': 'error',
+        'react/prop-types': 'off',
     },
     ignorePatterns: ['node_modules/', '_next', 'out', '*.js'],
 };

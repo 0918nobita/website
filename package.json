@@ -14,11 +14,11 @@
     "format:js": "prettier --write ./**/*.js"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^13.4.0",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
   "devDependencies": {
-    "@contentful/rich-text-html-renderer": "13.4.0",
     "@types/node": "13.13.2",
     "@types/react": "16.9.34",
     "@types/react-dom": "16.9.6",
