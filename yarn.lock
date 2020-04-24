@@ -4953,7 +4953,7 @@ neo-async@^2.5.0, neo-async@^2.6.1:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
 
-next-pwa@^2.3.3:
+next-pwa@2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/next-pwa/-/next-pwa-2.3.3.tgz#120440c82e00a92f3b2204155999eaacd523d6cb"
   integrity sha512-mIKRp0C1ta33Mbq8hmr5tzwa1xouYHH5JEEcpFzUkD5FbKGx6QKs1WIcG1uyzmOcvj9qd51Stw1kp4WuPR31Bg==
