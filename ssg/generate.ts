@@ -1,10 +1,10 @@
-import fs = require('fs');
+// import fs = require('fs');
 import path = require('path');
 
 import contentful = require('contentful');
 import { Document } from '@contentful/rich-text-types';
+import pug = require('pug');
 import renderer = require('@contentful/rich-text-html-renderer');
-import Handlebars = require('handlebars');
 
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 const client = contentful.createClient({
@@ -14,30 +14,20 @@ const client = contentful.createClient({
 });
 /* eslint-enable @typescript-eslint/no-non-null-assertion */
 
-interface Context {
-    title: string;
-    richText: string;
-}
-
-const template = Handlebars.compile<Context>(
-    fs.readFileSync(path.join(__dirname, 'article.html')).toString()
-);
-
 interface Fields {
     title: string;
     content: Document;
 }
 
 (async (): Promise<void> => {
-    const entry = await client.getEntry<Fields>('53VekZek8eUm4TheKWdo28');
-    const { title, content } = entry.fields;
-
-    console.log('----------');
+    const entries = await client.getEntries<Fields>();
+    const fn = pug.compileFile(path.join(__dirname, 'articles.pug'));
     console.log(
-        template({
-            title,
-            richText: renderer.documentToHtmlString(content),
+        fn({
+            articles: entries.items.map((item) => ({
+                title: item.fields.title,
+                content: renderer.documentToHtmlString(item.fields.content),
+            })),
         })
     );
-    console.log('----------');
 })();
