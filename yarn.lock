@@ -4968,7 +4968,7 @@ neo-async@^2.5.0, neo-async@^2.6.1:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
 
-next-pwa@^2.3.3:
+next-pwa@2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/next-pwa/-/next-pwa-2.3.3.tgz#120440c82e00a92f3b2204155999eaacd523d6cb"
   integrity sha512-mIKRp0C1ta33Mbq8hmr5tzwa1xouYHH5JEEcpFzUkD5FbKGx6QKs1WIcG1uyzmOcvj9qd51Stw1kp4WuPR31Bg==
@@ -5127,7 +5127,7 @@ normalize-url@^3.0.0:
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-3.3.0.tgz#b2e1c4dc4f7c6d57743df733a4f5978d18650559"
   integrity sha512-U+JJi7duF1o+u2pynbp2zXDW2/PADgC30f0GsHZtRh+HOcXHnw137TrNlyxxRvWW5fjKd3bcLHPxofWuCjaeZg==
 
-npm-run-all@^4.1.5:
+npm-run-all@4.1.5:
   version "4.1.5"
   resolved "https://registry.yarnpkg.com/npm-run-all/-/npm-run-all-4.1.5.tgz#04476202a15ee0e2e214080861bff12a51d98fba"
   integrity sha512-Oo82gJDAVcaMdi3nuoKFavkIHBRVqQ1qvMb+9LHk/cF4P6B2m8aP04hGf7oL6wZ9BuGwX1onlLhpuoofSyoQDQ==
