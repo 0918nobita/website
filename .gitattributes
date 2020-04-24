@@ -1,5 +1,4 @@
 .eslintrc.js linguist-documentation
 postcss.config.js linguist-documentation
 .prettierrc.js linguist-documentation
-rollup.config.js linguist-documentation
 stylelint.config.js linguist-documentation

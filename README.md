@@ -25,11 +25,11 @@ ACCESS_TOKEN=...
 ## Build
 
 ```bash
-yarn local-build
+yarn build
 ```
 
 ## Lauch dev server
 
 ```bash
-yarn local-serve
+yarn dev
 ```

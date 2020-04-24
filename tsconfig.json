@@ -5,21 +5,27 @@
       "dom",
       "esnext"
     ],
+    "jsx": "preserve",
     "noEmit": true,
-
     "locale": "ja",
     "forceConsistentCasingInFileNames": true,
-
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-
     "moduleResolution": "node",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "target": "es5",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
   "include": [
-    "src"
+    "pages"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

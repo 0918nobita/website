@@ -6,12 +6,13 @@ module.exports = {
         'plugin:prettier/recommended',
         'plugin:@typescript-eslint/recommended',
         'prettier/@typescript-eslint',
+        'plugin:react/recommended',
     ],
     plugins: ['@typescript-eslint', 'simple-import-sort'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         sourceType: 'module',
-        project: ['./tsconfig.json', './ssg/tsconfig.json'],
+        project: './tsconfig.json',
     },
     settings: {
         'import/resolver': {
