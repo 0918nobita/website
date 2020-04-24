@@ -14,7 +14,7 @@
     "format:js": "prettier --write ./**/*.js"
   },
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "^13.4.0",
+    "@contentful/rich-text-react-renderer": "13.4.0",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
