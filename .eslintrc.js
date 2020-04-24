@@ -25,5 +25,5 @@ module.exports = {
         'no-undef': 'off',
         'simple-import-sort/sort': 'error',
     },
-    ignorePatterns: ['node_modules/', 'dist/', '*.js'],
+    ignorePatterns: ['node_modules/', '_next', 'out', '*.js'],
 };

@@ -22,6 +22,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
+  "files": [
+    "next-env.d.ts"
+  ],
   "include": [
     "pages"
   ],
