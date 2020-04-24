@@ -20,6 +20,9 @@ module.exports = {
                 extensions: ['.ts', '.tsx'],
             },
         },
+        react: {
+            version: 'detect',
+        },
     },
     rules: {
         'no-undef': 'off',
