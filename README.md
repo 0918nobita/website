@@ -8,6 +8,16 @@
 - Contentful account
 - yarn v1.x
 
+## (Netlify) Deploy settings
+
+- Base directory: not set
+- Build command: `yarn && yarn build`
+- Publish directory: `out`
+- environment variables
+  - `SPACE`
+  - `ENV`
+  - `ACCESS_TOKEN`
+
 ## Install dependencies
 
 ```bash
