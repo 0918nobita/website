@@ -7,11 +7,11 @@
     "dev": "next",
     "build": "next build && next export",
     "lint": "run-p lint:ts lint:js",
-    "lint:ts": "eslint ./**/*.ts ./**/*.tsx",
-    "lint:js": "prettier --check ./**/*.js",
+    "lint:ts": "eslint './**/*.{ts,tsx}'",
+    "lint:js": "prettier --check './**/*.js'",
     "format": "run-p format:ts format:js",
-    "format:ts": "eslint --fix ./**/*.ts ./**/*.tsx",
-    "format:js": "prettier --write ./**/*.js"
+    "format:ts": "eslint --fix './**/*.{ts,tsx}'",
+    "format:js": "prettier --write './**/*.js'"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "13.4.0",
