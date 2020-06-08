@@ -5,15 +5,11 @@ import { Button } from '../components/Button';
 
 type Item = React.FC<{ first?: boolean }>;
 
-const Item: Item = ({ first, children }) => {
+const Item: Item = ({ first = false, children }) => {
     const className = `block text-gray-700 text-center bg-gray-400 px-4 py-2${
         first ? '' : ' mt-2'
     }`;
     return <span className={className}>{children}</span>;
-};
-
-Item.defaultProps = {
-    first: false,
 };
 
 const IndexPage: React.FC = () => (
