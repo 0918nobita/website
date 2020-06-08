@@ -4,9 +4,10 @@
 
 ## Requirements
 
+- Node.js v12
+- Yarn v1
 - Netlify account
 - Contentful account
-- yarn v1.x
 
 ## (Netlify) Deploy settings
 
