@@ -41,7 +41,7 @@
     "stylelint": "13.6.0",
     "stylelint-config-standard": "20.0.0",
     "typescript": "3.9.5",
-    "webpack": "^4.43.0"
+    "webpack": "4.43.0"
   },
   "engines": {
     "node": "12.x"
