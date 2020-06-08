@@ -14,7 +14,7 @@ const Item: Item = ({ first = false, children }) => {
 
 const IndexPage: React.FC = () => (
     <>
-        <h2>Hello, Next.js!</h2>
+        <span>Hello, Next.js!</span>
         <Button />
         <Link href="/articles">
             <a>Articles</a>

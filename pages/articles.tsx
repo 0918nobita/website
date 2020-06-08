@@ -1,6 +1,10 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Document } from '@contentful/rich-text-types';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { ApolloClient } from 'apollo-client';
+import { HttpLink } from 'apollo-link-http';
 import { createClient } from 'contentful';
+import gql from 'graphql-tag';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
@@ -15,12 +19,46 @@ interface Props {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
+    /* eslint-disable @typescript-eslint/no-non-null-assertion */
+    const space = process.env.SPACE!;
+    const environment = process.env.ENV!;
+    const accessToken = process.env.ACCESS_TOKEN!;
+    /* eslint-enable @typescript-eslint/no-non-null-assertion */
+
+    const cache = new InMemoryCache();
+
+    const link = new HttpLink({
+        uri: `https://graphql.contentful.com/content/v1/spaces/${space}/environments/${environment}`,
+    });
+
+    const apolloClient = new ApolloClient({ cache, link });
+
+    const result = await apolloClient.query({
+        query: gql`
+            query {
+                articleCollection(limit: 100) {
+                    items {
+                        title
+                        content {
+                            json
+                        }
+                    }
+                }
+            }
+        `,
+        context: {
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            },
+        },
+    });
+
+    console.log(result.data.articleCollection.items);
+
     const client = await createClient({
-        /* eslint-disable @typescript-eslint/no-non-null-assertion */
-        space: process.env.SPACE!,
-        environment: process.env.ENV!,
-        accessToken: process.env.ACCESS_TOKEN!,
-        /* eslint-enable @typescript-eslint/no-non-null-assertion */
+        space,
+        environment,
+        accessToken,
     });
 
     const entries = await client.getEntries<Article>({
