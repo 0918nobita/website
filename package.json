@@ -6,12 +6,14 @@
   "scripts": {
     "dev": "next",
     "build": "next build && next export",
-    "lint": "run-p lint:ts lint:js",
+    "lint": "run-p lint:ts lint:js lint:css",
     "lint:ts": "eslint './**/*.{ts,tsx}'",
     "lint:js": "prettier --check './**/*.js'",
-    "format": "run-p format:ts format:js",
+    "lint:css": "stylelint './**/*.css'",
+    "format": "run-p format:ts format:js format:css",
     "format:ts": "eslint --fix './**/*.{ts,tsx}'",
-    "format:js": "prettier --write './**/*.js'"
+    "format:js": "prettier --write './**/*.js'",
+    "format:css": "stylelint --fix './**/*.css'"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "13.4.0",
