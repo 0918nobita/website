@@ -26,7 +26,8 @@
     "next-env.d.ts"
   ],
   "include": [
-    "pages"
+    "pages",
+    "components"
   ],
   "exclude": [
     "node_modules"
