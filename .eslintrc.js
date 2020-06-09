@@ -1,33 +1,41 @@
 module.exports = {
     root: true,
-    env: { browser: true, es6: true },
-    extends: [
-        'eslint:recommended',
-        'plugin:prettier/recommended',
-        'plugin:@typescript-eslint/recommended',
-        'prettier/@typescript-eslint',
-        'plugin:react/recommended',
-    ],
-    plugins: ['@typescript-eslint', 'simple-import-sort'],
-    parser: '@typescript-eslint/parser',
-    parserOptions: {
-        sourceType: 'module',
-        project: './tsconfig.json',
+    env: { browser: true, es6: true, node: true },
+    extends: ['eslint:recommended', 'plugin:prettier/recommended'],
+    plugins: ['simple-import-sort'],
+    rules: {
+        'simple-import-sort/sort': 'error',
     },
-    settings: {
-        'import/resolver': {
-            node: {
-                extensions: ['.ts', '.tsx'],
+    ignorePatterns: [
+        'node_modules',
+        '_next',
+        'out',
+        'public',
+        'contentful.d.ts',
+    ],
+    overrides: [
+        {
+            files: ['**/*.ts', '**/*.tsx'],
+            extends: [
+                'plugin:@typescript-eslint/recommended',
+                'prettier/@typescript-eslint',
+                'plugin:react/recommended',
+            ],
+            plugins: ['@typescript-eslint'],
+            parser: '@typescript-eslint/parser',
+            parserOptions: {
+                sourceType: 'module',
+                project: './tsconfig.json',
+            },
+            rules: {
+                'no-undef': 'off',
+                'react/prop-types': 'off',
+            },
+            settings: {
+                react: {
+                    version: 'detect',
+                },
             },
         },
-        react: {
-            version: 'detect',
-        },
-    },
-    rules: {
-        'no-undef': 'off',
-        'simple-import-sort/sort': 'error',
-        'react/prop-types': 'off',
-    },
-    ignorePatterns: ['node_modules', '_next', 'out', '*.js', 'contentful.d.ts'],
+    ],
 };
