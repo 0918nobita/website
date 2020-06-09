@@ -4,6 +4,8 @@ yarn-error.log
 
 .env
 
+contentful.d.ts
+
 # Next.js
 .next
 out

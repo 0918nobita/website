@@ -29,5 +29,5 @@ module.exports = {
         'simple-import-sort/sort': 'error',
         'react/prop-types': 'off',
     },
-    ignorePatterns: ['node_modules', '_next', 'out', '*.js'],
+    ignorePatterns: ['node_modules', '_next', 'out', '*.js', 'contentful.d.ts'],
 };

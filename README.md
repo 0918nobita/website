@@ -35,6 +35,12 @@ ACCESS_TOKEN=...
 MANAGEMENT_AT=...
 ```
 
+## Generate `/contentful.d.ts`
+
+```bash
+yarn gentypes
+```
+
 ## Build
 
 ```bash
@@ -45,4 +51,10 @@ yarn build
 
 ```bash
 yarn dev
+```
+
+## Test
+
+```bash
+yarn test
 ```

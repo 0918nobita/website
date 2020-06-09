@@ -23,7 +23,8 @@
         "isolatedModules": true
     },
     "files": [
-        "next-env.d.ts"
+        "next-env.d.ts",
+        "contentful.d.ts"
     ],
     "include": [
         "pages",

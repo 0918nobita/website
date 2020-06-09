@@ -4,6 +4,7 @@
     "license": "MIT",
     "private": true,
     "scripts": {
+        "gentypes": "contentful-typescript-codegen --output contentful.d.ts",
         "dev": "next",
         "build": "next build && next export",
         "lint": "run-p lint:ts lint:js lint:css",
@@ -19,6 +20,7 @@
     },
     "dependencies": {
         "@contentful/rich-text-react-renderer": "13.4.0",
+        "contentful-management": "^5.26.6",
         "react": "16.13.1",
         "react-dom": "16.13.1",
         "tailwindcss": "^1.4.6"
@@ -33,7 +35,9 @@
         "@typescript-eslint/parser": "3.1.0",
         "autoprefixer": "9.8.0",
         "contentful": "7.14.4",
+        "contentful-typescript-codegen": "^3.2.1",
         "cssnano": "4.1.10",
+        "dotenv": "^8.2.0",
         "eslint": "7.2.0",
         "eslint-config-prettier": "6.11.0",
         "eslint-plugin-prettier": "3.1.3",
