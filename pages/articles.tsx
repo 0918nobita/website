@@ -1,10 +1,7 @@
+import { ApolloClient, gql, HttpLink, InMemoryCache } from '@apollo/client';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Document } from '@contentful/rich-text-types';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { ApolloClient } from 'apollo-client';
-import { HttpLink } from 'apollo-link-http';
 import { createClient } from 'contentful';
-import gql from 'graphql-tag';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
