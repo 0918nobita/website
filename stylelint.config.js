@@ -9,4 +9,5 @@ module.exports = {
             },
         ],
     },
+    ignoreFiles: ['node_modules/**/*.css', 'out/**/*.css'],
 };
