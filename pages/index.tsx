@@ -19,6 +19,9 @@ const IndexPage: React.FC = () => (
         <Link href="/articles">
             <a>Articles</a>
         </Link>
+        <Link href="/webgl">
+            <a>WebGL</a>
+        </Link>
         <div className="bg-gray-200 p-4">
             <Item first>1</Item>
             <Item>2</Item>

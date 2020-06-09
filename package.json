@@ -21,7 +21,8 @@
         "contentful-management": "^5.26.6",
         "react": "16.13.1",
         "react-dom": "16.13.1",
-        "tailwindcss": "^1.4.6"
+        "tailwindcss": "^1.4.6",
+        "three": "^0.117.1"
     },
     "devDependencies": {
         "@types/jest": "^25.2.3",
