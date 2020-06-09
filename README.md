@@ -17,7 +17,8 @@
 - environment variables
   - `SPACE`
   - `ENV`
-  - `ACCESS_TOKEN`
+  - `ACCESS_TOKEN` (Content delivery token)
+  - `MANAGEMENT_AT` (Content management token)
 
 ## Install dependencies
 
@@ -31,6 +32,7 @@ yarn
 SPACE=...
 ENV=...
 ACCESS_TOKEN=...
+MANAGEMENT_AT=...
 ```
 
 ## Build
