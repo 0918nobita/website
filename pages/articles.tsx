@@ -1,14 +1,12 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { Document } from '@contentful/rich-text-types';
 import { createClient } from 'contentful';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
 
-interface Article {
-    title: string;
-    content: Document;
-}
+import { IArticleFields } from '../contentful';
+
+type Article = Required<IArticleFields>;
 
 interface Props {
     articles: Article[];
@@ -27,15 +25,22 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
         accessToken,
     });
 
-    const entries = await client.getEntries<Article>({
+    const entries = await client.getEntries<IArticleFields>({
         content_type: 'article',
         order: '-sys.createdAt',
     });
 
-    const articles = entries.items.map<Article>((entry) => ({
-        title: entry.fields.title,
-        content: entry.fields.content,
-    }));
+    const articles = entries.items.map(
+        (entry): Article => {
+            if (!entry.fields.title) throw new Error('title is undefined');
+            if (!entry.fields.content) throw new Error('content is undefined');
+
+            return {
+                title: entry.fields.title,
+                content: entry.fields.content,
+            };
+        }
+    );
 
     return { props: { articles } };
 };
