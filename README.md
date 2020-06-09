@@ -12,7 +12,7 @@
 ## (Netlify) Deploy settings
 
 - Base directory: not set
-- Build command: `yarn && yarn build`
+- Build command: `yarn && yarn gentypes && yarn build`
 - Publish directory: `out`
 - environment variables
   - `SPACE`
