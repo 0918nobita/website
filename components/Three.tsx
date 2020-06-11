@@ -51,6 +51,8 @@ const Three: React.FC = () => {
             box.rotation.x += 0.01;
             box.rotation.y += 0.01;
 
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(width, height);
             renderer.render(scene, camera);
         }
     };
