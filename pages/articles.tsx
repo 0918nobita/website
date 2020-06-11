@@ -1,4 +1,8 @@
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import {
+    documentToReactComponents,
+    NodeRenderer,
+} from '@contentful/rich-text-react-renderer';
+import { BLOCKS } from '@contentful/rich-text-types';
 import { createClient } from 'contentful';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
@@ -46,12 +50,39 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 };
 
 const ArticlesPage: React.FC<Props> = ({ articles }) => {
-    const list = articles.map((article) => (
-        <div key={article.title}>
-            <h3>{article.title}</h3>
-            {documentToReactComponents(article.content)}
-        </div>
-    ));
+    const list = articles.map((article) => {
+        const embeddedAssetRenderer: NodeRenderer = (node, children) => {
+            const {
+                data: {
+                    target: {
+                        fields: {
+                            file: { url },
+                        },
+                    },
+                },
+            } = node;
+
+            return (
+                <>
+                    <img src={url}></img>
+                    {children}
+                </>
+            );
+        };
+
+        const content = documentToReactComponents(article.content, {
+            renderNode: {
+                [BLOCKS.EMBEDDED_ASSET]: embeddedAssetRenderer,
+            },
+        });
+
+        return (
+            <div key={article.title}>
+                <h3>{article.title}</h3>
+                {content}
+            </div>
+        );
+    });
 
     return (
         <>
