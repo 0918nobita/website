@@ -22,7 +22,7 @@
         "react": "16.13.1",
         "react-dom": "16.13.1",
         "tailwindcss": "1.4.6",
-        "three": "0.117.1"
+        "three": "0.118.1"
     },
     "devDependencies": {
         "@types/jest": "26.0.3",
