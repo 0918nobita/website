@@ -6789,10 +6789,10 @@ next-optimized-images@2.6.1:
     raw-loader "^2.0.0"
     url-loader "^1.1.2"
 
-next-pwa@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/next-pwa/-/next-pwa-3.0.0.tgz#2d9e14bd7d2455e2c84c6cf3b595fd8322fa70cb"
-  integrity sha512-6QsvSBC/RKU37jEdH8qhCLtiDqPppojhnPHD/i1+kglRjed3UZatJsc0Bx/Y+ijwgV1jmx+UktpKmsigbYDUqw==
+next-pwa@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/next-pwa/-/next-pwa-3.0.1.tgz#ac9d3bf86eae8f72a05f75022533f952ea0bbe74"
+  integrity sha512-yWRf1wOarWZiGvO+XO2s5WSWzkPWx08QgUesV6/eTvfN0j+E/cBh87x+YzWgO+LuGyhkIBbQ8zbPWyjEnNbaTA==
   dependencies:
     clean-webpack-plugin "^3.0.0"
     globby "^11.0.0"
