@@ -3189,10 +3189,10 @@ constants-browserify@^1.0.0:
   resolved "https://registry.yarnpkg.com/constants-browserify/-/constants-browserify-1.0.0.tgz#c20b96d8c617748aaf1c16021760cd27fcb8cb75"
   integrity sha1-wguW2MYXdIqvHBYCF2DNJ/y4y3U=
 
-contentful-management@5.28.0:
-  version "5.28.0"
-  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-5.28.0.tgz#f3b58d60400d66e42439bbd9085cecb0e486f0bb"
-  integrity sha512-o+qihN3zrD6+/BT/e8n26jl/zQvmV6+9S6NY5QDmzM+IaiSeCk6yvPMq74s+IZT9mOS54igl6qFTbeIpdJ9FDA==
+contentful-management@6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-6.0.0.tgz#d6a53999aee67c0ca002c541dadeb587aede6c81"
+  integrity sha512-zs1jJ1/LVVuDLwxHZp3khCvX8x2Q2waXv5VEAk1F8Pas6int3H13rkRecRJkbuhablTDBlQJfK5YSHXSvs6GRQ==
   dependencies:
     axios "^0.19.0"
     contentful-sdk-core "^6.4.0"
