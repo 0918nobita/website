@@ -18,7 +18,7 @@
     },
     "dependencies": {
         "@contentful/rich-text-react-renderer": "14.1.1",
-        "contentful-management": "6.0.2",
+        "contentful-management": "6.0.3",
         "react": "16.13.1",
         "react-dom": "16.13.1",
         "tailwindcss": "1.5.1",
