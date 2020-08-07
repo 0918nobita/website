@@ -21,7 +21,7 @@
         "contentful-management": "6.0.5",
         "react": "16.13.1",
         "react-dom": "16.13.1",
-        "tailwindcss": "1.6.1",
+        "tailwindcss": "1.6.2",
         "three": "0.119.1"
     },
     "devDependencies": {
