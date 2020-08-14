@@ -55,7 +55,7 @@
         "react-test-renderer": "16.13.1",
         "stylelint": "13.6.1",
         "stylelint-config-standard": "20.0.0",
-        "ts-jest": "26.1.4",
+        "ts-jest": "26.2.0",
         "typescript": "3.9.7",
         "webpack": "4.44.1"
     },
