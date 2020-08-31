@@ -4,7 +4,6 @@
     "license": "MIT",
     "private": true,
     "scripts": {
-        "gentypes": "contentful-typescript-codegen --output contentful.d.ts",
         "dev": "next",
         "build": "next build && next export",
         "lint": "run-p lint:ts-js lint:css",
