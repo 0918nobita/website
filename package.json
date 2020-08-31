@@ -19,8 +19,7 @@
     "dependencies": {
         "react": "16.13.1",
         "react-dom": "16.13.1",
-        "tailwindcss": "1.7.6",
-        "three": "0.120.1"
+        "tailwindcss": "1.7.6"
     },
     "devDependencies": {
         "@types/jest": "26.0.10",
