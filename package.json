@@ -17,7 +17,6 @@
         "test:update": "jest --updateSnapshot"
     },
     "dependencies": {
-        "@contentful/rich-text-react-renderer": "14.1.1",
         "contentful-management": "6.1.1",
         "react": "16.13.1",
         "react-dom": "16.13.1",
