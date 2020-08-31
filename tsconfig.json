@@ -22,15 +22,10 @@
         "resolveJsonModule": true,
         "isolatedModules": true
     },
-    "files": [
-        "next-env.d.ts",
-        "contentful.d.ts"
-    ],
+    "files": ["next-env.d.ts"],
     "include": [
         "pages",
         "components"
     ],
-    "exclude": [
-        "node_modules"
-    ]
+    "exclude": ["node_modules"]
 }

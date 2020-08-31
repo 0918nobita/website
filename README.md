@@ -26,21 +26,6 @@
 yarn
 ```
 
-## Create `/.env` file
-
-```text
-SPACE=...
-ENV=...
-ACCESS_TOKEN=...
-MANAGEMENT_AT=...
-```
-
-## Generate `/contentful.d.ts`
-
-```bash
-yarn gentypes
-```
-
 ## Build
 
 ```bash

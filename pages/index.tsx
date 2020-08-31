@@ -15,13 +15,13 @@ const Item: Item = ({ first = false, children }) => {
 const IndexPage: React.FC = () => (
     <>
         <span>Hello, Next.js!</span>
+
         <Button />
+
         <Link href="/articles">
             <a>Articles</a>
         </Link>
-        <Link href="/webgl">
-            <a>WebGL</a>
-        </Link>
+
         <div className="bg-gray-200 p-4">
             <Item first>1</Item>
             <Item>2</Item>
