@@ -13,11 +13,4 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - run: yarn
-            -
-                run: yarn gentypes
-                env:
-                    SPACE: ${{ secrets.SPACE }}
-                    ENV: ${{ secrets.ENV }}
-                    ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-                    MANAGEMENT_AT: ${{ secrets.MANAGEMENT_AT }}
             - run: yarn test
