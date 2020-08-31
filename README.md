@@ -7,18 +7,12 @@
 - Node.js v12
 - Yarn v1
 - Netlify account
-- Contentful account
 
 ## (Netlify) Deploy settings
 
 - Base directory: not set
-- Build command: `yarn && yarn gentypes && yarn build`
+- Build command: `yarn && yarn build`
 - Publish directory: `out`
-- environment variables
-  - `SPACE`
-  - `ENV`
-  - `ACCESS_TOKEN` (Content delivery token)
-  - `MANAGEMENT_AT` (Content management token)
 
 ## Install dependencies
 
