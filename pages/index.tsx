@@ -3,9 +3,9 @@ import React from 'react';
 
 import { Button } from '../components/Button';
 
-type Item = React.FC<{ first?: boolean }>;
+type Item = React.FC<{ first: boolean }>;
 
-const Item: Item = ({ first = false, children }) => {
+const Item: Item = ({ first, children }) => {
     const className = `block text-gray-700 text-center bg-gray-400 px-4 py-2${
         first ? '' : ' mt-2'
     }`;
@@ -24,8 +24,8 @@ const IndexPage: React.FC = () => (
 
         <div className="bg-gray-200 p-4">
             <Item first>1</Item>
-            <Item>2</Item>
-            <Item>3</Item>
+            <Item first={false}>2</Item>
+            <Item first={false}>3</Item>
         </div>
     </>
 );
