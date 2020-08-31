@@ -1,8 +1,10 @@
 import classNames from 'classnames';
+import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import React from 'react';
 
 import { Button } from '../components/Button';
+import { Memo } from '../components/memo';
 
 type Item = React.FC<{ first: boolean }>;
 
@@ -19,15 +21,19 @@ const Item: Item = ({ first, children }) => {
     return <span className={className}>{children}</span>;
 };
 
-const IndexPage: React.FC = () => (
-    <>
-        <span>Hello, Next.js!</span>
+interface Props {
+    memos: Memo[];
+}
 
+const IndexPage: React.FC<Props> = ({ memos }) => (
+    <>
         <Button />
 
         <Link href="/articles">
             <a>Articles</a>
         </Link>
+
+        <p>{memos.map((m) => m.title).join(', ')}</p>
 
         <div className={classNames('bg-gray-200', 'p-4')}>
             <Item first>1</Item>
@@ -36,5 +42,17 @@ const IndexPage: React.FC = () => (
         </div>
     </>
 );
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+    return {
+        props: {
+            memos: [
+                { title: 'abc', content: '' },
+                { title: 'def', content: '' },
+                { title: 'ghi', content: '' },
+            ],
+        },
+    };
+};
 
 export default IndexPage;
