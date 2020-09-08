@@ -12,8 +12,7 @@
         "format": "run-p format:ts-js format:css",
         "format:ts-js": "eslint --fix './**/*.{ts,tsx,js}'",
         "format:css": "stylelint --fix './**/*.css'",
-        "test": "jest",
-        "test:update": "jest --updateSnapshot"
+        "test": "jest --passWithNoTests"
     },
     "dependencies": {
         "classnames": "^2.2.6",
