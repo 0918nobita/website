@@ -49,6 +49,11 @@ const SynthPage: React.FC = () => {
     useEffect(() => {
         navigator.requestMIDIAccess({ sysex: true }).then((midiAccess) => {
             const inputs = Array.from(midiAccess.inputs.values());
+            inputs.forEach((input) => {
+                input.addEventListener('midimessage', (event) => {
+                    console.log('Note number', event.data[1]);
+                });
+            });
             dispatch({
                 type: 'updateInputDevices',
                 payload: { inputDevices: inputs },
@@ -97,15 +102,26 @@ const SynthPage: React.FC = () => {
             <Head>
                 <title>Synthesizer - Kodai</title>
             </Head>
-            <h2>Synthesizer</h2>
-            <p>Input devices:</p>
-            <ul>
-                {inputDevices.map((device) => (
-                    <li key={device.id}>{device.name}</li>
-                ))}
-            </ul>
-            <button onClick={onClick}>play</button>
-            <p>Status: {status}</p>
+            <div className="m-8">
+                <h2 className="text-xl mb-2">Synthesizer</h2>
+                <div className="my-2">
+                    <p>Input devices:</p>
+                    <ul className="list-disc list-inside">
+                        {inputDevices.map((device) => (
+                            <li key={device.id} className="mt-1">
+                                {device.name}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <button
+                    onClick={onClick}
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-2"
+                >
+                    play
+                </button>
+                <p>Status: {status}</p>
+            </div>
         </>
     );
 };
