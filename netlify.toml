@@ -1,0 +1,24 @@
+[[redirects]]
+from = "https://kodai.vision/twitter"
+to = "https://twitter.com/0918nobita"
+status = 301
+
+[[redirects]]
+from = "https://kodai.vision/github"
+to = "https://github.com/0918nobita"
+status = 301
+
+[[redirects]]
+from = "https://kodai.vision/pixiv"
+to = "https://www.pixiv.net/users/16929673"
+status = 301
+
+[[redirects]]
+from = "https://kodai.vision/fanbox"
+to = "https://kodai.fanbox.cc"
+status = 301
+
+[[redirects]]
+from = "https://kodai.vision/sound_cloud"
+to = "https://soundcloud.com/0918nobita"
+status = 301
