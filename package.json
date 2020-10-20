@@ -11,8 +11,7 @@
         "lint:css": "stylelint './**/*.css'",
         "format": "run-p format:ts-js format:css",
         "format:ts-js": "eslint --fix './**/*.{ts,tsx,js}'",
-        "format:css": "stylelint --fix './**/*.css'",
-        "test": "jest --passWithNoTests"
+        "format:css": "stylelint --fix './**/*.css'"
     },
     "dependencies": {
         "classnames": "2.2.6",
@@ -22,11 +21,9 @@
     },
     "devDependencies": {
         "@types/classnames": "2.2.10",
-        "@types/jest": "26.0.14",
         "@types/node": "13.13.10",
         "@types/react": "16.9.53",
         "@types/react-dom": "16.9.8",
-        "@types/react-test-renderer": "16.9.3",
         "@types/webmidi": "2.0.4",
         "@typescript-eslint/eslint-plugin": "4.4.1",
         "@typescript-eslint/parser": "4.4.1",
@@ -37,23 +34,15 @@
         "eslint-plugin-prettier": "3.1.4",
         "eslint-plugin-react": "7.21.4",
         "eslint-plugin-simple-import-sort": "5.0.3",
-        "jest": "26.5.3",
-        "jest-css-modules": "2.1.0",
         "next": "9.5.5",
-        "next-compose-plugins": "2.2.0",
-        "next-optimized-images": "2.6.2",
-        "next-pwa": "3.1.5",
         "npm-run-all": "4.1.5",
         "postcss": "8.1.1",
         "postcss-flexbugs-fixes": "4.2.1",
         "postcss-preset-env": "6.7.0",
         "prettier": "2.1.2",
-        "react-test-renderer": "16.14.0",
         "stylelint": "13.7.2",
         "stylelint-config-standard": "20.0.0",
-        "ts-jest": "26.4.1",
-        "typescript": "4.0.3",
-        "webpack": "5.1.3"
+        "typescript": "4.0.3"
     },
     "engines": {
         "node": "12.x"
