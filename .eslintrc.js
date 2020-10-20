@@ -6,13 +6,7 @@ module.exports = {
     rules: {
         'simple-import-sort/sort': 'error',
     },
-    ignorePatterns: [
-        'node_modules',
-        '_next',
-        'out',
-        'public',
-        'contentful.d.ts',
-    ],
+    ignorePatterns: ['node_modules', '_next', 'out', 'public'],
     overrides: [
         {
             files: ['**/*.ts', '**/*.tsx'],
