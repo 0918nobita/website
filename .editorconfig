@@ -6,3 +6,9 @@ indent_size = 4
 
 [*.json]
 indent_size = 2
+
+[graphql/__generated__/*.ts]
+indent_size = 2
+
+[graphql/globalTypes.d.ts]
+indent_size = 2
