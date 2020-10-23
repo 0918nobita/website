@@ -20,7 +20,7 @@
         "graphql": "15.3.0",
         "react": "16.14.0",
         "react-dom": "16.14.0",
-        "react-markdown": "5.0.0",
+        "react-markdown": "5.0.2",
         "tailwindcss": "1.9.4"
     },
     "devDependencies": {
