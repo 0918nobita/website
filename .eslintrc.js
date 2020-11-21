@@ -4,7 +4,7 @@ module.exports = {
     extends: ['eslint:recommended', 'plugin:prettier/recommended'],
     plugins: ['simple-import-sort'],
     rules: {
-        'simple-import-sort/sort': 'error',
+        'simple-import-sort/imports': 'error',
     },
     ignorePatterns: ['node_modules', '_next', 'out', 'public'],
     overrides: [
