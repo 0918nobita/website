@@ -32,7 +32,7 @@
     "@typescript-eslint/eslint-plugin": "4.8.2",
     "@typescript-eslint/parser": "4.8.2",
     "apollo": "2.31.1",
-    "autoprefixer": "10.0.3",
+    "autoprefixer": "10.0.4",
     "cssnano": "4.1.10",
     "dotenv": "8.2.0",
     "eslint": "7.14.0",
