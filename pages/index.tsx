@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import { GetStaticProps } from 'next';
-import Link from 'next/link';
 import React from 'react';
 
 import { Button, Memo } from '../components';
@@ -27,10 +26,6 @@ interface Props {
 const IndexPage: React.FC<Props> = ({ memos }) => (
     <>
         <Button />
-
-        <Link href="/articles">
-            <a>Articles</a>
-        </Link>
 
         <p>{memos.map((m) => m.title).join(', ')}</p>
 
