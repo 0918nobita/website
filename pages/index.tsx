@@ -3,8 +3,7 @@ import { GetStaticProps } from 'next';
 import Link from 'next/link';
 import React from 'react';
 
-import { Button } from '../components/Button';
-import { Memo } from '../components/memo';
+import { Button, Memo } from '../components';
 
 type Item = React.FC<{ first: boolean }>;
 
