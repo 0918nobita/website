@@ -12,7 +12,6 @@ module.exports = {
             files: ['**/*.ts', '**/*.tsx'],
             extends: [
                 'plugin:@typescript-eslint/recommended',
-                'prettier/@typescript-eslint',
                 'plugin:react/recommended',
             ],
             plugins: ['@typescript-eslint'],
