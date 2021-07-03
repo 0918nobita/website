@@ -5,15 +5,13 @@ module.exports = {
     plugins: ['simple-import-sort'],
     rules: {
         'simple-import-sort/imports': 'error',
+        'simple-import-sort/exports': 'error',
     },
-    ignorePatterns: ['node_modules', '_next', 'out', 'public'],
+    ignorePatterns: ['_next', 'out', 'public'],
     overrides: [
         {
             files: ['**/*.ts', '**/*.tsx'],
-            extends: [
-                'plugin:@typescript-eslint/recommended',
-                'plugin:react/recommended',
-            ],
+            extends: ['plugin:@typescript-eslint/recommended', 'next'],
             plugins: ['@typescript-eslint'],
             parser: '@typescript-eslint/parser',
             parserOptions: {
