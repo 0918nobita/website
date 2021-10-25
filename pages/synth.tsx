@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import React, { useCallback, useEffect, useReducer } from 'react';
+import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
 
 interface State {
     inputDevices: WebMidi.MIDIInput[];
@@ -40,7 +41,14 @@ const reducer = (state: State, action: Action): State => {
     }
 };
 
-const SynthPage: React.FC = () => {
+const Fallback: React.VFC<FallbackProps> = ({ error, resetErrorBoundary }) => (
+    <>
+        <div>{error?.message ?? 'Unexpected error'}</div>
+        <button onClick={resetErrorBoundary}>Try again</button>
+    </>
+);
+
+const Synth: React.VFC = () => {
     const [{ inputDevices, status }, dispatch] = useReducer(reducer, {
         inputDevices: [],
         status: 'ready',
@@ -125,5 +133,11 @@ const SynthPage: React.FC = () => {
         </>
     );
 };
+
+const SynthPage: React.VFC = () => (
+    <ErrorBoundary FallbackComponent={Fallback}>
+        <Synth />
+    </ErrorBoundary>
+);
 
 export default SynthPage;

@@ -23,7 +23,7 @@ interface Props {
     memos: Memo[];
 }
 
-const IndexPage: React.FC<Props> = ({ memos }) => (
+const IndexPage: React.VFC<Props> = ({ memos }) => (
     <>
         <Button />
 
