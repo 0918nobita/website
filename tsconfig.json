@@ -1,36 +1,5 @@
 {
-  "compilerOptions": {
-    "module": "esnext",
-    "lib": [
-      "dom",
-      "esnext"
-    ],
-    "jsx": "preserve",
-    "noEmit": true,
-    "locale": "ja",
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "target": "es5",
-    "allowJs": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true
-  },
-  "files": [
-    "next-env.d.ts"
-  ],
-  "include": [
-    "components",
-    "graphql",
-    "pages"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "include": ["src/**/*"],
+  "exclude": ["node_modules/*", "__sapper__/*", "public/*"]
 }
