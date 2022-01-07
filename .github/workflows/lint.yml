@@ -15,6 +15,6 @@ jobs:
           node-version: '14'
       - uses: pnpm/action-setup@v2.0.1
         with:
-          version: 6.18.0
+          version: '6.25.0'
           run_install: true
-      - run: pnpm run lint
+      - run: pnpm lint
