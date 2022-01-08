@@ -1,10 +1,12 @@
 use actix_files::Files;
 use actix_rt::System;
 use actix_web::{
-    http::ContentEncoding,
+    dev::Service,
+    http::{ContentEncoding, HeaderName, HeaderValue},
     middleware::{Compress, Logger},
     web, App, HttpResponse, HttpServer,
 };
+use log::info;
 use openssl::ssl::{SslAcceptor, SslFiletype, SslMethod};
 
 fn main() -> anyhow::Result<()> {
@@ -18,6 +20,18 @@ fn main() -> anyhow::Result<()> {
     let _ = sys_runner.block_on(async {
         HttpServer::new(|| {
             App::new()
+                .wrap_fn(|req, srv| {
+                    info!("Hi from middleware. You requested: {}", req.path());
+                    let fut = srv.call(req);
+                    async {
+                        let mut res = fut.await?;
+                        res.headers_mut().insert(
+                            HeaderName::from_static("x-my-header"),
+                            HeaderValue::from_static("test"),
+                        );
+                        Ok(res)
+                    }
+                })
                 .wrap(Compress::new(ContentEncoding::Br))
                 .wrap(Logger::default())
                 .service(Files::new("/", "./public").index_file("index.html"))
