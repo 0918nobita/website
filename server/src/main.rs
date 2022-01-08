@@ -1,48 +1,33 @@
-use actix_files::NamedFile;
+use actix_files::Files;
 use actix_rt::System;
 use actix_web::{
-    body::Body,
-    dev::ServiceResponse,
-    http::{ContentEncoding, StatusCode},
-    middleware::{
-        errhandlers::{ErrorHandlerResponse, ErrorHandlers},
-        Compress, Logger,
-    },
+    http::ContentEncoding,
+    middleware::{Compress, Logger},
     web, App, HttpResponse, HttpServer,
 };
 use openssl::ssl::{SslAcceptor, SslFiletype, SslMethod};
 
-async fn index() -> actix_web::Result<NamedFile> {
-    Ok(NamedFile::open("./public/index.html")?)
-}
-
-fn not_found<B>(srv_res: ServiceResponse<B>) -> actix_web::Result<ErrorHandlerResponse<Body>> {
-    let body = include_str!("../public/404.html");
-    let http_res = HttpResponse::NotFound()
-        .content_type("text/html")
-        .body(body);
-    Ok(ErrorHandlerResponse::Response(
-        srv_res.into_response(http_res),
-    ))
-}
-
 fn main() -> anyhow::Result<()> {
     env_logger::init();
 
-    let mut builder = SslAcceptor::mozilla_intermediate(SslMethod::tls())?;
-    builder.set_private_key_file("localhost-key.pem", SslFiletype::PEM)?;
-    builder.set_certificate_chain_file("localhost.pem")?;
+    let mut ssl = SslAcceptor::mozilla_intermediate(SslMethod::tls())?;
+    ssl.set_private_key_file("localhost-key.pem", SslFiletype::PEM)?;
+    ssl.set_certificate_chain_file("localhost.pem")?;
 
     let mut sys_runner = System::new("web-server");
     let _ = sys_runner.block_on(async {
         HttpServer::new(|| {
             App::new()
-                .wrap(ErrorHandlers::new().handler(StatusCode::NOT_FOUND, not_found))
                 .wrap(Compress::new(ContentEncoding::Br))
                 .wrap(Logger::default())
-                .route("/", web::get().to(index))
+                .service(Files::new("/", "./public").index_file("index.html"))
+                .default_service(web::route().to(|| {
+                    HttpResponse::NotFound()
+                        .content_type("text/html")
+                        .body(include_str!("./404.html"))
+                }))
         })
-        .bind_openssl("127.0.0.1:8080", builder)?
+        .bind_openssl("127.0.0.1:8080", ssl)?
         .run()
         .await
     });
