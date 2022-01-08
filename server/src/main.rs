@@ -3,10 +3,10 @@ use actix_rt::System;
 use actix_web::{
     body::Body,
     dev::ServiceResponse,
-    http,
+    http::{ContentEncoding, StatusCode},
     middleware::{
-        self,
         errhandlers::{ErrorHandlerResponse, ErrorHandlers},
+        Compress, Logger,
     },
     web, App, HttpResponse, HttpServer,
 };
@@ -26,26 +26,25 @@ fn not_found<B>(srv_res: ServiceResponse<B>) -> actix_web::Result<ErrorHandlerRe
     ))
 }
 
-fn main() {
+fn main() -> anyhow::Result<()> {
     env_logger::init();
 
-    let mut builder = SslAcceptor::mozilla_intermediate(SslMethod::tls()).unwrap();
-    builder
-        .set_private_key_file("localhost-key.pem", SslFiletype::PEM)
-        .unwrap();
-    builder.set_certificate_chain_file("localhost.pem").unwrap();
+    let mut builder = SslAcceptor::mozilla_intermediate(SslMethod::tls())?;
+    builder.set_private_key_file("localhost-key.pem", SslFiletype::PEM)?;
+    builder.set_certificate_chain_file("localhost.pem")?;
 
     let mut sys_runner = System::new("web-server");
     let _ = sys_runner.block_on(async {
         HttpServer::new(|| {
             App::new()
-                .wrap(ErrorHandlers::new().handler(http::StatusCode::NOT_FOUND, not_found))
-                .wrap(middleware::Logger::default())
+                .wrap(ErrorHandlers::new().handler(StatusCode::NOT_FOUND, not_found))
+                .wrap(Compress::new(ContentEncoding::Br))
+                .wrap(Logger::default())
                 .route("/", web::get().to(index))
         })
-        .bind_openssl("127.0.0.1:8080", builder)
-        .unwrap()
+        .bind_openssl("127.0.0.1:8080", builder)?
         .run()
         .await
     });
+    Ok(())
 }
