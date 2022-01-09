@@ -2,8 +2,15 @@
 
 Tantivy という、全文検索エンジンのライブラリの利用を検討している。
 
+## 実行方法
+
 ```bash
-# Tantivy の CLI ツールをインストールする
+cargo run
+```
+
+## Tantivy CLI を使用する場合
+
+```bash
 $ cargo install tantivy-cli
 
 # インデックスのメタデータを生成する
