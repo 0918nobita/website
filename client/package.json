@@ -8,7 +8,8 @@
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
     "lint": "eslint . --ext .js,.svelte,.ts",
-    "format": "eslint --fix . --ext .js,.svelte,.ts"
+    "format": "prettier --write --plugin-search-dir=. '**/*.{js,ts,svelte}'",
+    "format:check": "prettier --check --plugin-search-dir=. '**/*.{js,ts,svelte}'"
   },
   "dependencies": {
     "sirv-cli": "^2.0.1"
