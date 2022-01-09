@@ -3,5 +3,6 @@
 ```bash
 mkcert -install
 mkcert localhost
-RUST_LOG=info cargo run
+cargo build
+sudo RUST_LOG=info ./target/debug/server
 ```

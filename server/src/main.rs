@@ -1,12 +1,11 @@
 use actix_files::Files;
 use actix_rt::System;
 use actix_web::{
-    dev::Service,
-    http::{ContentEncoding, HeaderName, HeaderValue},
+    http::{header, ContentEncoding},
     middleware::{Compress, Logger},
-    web, App, HttpResponse, HttpServer,
+    web, App, HttpRequest, HttpResponse, HttpServer,
 };
-use log::info;
+use futures::future;
 use openssl::ssl::{SslAcceptor, SslFiletype, SslMethod};
 
 fn main() -> anyhow::Result<()> {
@@ -18,20 +17,27 @@ fn main() -> anyhow::Result<()> {
 
     let mut sys_runner = System::new("web-server");
     let _ = sys_runner.block_on(async {
-        HttpServer::new(|| {
+        let http_addr = "127.0.0.1:80";
+        let http = HttpServer::new(|| {
             App::new()
-                .wrap_fn(|req, srv| {
-                    info!("Hi from middleware. You requested: {}", req.path());
-                    let fut = srv.call(req);
-                    async {
-                        let mut res = fut.await?;
-                        res.headers_mut().insert(
-                            HeaderName::from_static("x-my-header"),
-                            HeaderValue::from_static("test"),
-                        );
-                        Ok(res)
-                    }
-                })
+                .wrap(Logger::default())
+                .default_service(web::route().to(|req: HttpRequest| {
+                    let host = req.connection_info().host().to_owned();
+                    let uri = req.uri();
+                    let url = format!("https://{}{}", host, uri);
+                    HttpResponse::TemporaryRedirect()
+                        .header(header::LOCATION, url)
+                        .finish()
+                        .into_body()
+                }))
+        })
+        .bind(http_addr)
+        .expect(&format!("Failed to bind {}", http_addr))
+        .run();
+
+        let https_addr = "127.0.0.1:443";
+        let https = HttpServer::new(|| {
+            App::new()
                 .wrap(Compress::new(ContentEncoding::Br))
                 .wrap(Logger::default())
                 .service(Files::new("/", "./public").index_file("index.html"))
@@ -41,9 +47,12 @@ fn main() -> anyhow::Result<()> {
                         .body(include_str!("./404.html"))
                 }))
         })
-        .bind_openssl("127.0.0.1:8080", ssl)?
-        .run()
-        .await
+        .bind_openssl(https_addr, ssl)
+        .expect(&format!("Failed to bind {}", https_addr))
+        .run();
+
+        future::try_join(http, https).await
     });
+
     Ok(())
 }
