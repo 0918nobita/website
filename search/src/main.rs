@@ -9,6 +9,19 @@ use pulldown_cmark::{html, Event, Options, Parser};
 //     Index,
 // };
 
+fn extract_text_content(event: &Event) -> Option<String> {
+    match event {
+        Event::Start(_)
+        | Event::End(_)
+        | Event::FootnoteReference(_)
+        | Event::SoftBreak
+        | Event::HardBreak
+        | Event::Rule
+        | Event::TaskListMarker(_) => None,
+        Event::Text(text) | Event::Code(text) | Event::Html(text) => Some(text.clone().to_string()),
+    }
+}
+
 fn main() {
     let md_str = r#"# サンプル記事
 
@@ -18,17 +31,12 @@ Rust[^1] でポートフォリオサイト兼ブログを開発しています�
 "#;
     let events = Parser::new_ext(md_str, Options::ENABLE_FOOTNOTES).collect::<Vec<_>>();
 
-    for e in events.iter() {
-        match e {
-            Event::Start(ref _tag) => print!("start "),
-            Event::End(ref _tag) => print!("end "),
-            Event::Text(ref _text) => print!("text "),
-            Event::Code(ref _text) => print!("code "),
-            Event::FootnoteReference(ref _text) => print!("footnote "),
-            _ => (),
-        }
-        println!("{:?}", e);
-    }
+    let text = events
+        .iter()
+        .filter_map(extract_text_content)
+        .collect::<Vec<_>>()
+        .join("");
+    println!("Text: {}", text);
 
     let mut html_buf = String::new();
     html::push_html(&mut html_buf, events.into_iter());
