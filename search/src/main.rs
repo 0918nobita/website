@@ -7,7 +7,7 @@ use tantivy::{
     collector::TopDocs,
     doc,
     query::QueryParser,
-    schema::{IndexRecordOption, Schema, TextFieldIndexing, TextOptions},
+    schema::{IndexRecordOption, Schema, TextFieldIndexing, TextOptions, STORED},
     Index,
 };
 
@@ -59,6 +59,7 @@ Rust[^1] でポートフォリオサイト兼ブログを開発しています�
     init_index_dir()?;
 
     let mut schema_builder = Schema::builder();
+    let slug = schema_builder.add_text_field("slug", STORED);
     let title = schema_builder.add_text_field(
         "title",
         TextOptions::default()
@@ -85,7 +86,11 @@ Rust[^1] でポートフォリオサイト兼ブログを開発しています�
         .register("lang_ja", LinderaTokenizer::new()?);
 
     let mut index_writer = index.writer(100_000_000)?;
+    for entry in fs::read_dir("../articles")?.filter_map(|r| r.ok()) {
+        println!("{:?}", entry)
+    }
     index_writer.add_document(doc!(
+        slug => "example",
         title => "Title",
         body => text,
     ));
