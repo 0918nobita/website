@@ -1,5 +1,6 @@
 use std::{env, fs, path::Path};
 
+use anyhow::Context;
 use lindera_tantivy::tokenizer::LinderaTokenizer;
 use pulldown_cmark::{html, Event, Options, Parser};
 use tantivy::{
@@ -25,7 +26,15 @@ fn extract_text_content(event: &Event) -> Option<String> {
     }
 }
 
-fn main() {
+fn init_index_dir() -> anyhow::Result<()> {
+    if Path::new("index").exists() {
+        fs::remove_dir_all("index")?;
+    }
+
+    fs::create_dir("index").context("Failed to create index dir")
+}
+
+fn main() -> anyhow::Result<()> {
     let query = env::args().nth(1).unwrap_or("Rust".to_owned());
 
     let md_str = r#"# サンプル記事
@@ -47,11 +56,7 @@ Rust[^1] でポートフォリオサイト兼ブログを開発しています�
         .join(" ");
     println!("Text: {}", text);
 
-    if Path::new("index").exists() {
-        fs::remove_dir_all("index").unwrap();
-    }
-
-    fs::create_dir("index").unwrap();
+    init_index_dir()?;
 
     let mut schema_builder = Schema::builder();
     let title = schema_builder.add_text_field(
@@ -74,38 +79,26 @@ Rust[^1] でポートフォリオサイト兼ブログを開発しています�
     );
     let schema = schema_builder.build();
 
-    let index =
-        Index::create_in_dir("./index", schema.clone()).expect("Failed to create index schema");
+    let index = Index::create_in_dir("./index", schema.clone())?;
     index
         .tokenizers()
-        .register("lang_ja", LinderaTokenizer::new().unwrap());
+        .register("lang_ja", LinderaTokenizer::new()?);
 
-    let mut index_writer = index
-        .writer(100_000_000)
-        .expect("Failed to create index writer");
+    let mut index_writer = index.writer(100_000_000)?;
     index_writer.add_document(doc!(
         title => "Title",
         body => text,
     ));
-    index_writer
-        .commit()
-        .expect("Failed to add document indices");
+    index_writer.commit()?;
 
-    let searcher = index
-        .reader()
-        .expect("Failed to create index reader")
-        .searcher();
-    let query = QueryParser::for_index(&index, vec![title, body])
-        .parse_query(&query)
-        .expect("Failed to parse query");
-    let results = searcher
-        .search(&query, &TopDocs::with_limit(10))
-        .expect("Failed to search documents");
+    let searcher = index.reader()?.searcher();
+    let query = QueryParser::for_index(&index, vec![title, body]).parse_query(&query)?;
+    let results = searcher.search(&query, &TopDocs::with_limit(10))?;
 
     for (_score, doc_addr) in results {
-        let retrieved = searcher
-            .doc(doc_addr)
-            .expect("Failed to retrieve document info");
+        let retrieved = searcher.doc(doc_addr)?;
         println!("(Hit) {}", schema.to_json(&retrieved))
     }
+
+    Ok(())
 }
