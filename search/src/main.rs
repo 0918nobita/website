@@ -1,11 +1,12 @@
 use std::{env, fs, path::Path};
 
+use lindera_tantivy::tokenizer::LinderaTokenizer;
 use pulldown_cmark::{html, Event, Options, Parser};
 use tantivy::{
     collector::TopDocs,
     doc,
     query::QueryParser,
-    schema::{Schema, STORED, TEXT},
+    schema::{IndexRecordOption, Schema, TextFieldIndexing, TextOptions},
     Index,
 };
 
@@ -33,11 +34,11 @@ Rust[^1] でポートフォリオサイト兼ブログを開発しています�
 
 [^1]: プログラミング言語
 "#;
-    let events = Parser::new_ext(md_str, Options::ENABLE_FOOTNOTES).collect::<Vec<_>>();
+    let events: Vec<Event> = Parser::new_ext(md_str, Options::ENABLE_FOOTNOTES).collect();
 
     let mut html_buf = String::new();
     html::push_html(&mut html_buf, events.clone().into_iter());
-    print!("{}", html_buf);
+    println!("HTML:\n{}", html_buf);
 
     let text = events
         .iter()
@@ -53,12 +54,31 @@ Rust[^1] でポートフォリオサイト兼ブログを開発しています�
     fs::create_dir("index").unwrap();
 
     let mut schema_builder = Schema::builder();
-    let title = schema_builder.add_text_field("title", TEXT | STORED);
-    let body = schema_builder.add_text_field("body", TEXT);
+    let title = schema_builder.add_text_field(
+        "title",
+        TextOptions::default()
+            .set_indexing_options(
+                TextFieldIndexing::default()
+                    .set_tokenizer("lang_ja")
+                    .set_index_option(IndexRecordOption::WithFreqsAndPositions),
+            )
+            .set_stored(),
+    );
+    let body = schema_builder.add_text_field(
+        "body",
+        TextOptions::default().set_indexing_options(
+            TextFieldIndexing::default()
+                .set_tokenizer("lang_ja")
+                .set_index_option(IndexRecordOption::WithFreqsAndPositions),
+        ),
+    );
     let schema = schema_builder.build();
 
     let index =
         Index::create_in_dir("./index", schema.clone()).expect("Failed to create index schema");
+    index
+        .tokenizers()
+        .register("lang_ja", LinderaTokenizer::new().unwrap());
 
     let mut index_writer = index
         .writer(100_000_000)
@@ -86,6 +106,6 @@ Rust[^1] でポートフォリオサイト兼ブログを開発しています�
         let retrieved = searcher
             .doc(doc_addr)
             .expect("Failed to retrieve document info");
-        println!("{}", schema.to_json(&retrieved))
+        println!("(Hit) {}", schema.to_json(&retrieved))
     }
 }
