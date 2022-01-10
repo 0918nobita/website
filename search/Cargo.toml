@@ -4,4 +4,5 @@ version = "0.1.0"
 edition = "2018"
 
 [dependencies]
+pulldown-cmark = "0.9.0"
 tantivy = "0.16.1"
