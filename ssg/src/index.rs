@@ -50,7 +50,7 @@ fn init_index_dir() -> anyhow::Result<()> {
     fs::create_dir("index").context("Failed to create index dir")
 }
 
-pub fn subcommand_index(schema: &Schema, fields: &Fields) -> anyhow::Result<()> {
+pub fn subcommand_index(path: &str, schema: &Schema, fields: &Fields) -> anyhow::Result<()> {
     init_index_dir()?;
 
     let index = Index::create_in_dir("./index", schema.clone())?;
@@ -60,7 +60,7 @@ pub fn subcommand_index(schema: &Schema, fields: &Fields) -> anyhow::Result<()> 
 
     let mut index_writer = index.writer(100_000_000)?;
 
-    let path_bufs = fs::read_dir("./articles")?
+    let path_bufs = fs::read_dir(path)?
         .filter_map(|r| r.ok())
         .map(|entry| entry.path());
 

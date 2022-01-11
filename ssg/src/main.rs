@@ -1,9 +1,9 @@
-extern crate search;
+extern crate ssg;
 
 use std::env;
 use tantivy::schema::{IndexRecordOption, Schema, TextFieldIndexing, TextOptions, STORED};
 
-use search::{index::subcommand_index, search::subcommand_search, Fields, SubCommand};
+use ssg::{index::subcommand_index, search::subcommand_search, Fields, SubCommand};
 
 fn main() -> anyhow::Result<()> {
     let args = env::args().skip(1).collect::<Vec<_>>();
@@ -34,7 +34,7 @@ fn main() -> anyhow::Result<()> {
     let fields = Fields { slug, title, body };
 
     match subcommand {
-        SubCommand::Index => subcommand_index(&schema, &fields)?,
+        SubCommand::Index(path) => subcommand_index(&path, &schema, &fields)?,
         SubCommand::Search(query) => {
             subcommand_search(&schema, &fields, &query)?;
         }
