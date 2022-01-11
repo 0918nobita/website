@@ -1,5 +1,6 @@
 use std::{fs, path::PathBuf};
 
+use anyhow::Context;
 use pulldown_cmark::{Event, Options, Parser};
 use serde::Deserialize;
 use yaml_front_matter::{Document, YamlFrontMatter};
@@ -10,7 +11,7 @@ struct Metadata {
     desc: String,
 }
 
-fn extract_metadata(markdown: &str) -> anyhow::Result<Document<Metadata>> {
+fn extract_metadata_and_content(markdown: &str) -> anyhow::Result<Document<Metadata>> {
     YamlFrontMatter::parse::<Metadata>(markdown)
         .map_err(|_| anyhow::Error::msg("Failed to parse YAML Front Matter"))
 }
@@ -64,27 +65,20 @@ impl Iterator for Articles {
     type Item = anyhow::Result<Article>;
 
     fn next(&mut self) -> Option<Self::Item> {
-        if let Some(path_buf) = self.read_dir.next() {
-            match fs::read_to_string(&path_buf) {
-                Ok(markdown) => match path_buf.file_stem().and_then(|os_str| os_str.to_str()) {
-                    Some(slug) => match extract_metadata(&markdown) {
-                        Ok(doc) => {
-                            let content = extract_content(&doc.content);
-                            Some(Ok(Article {
-                                slug: slug.to_string(),
-                                title: doc.metadata.title,
-                                desc: doc.metadata.desc,
-                                content,
-                            }))
-                        }
-                        Err(e) => Some(Err(e)),
-                    },
-                    None => Some(Err(anyhow::Error::msg("Failed to convert &OsStr to &str"))),
-                },
-                Err(e) => Some(Err(anyhow::Error::from(e))),
-            }
-        } else {
-            None
+        fn read_article(path_buf: PathBuf) -> anyhow::Result<Article> {
+            let markdown = fs::read_to_string(&path_buf)?;
+            let slug = path_buf
+                .file_stem()
+                .and_then(|os_str| os_str.to_str())
+                .context("Failed to convert &OsStr to &str")?;
+            let doc = extract_metadata_and_content(&markdown)?;
+            Ok(Article {
+                slug: slug.to_string(),
+                title: doc.metadata.title,
+                desc: doc.metadata.desc,
+                content: extract_content(&doc.content),
+            })
         }
+        self.read_dir.next().map(read_article)
     }
 }
