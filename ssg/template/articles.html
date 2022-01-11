@@ -5,10 +5,9 @@
         <title>記事一覧 | kodai.vision</title>
     </head>
     <body>
-        <ul>
-            {{- for article in articles }}
-            <li>{ article.title }</li>
-            {{- endfor }}
-        </ul>
+        {{- for article in articles }}
+        <h2>{ article.title }</h2>
+        <p>{ article.desc }</p>
+        {{- endfor }}
     </body>
 </html>
