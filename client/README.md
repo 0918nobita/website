@@ -17,7 +17,7 @@ pnpm i
 pnpm build
 ```
 
-## 開発サーバの機動
+## 開発サーバの起動
 
 ```bash
 pnpm dev
