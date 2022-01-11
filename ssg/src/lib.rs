@@ -7,6 +7,7 @@ use tantivy::schema::Field;
 pub enum SubCommand {
     Index(String),
     Search(String),
+    Render(String),
 }
 
 impl SubCommand {
@@ -18,6 +19,11 @@ impl SubCommand {
         } else if first == "search" {
             let second = args.get(1).context("query is not specified")?;
             Ok(SubCommand::Search(second.clone()))
+        } else if first == "render" {
+            let second = args
+                .get(1)
+                .context("destination directory is not specified")?;
+            Ok(SubCommand::Render(second.clone()))
         } else {
             bail!("invalid subcommand")
         }

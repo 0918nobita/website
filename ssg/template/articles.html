@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>記事一覧 | kodai.vision</title>
+    </head>
+    <body>
+        <ul>
+            {{- for article in articles }}
+            <li>{ article.title }</li>
+            {{- endfor }}
+        </ul>
+    </body>
+</html>

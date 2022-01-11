@@ -1,9 +1,22 @@
 extern crate ssg;
 
-use std::env;
+use std::{env, fs, path::Path};
+
+use serde::Serialize;
 use tantivy::schema::{IndexRecordOption, Schema, TextFieldIndexing, TextOptions, STORED};
 
 use ssg::{index::subcommand_index, search::subcommand_search, Fields, SubCommand};
+use tinytemplate::TinyTemplate;
+
+#[derive(Serialize)]
+struct ArticleContext {
+    title: String,
+}
+
+#[derive(Serialize)]
+struct Context {
+    articles: Vec<ArticleContext>,
+}
 
 fn main() -> anyhow::Result<()> {
     let args = env::args().skip(1).collect::<Vec<_>>();
@@ -37,6 +50,25 @@ fn main() -> anyhow::Result<()> {
         SubCommand::Index(path) => subcommand_index(&path, &schema, &fields)?,
         SubCommand::Search(query) => {
             subcommand_search(&schema, &fields, &query)?;
+        }
+        SubCommand::Render(dest_dir) => {
+            let mut tt = TinyTemplate::new();
+            let text = include_str!("../template/articles.html");
+            tt.add_template("articles", &text)?;
+            let context = Context {
+                articles: vec![
+                    ArticleContext {
+                        title: "タイトル1".to_owned(),
+                    },
+                    ArticleContext {
+                        title: "タイトル2".to_owned(),
+                    },
+                ],
+            };
+            let rendered = tt.render("articles", &context)?;
+            let dest_dir = Path::new(&dest_dir);
+            fs::create_dir_all(dest_dir)?;
+            fs::write(dest_dir.join("articles.html"), rendered)?;
         }
     }
 
