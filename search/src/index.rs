@@ -3,9 +3,22 @@ use std::{fs, path::Path};
 use anyhow::Context;
 use lindera_tantivy::tokenizer::LinderaTokenizer;
 use pulldown_cmark::{Event, Options, Parser};
+use serde::Deserialize;
 use tantivy::{doc, schema::Schema, Index};
+use yaml_front_matter::YamlFrontMatter;
 
 use super::Fields;
+
+#[derive(Deserialize)]
+struct Metadata {
+    title: String,
+}
+
+fn extract_metadata(markdown: &str) -> anyhow::Result<Metadata> {
+    YamlFrontMatter::parse::<Metadata>(markdown)
+        .map(|doc| doc.metadata)
+        .map_err(|_| anyhow::Error::msg("Failed to parse YAML Front Matter"))
+}
 
 fn extract_content_from_event(event: &Event) -> Option<String> {
     match event {
@@ -22,7 +35,7 @@ fn extract_content_from_event(event: &Event) -> Option<String> {
     }
 }
 
-fn extract_content_from_markdown(markdown: &str) -> String {
+fn extract_content(markdown: &str) -> String {
     Parser::new_ext(markdown, Options::all())
         .filter_map(|event| extract_content_from_event(&event))
         .collect::<Vec<_>>()
@@ -52,17 +65,22 @@ pub fn subcommand_index(schema: &Schema, fields: &Fields) -> anyhow::Result<()> 
         .map(|entry| entry.path());
 
     for path_buf in path_bufs {
-        let slug_val = path_buf
+        let slug = path_buf
             .file_stem()
             .context("Failed to extract basename")?
             .to_str()
             .context("Failed to convert &OsStr to &str")?;
+
         let markdown = fs::read_to_string(path_buf.as_path())?;
-        let body_val = extract_content_from_markdown(&markdown);
+
+        let title = extract_metadata(&markdown)?.title;
+
+        let body = extract_content(&markdown);
+
         index_writer.add_document(doc!(
-            fields.slug => slug_val,
-            fields.title => "Title",
-            fields.body => body_val,
+            fields.slug => slug,
+            fields.title => title,
+            fields.body => body,
         ));
     }
 
