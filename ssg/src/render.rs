@@ -1,43 +1,49 @@
 use std::{fs, path::PathBuf};
 
 use serde::Serialize;
-use tinytemplate::TinyTemplate;
+use tera::{Tera, Context};
 
 use super::articles::Articles;
 
-#[derive(Serialize)]
+#[derive(Serialize, Clone)]
 struct ArticleContext {
     title: String,
     desc: String,
+    html_content: String,
 }
 
 #[derive(Serialize)]
-struct Context {
+struct ArticleListContext {
     articles: Vec<ArticleContext>,
 }
 
 pub fn subcommand_render(src: &PathBuf, dest: &PathBuf) -> anyhow::Result<()> {
-    let mut tt = TinyTemplate::new();
-    let text = include_str!("../template/articles.html");
-    tt.add_template("articles", &text)?;
+    let tera = Tera::new("templates/**/*")?;
 
     let articles = Articles::new(src.clone())?;
     let mut article_contexts = Vec::<ArticleContext>::new();
+
     for article in articles {
         let article = article?;
-        article_contexts.push(ArticleContext {
+        let ctx = ArticleContext {
             title: article.title,
             desc: article.desc,
-        });
+            html_content: article.html_content,
+        };
+
+        article_contexts.push(ctx.clone());
+
+        let rendered = tera.render("article.html", &Context::from_serialize(&ctx)?)?;
+        fs::write(dest.join(&article.slug).with_extension("html"), rendered)?;
     }
-    let context = Context {
+
+    let context = ArticleListContext {
         articles: article_contexts,
     };
 
-    let rendered = tt.render("articles", &context)?;
-
+    let rendered = tera.render("article_list.html", &Context::from_serialize(&context)?)?;
     fs::create_dir_all(&dest)?;
-    fs::write(dest.join("articles.html"), rendered)?;
+    fs::write(dest.join("article_list.html"), rendered)?;
 
     Ok(())
 }

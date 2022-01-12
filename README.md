@@ -5,6 +5,7 @@
 actix-web を用いて開発している。
 
 ```bash
+cargo run --bin ssg -- render -o ./server/public
 cd server
 mkcert -install
 mkcert localhost
@@ -16,7 +17,7 @@ sudo RUST_LOG=info ./target/debug/server
 
 ビルド時にインデックスも生成して、サイト内検索を実現したい。
 
-### TinyTemplate を用いて HTML 文書を生成する
+### Markdown をもとに HTML 文書を生成する
 
 ```bash
 cargo run --bin ssg -- render

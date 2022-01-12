@@ -1,2 +1,7 @@
+/public/*
+!foo.html
+!index.html
+
 /target/
+
 *.pem

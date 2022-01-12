@@ -1,7 +1,7 @@
 use std::{fs, path::PathBuf};
 
 use anyhow::Context;
-use pulldown_cmark::{Event, Options, Parser};
+use pulldown_cmark::{html, Event, Options, Parser};
 use serde::Deserialize;
 use yaml_front_matter::{Document, YamlFrontMatter};
 
@@ -44,6 +44,7 @@ pub struct Article {
     pub title: String,
     pub desc: String,
     pub content: String,
+    pub html_content: String,
 }
 
 pub struct Articles {
@@ -72,11 +73,20 @@ impl Iterator for Articles {
                 .and_then(|os_str| os_str.to_str())
                 .context("Failed to convert &OsStr to &str")?;
             let doc = extract_metadata_and_content(&markdown)?;
+
+            let mut html_content = String::new();
+            html::push_html(
+                &mut html_content,
+                Parser::new_ext(&doc.content, Options::all()),
+            );
+            html_content = html_content.trim().to_owned();
+
             Ok(Article {
                 slug: slug.to_string(),
                 title: doc.metadata.title,
                 desc: doc.metadata.desc,
                 content: extract_content(&doc.content),
+                html_content,
             })
         }
         self.read_dir.next().map(read_article)
