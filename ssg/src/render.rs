@@ -1,7 +1,7 @@
-use std::{fs, path::PathBuf};
+use std::{collections::HashMap, fs, path::PathBuf};
 
 use serde::Serialize;
-use tera::{Tera, Context};
+use tera::{Context, Error as TeraErr, Tera, Value};
 
 use super::articles::Articles;
 
@@ -17,8 +17,22 @@ struct ArticleListContext {
     articles: Vec<ArticleContext>,
 }
 
+fn filter_indent(s: &Value, args: &HashMap<String, Value>) -> Result<Value, TeraErr> {
+    let s = s.as_str().ok_or(TeraErr::msg("expected string"))?;
+
+    let count = args
+        .get("count")
+        .ok_or(TeraErr::msg("`count` arg is required but missing"))?
+        .as_u64()
+        .ok_or(TeraErr::msg("the value of `count` is invalid"))?;
+
+    let sep = "\n".to_owned() + &" ".repeat(count as usize);
+    Ok(Value::String(s.lines().collect::<Vec<_>>().join(&sep)))
+}
+
 pub fn subcommand_render(src: &PathBuf, dest: &PathBuf) -> anyhow::Result<()> {
-    let tera = Tera::new("templates/**/*")?;
+    let mut tera = Tera::new("templates/**/*")?;
+    tera.register_filter("indent", filter_indent);
 
     let articles = Articles::new(src.clone())?;
     let mut article_contexts = Vec::<ArticleContext>::new();
