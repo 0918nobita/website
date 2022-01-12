@@ -1,9 +1,11 @@
 use lindera_tantivy::tokenizer::LinderaTokenizer;
-use tantivy::{collector::TopDocs, query::QueryParser, schema::Schema, Index};
+use tantivy::{collector::TopDocs, query::QueryParser, Index};
 
-use super::Fields;
+use super::schema::create_schema_and_fields;
 
-pub fn subcommand_search(schema: &Schema, fields: &Fields, query: &str) -> anyhow::Result<()> {
+pub fn subcommand_search(query: &str) -> anyhow::Result<()> {
+    let (schema, fields) = create_schema_and_fields();
+
     let index = Index::open_in_dir("./index")?;
     index
         .tokenizers()

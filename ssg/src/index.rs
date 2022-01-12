@@ -5,9 +5,9 @@ use std::{
 
 use anyhow::Context;
 use lindera_tantivy::tokenizer::LinderaTokenizer;
-use tantivy::{doc, schema::Schema, Index};
+use tantivy::{doc, Index};
 
-use super::{articles::Articles, Fields};
+use super::{articles::Articles, schema::create_schema_and_fields};
 
 fn init_index_dir() -> anyhow::Result<()> {
     if Path::new("index").exists() {
@@ -17,7 +17,9 @@ fn init_index_dir() -> anyhow::Result<()> {
     fs::create_dir("index").context("Failed to create index dir")
 }
 
-pub fn subcommand_index(src: &PathBuf, schema: &Schema, fields: &Fields) -> anyhow::Result<()> {
+pub fn subcommand_index(src: &PathBuf) -> anyhow::Result<()> {
+    let (schema, fields) = create_schema_and_fields();
+
     init_index_dir()?;
 
     let index = Index::create_in_dir("./index", schema.clone())?;
