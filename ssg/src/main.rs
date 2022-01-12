@@ -1,17 +1,39 @@
 extern crate ssg;
 
-use std::env;
+use std::path::PathBuf;
 
+use structopt::StructOpt;
 use tantivy::schema::{IndexRecordOption, Schema, TextFieldIndexing, TextOptions, STORED};
 
-use ssg::{
-    index::subcommand_index, render::subcommand_render, search::subcommand_search, Fields,
-    SubCommand,
-};
+use ssg::{index::subcommand_index, render::subcommand_render, search::subcommand_search, Fields};
+
+#[derive(StructOpt)]
+/// 静的サイト生成用 CLI ツール
+enum Opt {
+    /// 記事を HTML 文書に書き出す
+    Render {
+        #[structopt(short = "i", long = "input", default_value = "articles")]
+        /// 記事を保管しているディレクトリ
+        src: PathBuf,
+        #[structopt(short = "o", long = "output", default_value = "dest")]
+        /// 書き出し先のディレクトリ
+        dest: PathBuf,
+    },
+    /// 記事を全文検索用にインデックスする
+    Index {
+        #[structopt(short = "i", long = "input", default_value = "articles")]
+        /// 記事を保管しているディレクトリ
+        src: PathBuf,
+    },
+    /// 記事に対して全文検索を実行する
+    Search {
+        /// 検索ワード
+        query: String,
+    },
+}
 
 fn main() -> anyhow::Result<()> {
-    let args = env::args().skip(1).collect::<Vec<_>>();
-    let subcommand = SubCommand::parse_args(&args)?;
+    let opt = Opt::from_args();
 
     let mut schema_builder = Schema::builder();
     let slug = schema_builder.add_text_field("slug", STORED);
@@ -41,10 +63,10 @@ fn main() -> anyhow::Result<()> {
         content,
     };
 
-    match subcommand {
-        SubCommand::Index(path) => subcommand_index(&path, &schema, &fields)?,
-        SubCommand::Search(query) => subcommand_search(&schema, &fields, &query)?,
-        SubCommand::Render(render_option) => subcommand_render(&render_option)?,
+    match opt {
+        Opt::Index { src } => subcommand_index(&src, &schema, &fields)?,
+        Opt::Search { query } => subcommand_search(&schema, &fields, &query)?,
+        Opt::Render { src, dest } => subcommand_render(&src, &dest)?,
     }
 
     Ok(())

@@ -1,9 +1,7 @@
-use std::fs;
+use std::{fs, path::PathBuf};
 
 use serde::Serialize;
 use tinytemplate::TinyTemplate;
-
-use crate::RenderOption;
 
 use super::articles::Articles;
 
@@ -18,12 +16,12 @@ struct Context {
     articles: Vec<ArticleContext>,
 }
 
-pub fn subcommand_render(render_option: &RenderOption) -> anyhow::Result<()> {
+pub fn subcommand_render(src: &PathBuf, dest: &PathBuf) -> anyhow::Result<()> {
     let mut tt = TinyTemplate::new();
     let text = include_str!("../template/articles.html");
     tt.add_template("articles", &text)?;
 
-    let articles = Articles::new(render_option.src.clone())?;
+    let articles = Articles::new(src.clone())?;
     let mut article_contexts = Vec::<ArticleContext>::new();
     for article in articles {
         let article = article?;
@@ -38,8 +36,8 @@ pub fn subcommand_render(render_option: &RenderOption) -> anyhow::Result<()> {
 
     let rendered = tt.render("articles", &context)?;
 
-    fs::create_dir_all(&render_option.dest)?;
-    fs::write(render_option.dest.join("articles.html"), rendered)?;
+    fs::create_dir_all(&dest)?;
+    fs::write(dest.join("articles.html"), rendered)?;
 
     Ok(())
 }

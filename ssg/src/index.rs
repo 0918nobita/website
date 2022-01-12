@@ -17,7 +17,7 @@ fn init_index_dir() -> anyhow::Result<()> {
     fs::create_dir("index").context("Failed to create index dir")
 }
 
-pub fn subcommand_index(src_path: &str, schema: &Schema, fields: &Fields) -> anyhow::Result<()> {
+pub fn subcommand_index(src: &PathBuf, schema: &Schema, fields: &Fields) -> anyhow::Result<()> {
     init_index_dir()?;
 
     let index = Index::create_in_dir("./index", schema.clone())?;
@@ -27,7 +27,7 @@ pub fn subcommand_index(src_path: &str, schema: &Schema, fields: &Fields) -> any
 
     let mut index_writer = index.writer(100_000_000)?;
 
-    let articles = Articles::new(PathBuf::from(src_path))?;
+    let articles = Articles::new(src.clone())?;
     for article in articles {
         let article = article?;
         index_writer.add_document(doc!(
