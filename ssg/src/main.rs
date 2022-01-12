@@ -2,25 +2,26 @@ extern crate ssg;
 
 use std::path::PathBuf;
 
-use structopt::StructOpt;
+use clap::Parser;
 
 use ssg::{index::subcommand_index, render::subcommand_render, search::subcommand_search};
 
-#[derive(StructOpt)]
+#[derive(Parser)]
 /// 静的サイト生成用 CLI ツール
-enum Opt {
+enum SubCommand {
     /// 記事を HTML 文書に書き出す
     Render {
-        #[structopt(short = "i", long = "input", default_value = "articles")]
+        #[clap(short = 'i', long = "input", default_value = "articles")]
         /// 記事を保管しているディレクトリ
         src: PathBuf,
-        #[structopt(short = "o", long = "output", default_value = "dest")]
+
+        #[clap(short = 'o', long = "output", default_value = "dest")]
         /// 書き出し先のディレクトリ
         dest: PathBuf,
     },
     /// 記事を全文検索用にインデックスする
     Index {
-        #[structopt(short = "i", long = "input", default_value = "articles")]
+        #[clap(short = 'i', long = "input", default_value = "articles")]
         /// 記事を保管しているディレクトリ
         src: PathBuf,
     },
@@ -32,12 +33,12 @@ enum Opt {
 }
 
 fn main() -> anyhow::Result<()> {
-    let opt = Opt::from_args();
+    let cmd = SubCommand::parse();
 
-    match opt {
-        Opt::Render { src, dest } => subcommand_render(&src, &dest)?,
-        Opt::Index { src } => subcommand_index(&src)?,
-        Opt::Search { query } => subcommand_search(&query)?,
+    match cmd {
+        SubCommand::Render { src, dest } => subcommand_render(&src, &dest)?,
+        SubCommand::Index { src } => subcommand_index(&src)?,
+        SubCommand::Search { query } => subcommand_search(&query)?,
     }
 
     Ok(())
