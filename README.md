@@ -19,13 +19,13 @@ sudo RUST_LOG=info ./target/debug/server
 ### TinyTemplate を用いて HTML 文書を生成する
 
 ```bash
-cargo run --bin ssg -- render ./articles ./dest
+cargo run --bin ssg -- render
 ```
 
 ### インデックスの作成
 
 ```bash
-cargo run --bin ssg -- index ./articles
+cargo run --bin ssg -- index
 ```
 
 ### 全文検索の実行
