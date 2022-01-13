@@ -17,7 +17,7 @@ fn main() -> anyhow::Result<()> {
 
     let mut sys_runner = System::new("web-server");
     let _ = sys_runner.block_on(async {
-        let http_addr = "127.0.0.1:80";
+        let http_addr = "0.0.0.0:80";
         let http = HttpServer::new(|| {
             App::new()
                 .wrap(Logger::default())
@@ -35,7 +35,7 @@ fn main() -> anyhow::Result<()> {
         .expect(&format!("Failed to bind {}", http_addr))
         .run();
 
-        let https_addr = "127.0.0.1:443";
+        let https_addr = "0.0.0.0:443";
         let https = HttpServer::new(|| {
             App::new()
                 .wrap(Compress::new(ContentEncoding::Br))

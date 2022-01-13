@@ -1,26 +1,28 @@
 # ポートフォリオサイト
 
-## サーバーサイド
-
 actix-web を用いて開発している。
 
 ```bash
+# 静的サイト生成
 cargo run --bin ssg -- render
+
+# 証明書の生成
 mkcert -install
 mkcert localhost
+
+# Web サーバーのビルド・起動
 cargo build --bin server
 sudo RUST_LOG=info ./target/debug/server
 ```
 
-## 静的サイト生成
-
-ビルド時にインデックスも生成して、サイト内検索を実現したい。
-
-### Markdown をもとに HTML 文書を生成する
+## Docker を用いる場合
 
 ```bash
-cargo run --bin ssg -- render
+./build.sh
+docker run -it --rm -p 80:80 -p 443:443 kodai-vision/server /bin/sh
 ```
+
+## サイト内の記事検索
 
 ### インデックスの作成
 
