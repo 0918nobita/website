@@ -15,7 +15,7 @@ enum SubCommand {
         /// 記事を保管しているディレクトリ
         src: PathBuf,
 
-        #[clap(short = 'o', long = "output", default_value = "dest")]
+        #[clap(short = 'o', long = "output", default_value = "public")]
         /// 書き出し先のディレクトリ
         dest: PathBuf,
     },

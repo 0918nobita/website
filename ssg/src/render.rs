@@ -37,6 +37,9 @@ pub fn subcommand_render(src: &PathBuf, dest: &PathBuf) -> anyhow::Result<()> {
     let articles = Articles::new(src.clone())?;
     let mut article_contexts = Vec::<ArticleContext>::new();
 
+    let rendered = tera.render("index.html", &Context::default())?;
+    fs::write(dest.join("index.html"), rendered)?;
+
     for article in articles {
         let article = article?;
         let ctx = ArticleContext {

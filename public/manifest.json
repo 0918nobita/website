@@ -2,8 +2,8 @@
   "name": "kodai.vision",
   "short_name": "kodai",
   "start_url": "/",
-  "theme_color": "#8968CC",
-  "background_color": "#8968CC",
+  "theme_color": "#B53BD1",
+  "background_color": "#B53BD1",
   "display": "standalone",
   "icons": [
     {

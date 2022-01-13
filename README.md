@@ -5,11 +5,10 @@
 actix-web を用いて開発している。
 
 ```bash
-cargo run --bin ssg -- render -o ./server/public
-cd server
+cargo run --bin ssg -- render
 mkcert -install
 mkcert localhost
-cargo build
+cargo build --bin server
 sudo RUST_LOG=info ./target/debug/server
 ```
 
