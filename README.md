@@ -19,7 +19,7 @@ sudo RUST_LOG=info ./target/debug/server
 
 ```bash
 ./build.sh
-docker run -it --rm -p 80:80 -p 443:443 kodai-vision/server /bin/sh
+docker run -it --rm -p 80:80 -p 443:443 kodai-blog/server /bin/sh
 ```
 
 ## サイト内の記事検索
