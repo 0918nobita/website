@@ -7,13 +7,32 @@ use actix_web::{
 };
 use futures::future;
 use openssl::ssl::{SslAcceptor, SslFiletype, SslMethod};
+use serde::Deserialize;
+
+fn default_certificate_path() -> String {
+    "localhost.pem".to_owned()
+}
+
+fn default_private_key_path() -> String {
+    "localhost-key.pem".to_owned()
+}
+
+#[derive(Deserialize)]
+struct Config {
+    #[serde(default = "default_certificate_path")]
+    certificate_path: String,
+    #[serde(default = "default_private_key_path")]
+    private_key_path: String,
+}
 
 fn main() -> anyhow::Result<()> {
     env_logger::init();
 
+    let config: Config = envy::from_env()?;
+
     let mut ssl = SslAcceptor::mozilla_intermediate(SslMethod::tls())?;
-    ssl.set_private_key_file("localhost-key.pem", SslFiletype::PEM)?;
-    ssl.set_certificate_chain_file("localhost.pem")?;
+    ssl.set_certificate_chain_file(config.certificate_path)?;
+    ssl.set_private_key_file(config.private_key_path, SslFiletype::PEM)?;
 
     let mut sys_runner = System::new("web-server");
     let _ = sys_runner.block_on(async {
