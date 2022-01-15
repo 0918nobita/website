@@ -9,6 +9,10 @@ use futures::future;
 use openssl::ssl::{SslAcceptor, SslFiletype, SslMethod};
 use serde::Deserialize;
 
+fn default_www_root() -> String {
+    "./public".to_owned()
+}
+
 fn default_certificate_path() -> String {
     "localhost.pem".to_owned()
 }
@@ -19,8 +23,12 @@ fn default_private_key_path() -> String {
 
 #[derive(Deserialize)]
 struct Config {
+    #[serde(default = "default_www_root")]
+    www_root: String,
+
     #[serde(default = "default_certificate_path")]
     certificate_path: String,
+
     #[serde(default = "default_private_key_path")]
     private_key_path: String,
 }
@@ -33,6 +41,8 @@ fn main() -> anyhow::Result<()> {
     let mut ssl = SslAcceptor::mozilla_intermediate(SslMethod::tls())?;
     ssl.set_certificate_chain_file(config.certificate_path)?;
     ssl.set_private_key_file(config.private_key_path, SslFiletype::PEM)?;
+
+    let www_root = config.www_root;
 
     let mut sys_runner = System::new("web-server");
     let _ = sys_runner.block_on(async {
@@ -55,11 +65,11 @@ fn main() -> anyhow::Result<()> {
         .run();
 
         let https_addr = "0.0.0.0:443";
-        let https = HttpServer::new(|| {
+        let https = HttpServer::new(move || {
             App::new()
                 .wrap(Compress::new(ContentEncoding::Br))
                 .wrap(Logger::default())
-                .service(Files::new("/", "./public").index_file("index.html"))
+                .service(Files::new("/", www_root.clone()).index_file("index.html"))
                 .default_service(web::route().to(|| {
                     HttpResponse::NotFound()
                         .content_type("text/html")
