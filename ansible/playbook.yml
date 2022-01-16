@@ -1,9 +1,9 @@
 ---
 - hosts: server
-  gather_facts: no
+  gather_facts: false
+  become: true
   tasks:
     - name: Upgrade all packages
-      become: true
       apt:
         update_cache: yes
         upgrade: yes
@@ -14,6 +14,27 @@
           - libssl-dev
           - pkg-config
         state: latest
+
+    - name: Reload and enable firewall
+      ufw:
+        state: enabled
+        policy: deny
+    - name: Allow tcp access to port 80 (http)
+      ufw:
+        rule: allow
+        port: '80'
+        proto: tcp
+    - name: Allow tcp access to port 443 (https)
+      ufw:
+        rule: allow
+        port: '443'
+        proto: tcp
+    - name: Allow tcp access to port 22 (ssh)
+      ufw:
+        rule: allow
+        port: '22'
+        proto: tcp
+
     - name: Install "core" snap package
       snap:
         name: core

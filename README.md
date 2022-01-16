@@ -15,13 +15,6 @@ cargo build --bin server
 sudo RUST_LOG=info ./target/debug/server
 ```
 
-## Docker を用いる場合
-
-```bash
-./build-image.sh
-docker run -it --rm -p 80:80 -p 443:443 kodai-blog/server /bin/sh
-```
-
 ## サイト内の記事検索
 
 ### インデックスの作成

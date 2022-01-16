@@ -1,5 +1,5 @@
 [workspace]
 members = [
-    "server",
-    "ssg",
+    "components/server",
+    "components/ssg",
 ]

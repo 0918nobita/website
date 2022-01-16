@@ -1,7 +1,0 @@
-.github
-client
-index
-**/target
-.gitignore
-README.md
-.editorconfig
