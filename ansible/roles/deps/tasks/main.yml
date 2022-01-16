@@ -1,0 +1,22 @@
+---
+- name: Upgrade all packages
+  apt:
+    update_cache: yes
+    upgrade: yes
+
+- name: Install apt packages
+  apt:
+    name:
+      - build-essential
+      - libssl-dev
+      - pkg-config
+    state: latest
+
+- name: Install "core" snap package
+  snap:
+    name: core
+
+- name: Install "certbot" snap package
+  snap:
+    name: certbot
+    classic: yes

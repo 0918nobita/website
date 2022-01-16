@@ -1,0 +1,23 @@
+---
+- name: Reload and enable firewall
+  ufw:
+    state: enabled
+    policy: deny
+
+- name: Allow tcp access to port 80 (http)
+  ufw:
+    rule: allow
+    port: '80'
+    proto: tcp
+
+- name: Allow tcp access to port 443 (https)
+  ufw:
+    rule: allow
+    port: '443'
+    proto: tcp
+
+- name: Allow tcp access to port 22 (ssh)
+  ufw:
+    rule: allow
+    port: '22'
+    proto: tcp
