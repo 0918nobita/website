@@ -14,3 +14,10 @@
           - libssl-dev
           - pkg-config
         state: latest
+    - name: Install "core" snap package
+      snap:
+        name: core
+    - name: Install "certbot" snap package
+      snap:
+        name: certbot
+        classic: yes
