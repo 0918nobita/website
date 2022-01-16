@@ -39,3 +39,11 @@ cargo run --bin ssg -- search [検索ワード]
 ## サイト内検索用のコンポーネント
 
 Svelte で実装しようと思っている。`/client` で作業中。
+
+## VPS でのデーモンの設定
+
+Ubuntu 20.04 を想定している。
+
+```bash
+sudo ./setup-service.sh
+```
