@@ -1,0 +1,16 @@
+---
+- hosts: server
+  gather_facts: no
+  tasks:
+    - name: Upgrade all packages
+      become: true
+      apt:
+        update_cache: yes
+        upgrade: yes
+    - name: Install apt packages
+      apt:
+        name:
+          - build-essential
+          - libssl-dev
+          - pkg-config
+        state: latest
