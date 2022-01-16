@@ -1,0 +1,10 @@
+[Unit]
+Description = kodai blog
+
+[Service]
+ExecStart = /opt/launch-server.sh
+Restart = no
+Type = simple
+
+[Install]
+WantedBy = multi-user.target
