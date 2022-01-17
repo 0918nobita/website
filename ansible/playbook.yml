@@ -5,3 +5,4 @@
   roles:
     - deps
     - firewall
+    - daemon
