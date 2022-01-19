@@ -1,10 +1,10 @@
 ---
 - name: Check rust version
-  shell: source ~/.cargo/env && rustc --version
+  shell:
+    cmd: source ~/.cargo/env && rustc --version
+    executable: /bin/bash
   register: rustc
   ignore_errors: yes
-  args:
-    executable: /bin/bash
 
 - when: rustc.rc != 0
   name: Fetch rustup

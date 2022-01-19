@@ -1,8 +1,8 @@
 ---
 - hosts: server
-  gather_facts: false
   roles:
     - deps
     - firewall
     - rust
-    # - daemon
+    - build-server
+    - daemon

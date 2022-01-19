@@ -1,0 +1,9 @@
+---
+- git:
+    repo: https://github.com/0918nobita/kodai-blog
+    dest: "{{ repo_dir }}"
+
+- shell:
+    chdir: "{{ repo_dir }}"
+    cmd: cargo run --bin ssg -- render
+    creates: "{{ repo_dir }}/public"
