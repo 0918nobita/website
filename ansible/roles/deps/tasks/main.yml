@@ -1,10 +1,12 @@
 ---
 - name: Upgrade all packages
+  become: true
   apt:
     update_cache: yes
     upgrade: yes
 
 - name: Install apt packages
+  become: true
   apt:
     name:
       - build-essential
@@ -13,10 +15,12 @@
     state: latest
 
 - name: Install "core" snap package
+  become: true
   snap:
     name: core
 
 - name: Install "certbot" snap package
+  become: true
   snap:
     name: certbot
     classic: yes

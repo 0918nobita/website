@@ -1,0 +1,21 @@
+---
+- name: Check rust version
+  shell: source ~/.cargo/env && rustc --version
+  register: rustc
+  ignore_errors: yes
+  args:
+    executable: /bin/bash
+
+- when: rustc.rc != 0
+  name: Fetch rustup
+  uri:
+    url: https://sh.rustup.rs
+    return_content: yes
+  register: rustup_installer
+
+- when: rustc.rc != 0
+  name: Run rustup installer
+  become: true
+  shell:
+    cmd: sh -s -- -y
+    stdin: "{{ rustup_installer.content }}"

@@ -1,23 +1,27 @@
 ---
 - name: Create shell script that will be used by kodai-blog service
+  become: true
   template:
     src: launch-server.sh
     dest: /opt/launch-server.sh
     mode: '600'
 
 - name: Create kodai-blog service
+  become: true
   template:
     src: kodai-blog.service
     dest: /etc/systemd/system/kodai-blog.service
     mode: '600'
 
 - name: Enable the service
+  become: true
   systemd:
     name: kodai-blog
     daemon_reload: yes
     enabled: yes
 
 - name: Make sure the service is running
+  become: true
   systemd:
     name: kodai-blog
     state: started
