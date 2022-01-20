@@ -4,7 +4,7 @@ actix-web, tera, tantivy 等を用いて開発している。
 
 ```bash
 # 静的サイト生成
-cargo run --bin ssg -- render
+cargo run --bin ssg
 
 # 証明書の生成
 mkcert -install
@@ -20,11 +20,11 @@ sudo RUST_LOG=info ./target/debug/server
 ### インデックスの作成
 
 ```bash
-cargo run --bin ssg -- index
+cargo run --bin search -- index
 ```
 
 ### 全文検索の実行
 
 ```bash
-cargo run --bin ssg -- search [検索ワード]
+cargo run --bin search -- search [検索ワード]
 ```

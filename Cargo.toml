@@ -1,5 +1,7 @@
 [workspace]
 members = [
+    "components/article",
+    "components/search",
     "components/server",
     "components/ssg",
 ]

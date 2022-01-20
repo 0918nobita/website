@@ -331,6 +331,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "84450d0b4a8bd1ba4144ce8ce718fbc5d071358b1e5384bace6536b3d1f2d5b3"
 
 [[package]]
+name = "article"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "pulldown-cmark",
+ "serde",
+ "yaml-front-matter",
+]
+
+[[package]]
 name = "async-trait"
 version = "0.1.52"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2377,6 +2387,18 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d29ab0c6d3fc0ee92fe66e2d99f700eab17a8d57d1c1d3b748380fb20baa78cd"
 
 [[package]]
+name = "search"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "article",
+ "clap 3.0.6",
+ "lindera-tantivy",
+ "serde",
+ "tantivy",
+]
+
+[[package]]
 name = "security-framework"
 version = "2.4.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2569,13 +2591,10 @@ name = "ssg"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "article",
  "clap 3.0.6",
- "lindera-tantivy",
- "pulldown-cmark",
  "serde",
- "tantivy",
  "tera",
- "yaml-front-matter",
 ]
 
 [[package]]

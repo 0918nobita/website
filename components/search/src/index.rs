@@ -1,10 +1,11 @@
 use std::{fs, path::Path};
 
 use anyhow::Context;
+use article::Articles;
 use lindera_tantivy::tokenizer::LinderaTokenizer;
 use tantivy::{doc, Index};
 
-use super::{articles::Articles, schema::create_schema_and_fields};
+use super::schema::create_schema_and_fields;
 
 fn init_index_dir() -> anyhow::Result<()> {
     if Path::new("index").exists() {
