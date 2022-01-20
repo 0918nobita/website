@@ -48,7 +48,7 @@ pub fn http_server(http_addr: &str) -> Server {
     })
     .workers(2)
     .bind(http_addr)
-    .expect(&format!("Failed to bind {}", http_addr))
+    .unwrap_or_else(|_| panic!("Failed to bind {}", http_addr))
     .run()
 }
 
@@ -76,6 +76,6 @@ pub fn https_server(https_addr: &str, config: Config) -> Server {
             }))
     })
     .bind_openssl(https_addr, ssl)
-    .expect(&format!("Failed to bind {}", https_addr))
+    .unwrap_or_else(|_| panic!("Failed to bind {}", https_addr))
     .run()
 }

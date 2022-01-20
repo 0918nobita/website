@@ -1,7 +1,4 @@
-use std::{
-    fs,
-    path::{Path, PathBuf},
-};
+use std::{fs, path::Path};
 
 use anyhow::Context;
 use lindera_tantivy::tokenizer::LinderaTokenizer;
@@ -17,19 +14,19 @@ fn init_index_dir() -> anyhow::Result<()> {
     fs::create_dir("index").context("Failed to create index dir")
 }
 
-pub fn subcommand_index(src: &PathBuf) -> anyhow::Result<()> {
+pub fn subcommand_index(src: &Path) -> anyhow::Result<()> {
     let (schema, fields) = create_schema_and_fields();
 
     init_index_dir()?;
 
-    let index = Index::create_in_dir("./index", schema.clone())?;
+    let index = Index::create_in_dir("./index", schema)?;
     index
         .tokenizers()
         .register("lang_ja", LinderaTokenizer::new()?);
 
     let mut index_writer = index.writer(100_000_000)?;
 
-    let articles = Articles::new(src.clone())?;
+    let articles = Articles::new(src.to_path_buf())?;
     for article in articles {
         let article = article?;
         index_writer.add_document(doc!(

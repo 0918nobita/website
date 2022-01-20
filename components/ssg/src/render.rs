@@ -1,4 +1,4 @@
-use std::{collections::HashMap, fs, path::PathBuf};
+use std::{collections::HashMap, fs, path::Path};
 
 use serde::Serialize;
 use tera::{Context, Error as TeraErr, Tera, Value};
@@ -18,23 +18,23 @@ struct ArticleListContext {
 }
 
 fn filter_indent(s: &Value, args: &HashMap<String, Value>) -> Result<Value, TeraErr> {
-    let s = s.as_str().ok_or(TeraErr::msg("expected string"))?;
+    let s = s.as_str().ok_or_else(|| TeraErr::msg("expected string"))?;
 
     let count = args
         .get("count")
-        .ok_or(TeraErr::msg("`count` arg is required but missing"))?
+        .ok_or_else(|| TeraErr::msg("`count` arg is required but missing"))?
         .as_u64()
-        .ok_or(TeraErr::msg("the value of `count` is invalid"))?;
+        .ok_or_else(|| TeraErr::msg("the value of `count` is invalid"))?;
 
     let sep = "\n".to_owned() + &" ".repeat(count as usize);
     Ok(Value::String(s.lines().collect::<Vec<_>>().join(&sep)))
 }
 
-pub fn subcommand_render(src: &PathBuf, dest: &PathBuf) -> anyhow::Result<()> {
+pub fn subcommand_render(src: &Path, dest: &Path) -> anyhow::Result<()> {
     let mut tera = Tera::new("templates/**/*")?;
     tera.register_filter("indent", filter_indent);
 
-    let articles = Articles::new(src.clone())?;
+    let articles = Articles::new(src.to_path_buf())?;
     let mut article_contexts = Vec::<ArticleContext>::new();
 
     let rendered = tera.render("index.html", &Context::default())?;

@@ -13,7 +13,7 @@ pub fn subcommand_search(query: &str) -> anyhow::Result<()> {
 
     let searcher = index.reader()?.searcher();
     let query =
-        QueryParser::for_index(&index, vec![fields.title, fields.content]).parse_query(&query)?;
+        QueryParser::for_index(&index, vec![fields.title, fields.content]).parse_query(query)?;
     let results = searcher.search(&query, &TopDocs::with_limit(10))?;
 
     for (_score, doc_addr) in results {
