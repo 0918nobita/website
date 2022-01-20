@@ -1,9 +1,9 @@
-name: Lint
+name: Format
 
 on: push
 
 jobs:
-  lint:
+  format:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,7 +14,3 @@ jobs:
         with:
           command: fmt
           args: --check
-      - uses: actions-rs/clippy-check@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          args: -- --deny warnings
