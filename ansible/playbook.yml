@@ -3,6 +3,4 @@
   roles:
     - deps
     - firewall
-    - rust
-    - build-server
     - daemon

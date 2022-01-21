@@ -1,2 +1,0 @@
----
-repo_dir: /home/{{ ansible_user_id }}/kodai-blog
