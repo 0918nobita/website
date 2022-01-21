@@ -7,5 +7,5 @@ edition = "2021"
 anyhow = "1.0.52"
 article = { path = "../article" }
 clap = { version = "3.0.10", features = ["derive"] }
-serde = "1.0.133"
+serde = "1.0.134"
 tera = { version = "1.15.0", default-features = false }
