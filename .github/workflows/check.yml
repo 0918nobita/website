@@ -39,13 +39,29 @@ jobs:
           args: --check
 
   build:
+    if: startsWith(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
+
+      - uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: --bin ssg
+
       - uses: actions-rs/cargo@v1
         with:
           command: build
           args: --bin server --release
+
+      - id: zip-file
+        run: echo ::set-output name=ZIP_FILE::server-${GITHUB_REF/refs\/tags\//}.zip
+
+      - run: zip -r ${{ steps.zip-file.outputs.ZIP_FILE }} target/release/server public
+
+      - uses: softprops/action-gh-release@v1
+        with:
+          files: ${{ steps.zip-file.outputs.ZIP_FILE }}
