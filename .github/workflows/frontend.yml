@@ -1,0 +1,26 @@
+name: Front-end
+
+on:
+  push:
+    paths:
+      - "components/frontend/**"
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: '6.27.1'
+          run_install: true
+
+      - run: pnpm lint
+        working-directory: components/frontend
