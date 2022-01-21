@@ -1,0 +1,11 @@
+---
+- name: Create ~/kodai-blog directory for unarchiving
+  file:
+    path: ~/kodai-blog
+    state: directory
+
+- name: Donwload and unarchive kodai-blog server
+  unarchive:
+    src: https://github.com/0918nobita/kodai-blog/releases/download/v0.1.0/server-v0.1.0.zip
+    dest: kodai-blog
+    remote_src: yes

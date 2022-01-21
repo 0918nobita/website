@@ -12,6 +12,7 @@
       - build-essential
       - libssl-dev
       - pkg-config
+      - unzip
     state: latest
 
 - name: Install "core" snap package

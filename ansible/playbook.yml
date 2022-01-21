@@ -3,4 +3,5 @@
   roles:
     - deps
     - firewall
+    - install-server
     - daemon
