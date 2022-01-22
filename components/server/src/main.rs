@@ -11,10 +11,10 @@ fn main() -> anyhow::Result<()> {
 
     let mut sys_runner = System::new("web-server");
     let _ = sys_runner.block_on(async move {
-        let http_addr = "[::1]:80";
+        let http_addr = "[::]:80";
         let http = http_server(http_addr);
 
-        let https_addr = "[::1]:443";
+        let https_addr = "[::]:443";
         let https = https_server(https_addr, config);
 
         future::try_join(http, https).await
