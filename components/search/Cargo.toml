@@ -8,5 +8,5 @@ anyhow = "1.0.53"
 article = { path = "../article" }
 clap = { version = "3.0.10", features = ["derive"] }
 lindera-tantivy = "0.8.1"
-serde = "1.0.134"
+serde = "1.0.135"
 tantivy = "0.16.1"
