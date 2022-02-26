@@ -1,9 +1,8 @@
 use actix_files::Files;
 use actix_web::{
     dev::Server,
-    http::{header, ContentEncoding},
-    middleware::{Compress, Logger},
-    web, App, HttpRequest, HttpResponse, HttpServer,
+    middleware::{self, Logger},
+    web, App, HttpResponse, HttpServer,
 };
 use openssl::ssl::{SslAcceptor, SslFiletype, SslMethod};
 use serde::Deserialize;
@@ -33,18 +32,18 @@ pub struct Config {
 }
 
 pub fn http_server(http_addr: &str) -> Server {
+    async fn handler(req: actix_web::HttpRequest) -> HttpResponse {
+        let host = req.connection_info().host().to_owned();
+        let uri = req.uri();
+        let url = format!("https://{}{}", host, uri);
+        HttpResponse::TemporaryRedirect()
+            .append_header((actix_web::http::header::LOCATION, url))
+            .finish()
+    }
     HttpServer::new(|| {
         App::new()
             .wrap(Logger::default())
-            .default_service(web::route().to(|req: HttpRequest| {
-                let host = req.connection_info().host().to_owned();
-                let uri = req.uri();
-                let url = format!("https://{}{}", host, uri);
-                HttpResponse::TemporaryRedirect()
-                    .header(header::LOCATION, url)
-                    .finish()
-                    .into_body()
-            }))
+            .default_service(web::route().to(handler))
     })
     .workers(2)
     .bind(http_addr)
@@ -64,16 +63,18 @@ pub fn https_server(https_addr: &str, config: Config) -> Server {
     ssl.set_private_key_file(private_key_path, SslFiletype::PEM)
         .unwrap();
 
+    async fn handler() -> HttpResponse {
+        HttpResponse::NotFound()
+            .content_type("text/html")
+            .body(include_str!("./404.html"))
+    }
+
     HttpServer::new(move || {
         App::new()
-            .wrap(Compress::new(ContentEncoding::Br))
+            .wrap(middleware::Compress::default())
             .wrap(Logger::default())
             .service(Files::new("/", www_root.clone()).index_file("index.html"))
-            .default_service(web::route().to(|| {
-                HttpResponse::NotFound()
-                    .content_type("text/html")
-                    .body(include_str!("./404.html"))
-            }))
+            .default_service(web::route().to(handler))
     })
     .bind_openssl(https_addr, ssl)
     .unwrap_or_else(|_| panic!("Failed to bind {}", https_addr))
