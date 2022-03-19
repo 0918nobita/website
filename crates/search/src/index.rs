@@ -34,7 +34,7 @@ pub fn subcommand_index(src: &Path) -> anyhow::Result<()> {
             fields.slug => article.slug,
             fields.title => article.title,
             fields.content => article.content,
-        ));
+        ))?;
     }
 
     index_writer.commit()?;
