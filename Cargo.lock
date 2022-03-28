@@ -248,7 +248,7 @@ dependencies = [
  "serde_urlencoded",
  "smallvec",
  "socket2",
- "time 0.3.7",
+ "time 0.3.9",
  "url",
 ]
 
@@ -338,9 +338,9 @@ checksum = "619743e34b5ba4e9703bba34deac3427c72507c7159f5fd030aea8cac0cfe341"
 
 [[package]]
 name = "async-trait"
-version = "0.1.52"
+version = "0.1.53"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "061a7acccaa286c011ddc30970520b98fa40e00c9d644633fb26b5fc63a265e3"
+checksum = "ed6aa3524a2dfcf9fe180c51eae2b58738348d819517ceadf95789c51fff7600"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -588,7 +588,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "94d4706de1b0fa5b132270cddffa8585166037822e260a944fe161acd137ca05"
 dependencies = [
  "percent-encoding",
- "time 0.3.7",
+ "time 0.3.9",
  "version_check",
 ]
 
@@ -1370,9 +1370,9 @@ checksum = "efaa7b300f3b5fe8eb6bf21ce3895e1751d9665086af2d64b42f19701015ff4f"
 
 [[package]]
 name = "lindera"
-version = "0.12.0"
+version = "0.12.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3997e290f46a91cb062a050ff8d7ab7cb46d3390b9eb9a8d87951a0f6295f8cb"
+checksum = "9986e3ed230e1fb08dcfdb8f9f54ef10a403132814f7febb2353bfc3e6ffd81a"
 dependencies = [
  "anyhow",
  "bincode",
@@ -1391,9 +1391,9 @@ dependencies = [
 
 [[package]]
 name = "lindera-cc-cedict-builder"
-version = "0.12.0"
+version = "0.12.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9a12cc0efd744a0f9d138d827d318d5e64a4261dac13719535d5474165f42404"
+checksum = "8c23edd173ed036c28e34ca33f3f2f8f6613b431d6515efcd43b709bea999cf9"
 dependencies = [
  "anyhow",
  "bincode",
@@ -1411,9 +1411,9 @@ dependencies = [
 
 [[package]]
 name = "lindera-core"
-version = "0.12.0"
+version = "0.12.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ade7be6b88b9e3887fb122f3354b10315358cf7c94016b89bc4639322be0bfe0"
+checksum = "fdf5218f8d991d5763b99a2408dad45ed696330a3f63a2e46761afa5e726c35b"
 dependencies = [
  "anyhow",
  "bincode",
@@ -1427,21 +1427,20 @@ dependencies = [
 
 [[package]]
 name = "lindera-decompress"
-version = "0.12.0"
+version = "0.12.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c0fad3fcd3720e80d130d18aeb75396f3fb219eed45aca5f115b983bfe613250"
+checksum = "fe665156d30ae22a97f2f2fc71579d8b3d4d49753f13dc7502e1db6210153f6d"
 dependencies = [
  "anyhow",
- "bincode",
  "lzma-rs",
  "serde",
 ]
 
 [[package]]
 name = "lindera-dictionary"
-version = "0.12.0"
+version = "0.12.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8d1f10d43e0d257cf72682904f81b3238d4e7c3188acc3e892041fc99a5d7f45"
+checksum = "cb1802efa17ce73d8e766ce614c1a548a5fec471f0111baefb2f224bb228694e"
 dependencies = [
  "anyhow",
  "bincode",
@@ -1451,9 +1450,9 @@ dependencies = [
 
 [[package]]
 name = "lindera-ipadic-builder"
-version = "0.12.0"
+version = "0.12.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e5265811bb6b24821e34cb917f698ff1ffdeb754b452deff8d91c28e91a30b70"
+checksum = "2bdde8eab25444e23f0ba80b9baa17c3fae4773b3c764e57d57e948211d20837"
 dependencies = [
  "anyhow",
  "bincode",
@@ -1471,9 +1470,9 @@ dependencies = [
 
 [[package]]
 name = "lindera-ko-dic-builder"
-version = "0.12.0"
+version = "0.12.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "76b099002470dbd59969ca5e8dcea0e3b516f18ff2d1d8df397804505d1b3dcd"
+checksum = "551c01dec367d2db4e97bbbba97bba3f3e7704d45e3f7fd3ef5fce33f0392952"
 dependencies = [
  "anyhow",
  "bincode",
@@ -1501,9 +1500,9 @@ dependencies = [
 
 [[package]]
 name = "lindera-unidic-builder"
-version = "0.12.0"
+version = "0.12.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "57c2653ad2812b08b192217613a6f160930f02504c13d0a67050463a6fc260a4"
+checksum = "34a2c62a3942f849edf249d7cc1080ab32d621cea5bddabbfe88e7f2dfcc9e42"
 dependencies = [
  "anyhow",
  "bincode",
@@ -1908,9 +1907,9 @@ dependencies = [
 
 [[package]]
 name = "paste"
-version = "1.0.6"
+version = "1.0.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0744126afe1a6dd7f394cb50a716dbe086cb06e255e53d8d0185d82828358fb5"
+checksum = "0c520e05135d6e763148b6426a837e239041653ba7becd2e538c076c738025fc"
 
 [[package]]
 name = "percent-encoding"
@@ -2050,9 +2049,9 @@ dependencies = [
 
 [[package]]
 name = "quote"
-version = "1.0.16"
+version = "1.0.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b4af2ec4714533fcdf07e886f17025ace8b997b9ce51204ee69b6da831c3da57"
+checksum = "632d02bff7f874a36f33ea8bb416cd484b90cc66c1194b1a1110d067a7013f58"
 dependencies = [
  "proc-macro2",
 ]
@@ -2114,9 +2113,9 @@ dependencies = [
 
 [[package]]
 name = "redox_syscall"
-version = "0.2.11"
+version = "0.2.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8380fe0152551244f0747b1bf41737e0f8a74f97a14ccefd1148187271634f3c"
+checksum = "8ae183fc1b06c149f0c1793e1eb447c8b04bfe46d48e9e48bfb8d2d7ed64ecf0"
 dependencies = [
  "bitflags",
 ]
@@ -2213,9 +2212,9 @@ dependencies = [
 
 [[package]]
 name = "semver"
-version = "1.0.6"
+version = "1.0.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a4a3381e03edd24287172047536f20cabde766e2cd3e65e6b00fb3af51c4f38d"
+checksum = "d65bd28f48be7196d222d95b9243287f48d27aca604e08497513019ff0502cc4"
 
 [[package]]
 name = "serde"
@@ -2574,9 +2573,9 @@ dependencies = [
 
 [[package]]
 name = "time"
-version = "0.3.7"
+version = "0.3.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "004cbc98f30fa233c61a38bc77e96a9106e65c88f2d3bef182ae952027e5753d"
+checksum = "c2702e08a7a860f005826c6815dcac101b19b5eb330c27fe4a5928fec1d20ddd"
 dependencies = [
  "itoa 1.0.1",
  "libc",
@@ -2586,9 +2585,9 @@ dependencies = [
 
 [[package]]
 name = "time-macros"
-version = "0.2.3"
+version = "0.2.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "25eb0ca3468fc0acc11828786797f6ef9aa1555e4a211a60d64cc8e4d1be47d6"
+checksum = "42657b1a6f4d817cda8e7a0ace261fe0cc946cf3a80314390b22cc61ae080792"
 
 [[package]]
 name = "tinyvec"
