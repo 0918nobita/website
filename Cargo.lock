@@ -1388,9 +1388,9 @@ checksum = "efaa7b300f3b5fe8eb6bf21ce3895e1751d9665086af2d64b42f19701015ff4f"
 
 [[package]]
 name = "lindera"
-version = "0.12.4"
+version = "0.12.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ce3e25c6329d9133918004a237918f0bb0160aeaa3f2d30f8c68a30cae23ff61"
+checksum = "a980259ec87bb654cc8d2aa595d35cfefbb0d0b374b7aed376c1e47cabb3601a"
 dependencies = [
  "anyhow",
  "bincode",
@@ -1409,9 +1409,9 @@ dependencies = [
 
 [[package]]
 name = "lindera-cc-cedict-builder"
-version = "0.12.4"
+version = "0.12.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3f7a070b7b18f13ab79566c3e5e6a1da0e6b172be200adc299593fd0cc3eecba"
+checksum = "66669408c36c46b229728723a89de427a0c346a9a1268c99747a75c040d7a35a"
 dependencies = [
  "anyhow",
  "bincode",
@@ -1429,9 +1429,9 @@ dependencies = [
 
 [[package]]
 name = "lindera-core"
-version = "0.12.4"
+version = "0.12.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4da97ad179284a1128a658623842c13a2de71efbf108d0b490388bb8c1dac7b8"
+checksum = "d5819052f8c754379c52f62b18a24760cdd2977bd3e286c631aa1d75a5264580"
 dependencies = [
  "anyhow",
  "bincode",
@@ -1445,9 +1445,9 @@ dependencies = [
 
 [[package]]
 name = "lindera-decompress"
-version = "0.12.4"
+version = "0.12.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "701f056e4b0007a1aaaaacb1a677e2904b970216a6a0dd5a4fcb535d765c6a92"
+checksum = "ee74c2d9a147a1389af8d3dfe59c512e6a5e8fc076ea810ae965d1127bd805f8"
 dependencies = [
  "anyhow",
  "lzma-rs",
@@ -1456,9 +1456,9 @@ dependencies = [
 
 [[package]]
 name = "lindera-dictionary"
-version = "0.12.4"
+version = "0.12.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0d30ea0e22657e1f489ed2068870a7c3d50696b46264fb67c555db991b7a8c01"
+checksum = "bc8bfcff2413d585a25df1ebd0dd430024678c820761fecd67c65337961d160d"
 dependencies = [
  "anyhow",
  "bincode",
@@ -1468,9 +1468,9 @@ dependencies = [
 
 [[package]]
 name = "lindera-ipadic-builder"
-version = "0.12.4"
+version = "0.12.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6ffc0196451349d3af6e3328f47d911315ec78977ba87143b4728ef5df3047ec"
+checksum = "8d4008f30fff925a8112a4b4c854d167d9d4184d2f9aad4d4cb873576da0352d"
 dependencies = [
  "anyhow",
  "bincode",
@@ -1488,9 +1488,9 @@ dependencies = [
 
 [[package]]
 name = "lindera-ko-dic-builder"
-version = "0.12.4"
+version = "0.12.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8769d16f30c73e11e2aa430aa7188cc5b4d0fe65a7ed53df399149d885728b05"
+checksum = "d9dfe9d160fe0c76c688dc11f7654ebefef0fae3c0d6d4a655bdeb79050690b1"
 dependencies = [
  "anyhow",
  "bincode",
@@ -1508,9 +1508,9 @@ dependencies = [
 
 [[package]]
 name = "lindera-tantivy"
-version = "0.12.3"
+version = "0.12.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "86b519f3c87b958481de68e0b5624c3d9144dabec1b8f593cbf9051801c24809"
+checksum = "a2b458e2ade1e49415207989aedc5f2cf9f602ce8b74f7ba495aa79d4ff5affb"
 dependencies = [
  "lindera",
  "tantivy",
@@ -1518,9 +1518,9 @@ dependencies = [
 
 [[package]]
 name = "lindera-unidic-builder"
-version = "0.12.4"
+version = "0.12.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ce09bc5bff2131395dcf022fe7fd5b169a3a754471de345d650d69f306889308"
+checksum = "ffad721ccf49a2a4f3999d0d156b0dbc64c9137ddb633c768260f5158e737a2b"
 dependencies = [
  "anyhow",
  "bincode",
