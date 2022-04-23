@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-anyhow = "1.0.56"
+anyhow = "1.0.57"
 article = { path = "../article" }
 clap = { version = "3.1.8", features = ["derive"] }
 lindera-tantivy = "0.13.1"
