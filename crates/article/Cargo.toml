@@ -6,5 +6,5 @@ edition = "2021"
 [dependencies]
 anyhow = "1.0.58"
 pulldown-cmark = "0.9.1"
-serde = "1.0.137"
+serde = "1.0.138"
 yaml-front-matter = "0.1.0"
