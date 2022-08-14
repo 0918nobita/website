@@ -8,4 +8,4 @@ anyhow = "1.0.61"
 article = { path = "../article" }
 clap = { version = "3.2.17", features = ["derive"] }
 serde = "1.0.143"
-tera = { version = "1.16.0", default-features = false }
+tera = { version = "1.17.0", default-features = false }
