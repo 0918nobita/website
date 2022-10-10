@@ -6,6 +6,6 @@ edition = "2021"
 [dependencies]
 anyhow = "1.0.65"
 article = { path = "../article" }
-clap = { version = "4.0.10", features = ["derive"] }
+clap = { version = "4.0.11", features = ["derive"] }
 serde = "1.0.144"
 tera = { version = "1.17.1", default-features = false }
