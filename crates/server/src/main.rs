@@ -9,7 +9,7 @@ fn main() -> anyhow::Result<()> {
 
     let config: Config = envy::from_env()?;
 
-    let mut sys_runner = System::new("web-server");
+    let sys_runner = System::new();
     let _ = sys_runner.block_on(async move {
         let http_addr = "[::]:80";
         let http = http_server(http_addr);
