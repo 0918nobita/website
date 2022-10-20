@@ -9,4 +9,4 @@ article = { path = "../article" }
 clap = { version = "4.0.17", features = ["derive"] }
 lindera-tantivy = "0.16.2"
 serde = "1.0.145"
-tantivy = "0.18.0"
+tantivy = "0.18.1"
