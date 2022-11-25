@@ -58,7 +58,7 @@ pub fn subcommand_render(src: &Path, dest: &Path) -> anyhow::Result<()> {
     };
 
     let rendered = tera.render("article_list.html", &Context::from_serialize(&context)?)?;
-    fs::create_dir_all(&dest)?;
+    fs::create_dir_all(dest)?;
     fs::write(dest.join("article_list.html"), rendered)?;
 
     Ok(())
