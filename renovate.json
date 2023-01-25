@@ -5,6 +5,11 @@
       "matchUpdateTypes": ["major"],
       "matchPackageNames": ["actix-rt"],
       "enabled": false
+    },
+    {
+      "groupName": "Search Engine",
+      "matchManagers": ["cargo"],
+      "matchPackageNames": ["tantivy", "lindera-tantivy"]
     }
   ],
   "lockFileMaintenance": { "enabled": true }
