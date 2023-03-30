@@ -10,7 +10,7 @@ actix-web = { version = "4.3.1", features = ["openssl"] }
 anyhow = "1.0.70"
 env_logger = "0.10.0"
 envy = "0.4.2"
-futures = "0.3.27"
+futures = "0.3.28"
 log = "0.4.17"
 openssl = "0.10.48"
 serde = "1.0.159"
