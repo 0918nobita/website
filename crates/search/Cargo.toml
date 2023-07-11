@@ -7,6 +7,6 @@ edition = "2021"
 anyhow = "1.0.70"
 article = { path = "../article" }
 clap = { version = "4.2.1", features = ["derive"] }
-lindera-tantivy = "0.18.0"
+lindera-tantivy = "0.27.0"
 serde = "1.0.159"
-tantivy = "0.18.1"
+tantivy = "0.20.2"
