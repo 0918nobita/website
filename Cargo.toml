@@ -1,7 +1,0 @@
-[workspace]
-members = [
-    "crates/article",
-    "crates/search",
-    "crates/server",
-    "crates/ssg",
-]

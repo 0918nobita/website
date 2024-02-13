@@ -1,7 +1,0 @@
----
-- hosts: server
-  roles:
-    - deps
-    - firewall
-    - install-server
-    - daemon
