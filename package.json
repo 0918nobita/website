@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "@0918nobita/website",
+  "version": "0.1.0",
+  "description": "Portfolio website",
+  "scripts": {
+    "format": "prettier --write ."
+  },
+  "author": "Kodai Matsumoto <nobita.0918@gmail.com>",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  }
+}
