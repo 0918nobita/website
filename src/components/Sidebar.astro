@@ -1,9 +1,9 @@
 <nav>
     <ul>
-        <li><a href="/summary">概要</a></li>
-        <li>スキル・強み</li>
-        <li>自分史</li>
-        <li>連絡先</li>
+        <li><a href="/summary"><div>概要</div></a></li>
+        <li><a href="/skills"><div>スキル・強み</div></a></li>
+        <li><a href="/history"><div>自分史</div></a></li>
+        <li><a href="/contact"><div>連絡先</div></a></li>
     </ul>
 </nav>
 
@@ -23,10 +23,12 @@
     }
 
     li {
-        padding: 0.5rem 1rem;
-    }
+        &:hover {
+            background-color: #e9d3f1;
+        }
 
-    li:hover {
-        background-color: #e9d3f1;
+        a div {
+            padding: 0.5rem 1rem;
+        }
     }
 </style>
