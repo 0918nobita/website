@@ -1,13 +1,32 @@
 <nav>
-    <div>概要</div>
-    <div>スキル・強み</div>
-    <div>自分史</div>
-    <div>連絡先</div>
+    <ul>
+        <li><a href="/summary">概要</a></li>
+        <li>スキル・強み</li>
+        <li>自分史</li>
+        <li>連絡先</li>
+    </ul>
 </nav>
 
 <style>
     nav {
         display: flex;
         flex-direction: column;
+        background-color: #f8e4ff;
+        width: 18rem;
+        min-height: 100vh;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 1rem 0;
+        margin: 0;
+    }
+
+    li {
+        padding: 0.5rem 1rem;
+    }
+
+    li:hover {
+        background-color: #e9d3f1;
     }
 </style>
