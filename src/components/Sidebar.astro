@@ -1,34 +1,34 @@
 <nav>
-    <ul>
-        <li><a href="/summary"><div>概要</div></a></li>
-        <li><a href="/skills"><div>スキル・強み</div></a></li>
-        <li><a href="/history"><div>自分史</div></a></li>
-        <li><a href="/contact"><div>連絡先</div></a></li>
-    </ul>
+  <ul>
+    <li><a href="/summary"><div>概要</div></a></li>
+    <li><a href="/skills"><div>スキル・強み</div></a></li>
+    <li><a href="/history"><div>自分史</div></a></li>
+    <li><a href="/contact"><div>連絡先</div></a></li>
+  </ul>
 </nav>
 
 <style>
-    nav {
-        display: flex;
-        flex-direction: column;
-        background-color: #f8e4ff;
-        width: 18rem;
-        min-height: 100vh;
+  nav {
+    display: flex;
+    flex-direction: column;
+    background-color: #f8e4ff;
+    width: 18rem;
+    min-height: 100vh;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 1rem 0;
+    margin: 0;
+  }
+
+  li {
+    &:hover {
+      background-color: #e9d3f1;
     }
 
-    ul {
-        list-style-type: none;
-        padding: 1rem 0;
-        margin: 0;
+    a div {
+      padding: 0.5rem 1rem;
     }
-
-    li {
-        &:hover {
-            background-color: #e9d3f1;
-        }
-
-        a div {
-            padding: 0.5rem 1rem;
-        }
-    }
+  }
 </style>
