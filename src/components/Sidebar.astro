@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Image } from 'astro:assets';
 ---
 
 <nav>
@@ -23,7 +23,8 @@ import { Image } from "astro:assets";
 
 <style>
   nav {
-    background-color: #f8e4ff;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
     width: 18rem;
     min-height: 100vh;
   }
@@ -42,11 +43,15 @@ import { Image } from "astro:assets";
 
   li {
     &:hover {
-      background-color: #e9d3f1;
+      background-color: var(--sidebar-hovered-bg);
     }
 
-    a div {
-      padding: 0.5rem 1rem;
+    a {
+      text-decoration: none;
+
+      div {
+        padding: 0.5rem 1rem;
+      }
     }
   }
 </style>

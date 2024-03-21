@@ -1,8 +1,8 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import '../global.css';
 
-import Sidebar from "../components/Sidebar.astro";
-import ThemeToggle from "../components/ThemeToggle.astro";
+import { ViewTransitions } from 'astro:transitions';
+import Sidebar from '../components/Sidebar.astro';
 
 const { title } = Astro.props;
 ---
@@ -10,6 +10,8 @@ const { title } = Astro.props;
 <!doctype html>
 <html lang="ja">
   <head>
+    <ViewTransitions />
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="og:title" content="Kodai のウェブサイト" />
@@ -26,7 +28,6 @@ const { title } = Astro.props;
     <title>{title}</title>
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" />
-    <ViewTransitions />
   </head>
   <body>
     <main>
@@ -35,26 +36,8 @@ const { title } = Astro.props;
         <slot />
       </article>
     </main>
-    <ThemeToggle />
-    <style is:global>
-      *,
-      *::before,
-      *::after {
-        box-sizing: inherit;
-      }
-    </style>
 
     <style>
-      html {
-        box-sizing: border-box;
-      }
-
-      body {
-        margin: 0;
-        background-color: #fcfcfc;
-        color: #535353;
-      }
-
       main {
         display: flex;
       }
