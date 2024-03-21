@@ -1,5 +1,7 @@
 ---
-import Sidebar from '../components/Sidebar.astro';
+import { ViewTransitions } from "astro:transitions";
+
+import Sidebar from "../components/Sidebar.astro";
 
 const { title } = Astro.props;
 ---
@@ -23,6 +25,7 @@ const { title } = Astro.props;
     <title>{title}</title>
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" />
+    <ViewTransitions />
   </head>
   <body>
     <main>
@@ -31,34 +34,33 @@ const { title } = Astro.props;
         <slot />
       </article>
     </main>
+    <style is:global>
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+    </style>
+
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background-color: #fcfcfc;
+        color: #535353;
+      }
+
+      main {
+        display: flex;
+      }
+
+      article {
+        flex: 1;
+        padding: 1rem;
+      }
+    </style>
   </body>
 </html>
-
-<style is:global>
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
-</style>
-
-<style>
-  html {
-    box-sizing: border-box;
-  }
-
-  body {
-    margin: 0;
-    background-color: #fcfcfc;
-    color: #535353;
-  }
-
-  main {
-    display: flex;
-  }
-
-  article {
-    flex: 1;
-    padding: 1rem;
-  }
-</style>

@@ -1,6 +1,19 @@
+---
+import { Image } from "astro:assets";
+---
+
 <nav>
+  <Image
+    class="icon"
+    src="/icon.jpg"
+    alt="kodai のアイコン"
+    width="399"
+    height="399"
+    loading="eager"
+    decoding="async"
+  />
   <ul>
-    <li><a href="/summary"><div>概要</div></a></li>
+    <li><a href="/"><div>トップページ</div></a></li>
     <li><a href="/skills"><div>スキル・強み</div></a></li>
     <li><a href="/history"><div>自分史</div></a></li>
     <li><a href="/contact"><div>連絡先</div></a></li>
@@ -9,16 +22,20 @@
 
 <style>
   nav {
-    display: flex;
-    flex-direction: column;
     background-color: #f8e4ff;
     width: 18rem;
     min-height: 100vh;
   }
 
+  .icon {
+    max-width: 100%;
+    height: auto;
+    padding: 1rem;
+  }
+
   ul {
     list-style-type: none;
-    padding: 1rem 0;
+    padding: 0;
     margin: 0;
   }
 
