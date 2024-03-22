@@ -1,0 +1,25 @@
+---
+import styles from './SpHeader.module.css';
+
+import { Image } from 'astro:assets';
+
+const { class: className } = Astro.props;
+---
+
+<header class:list={[styles['header'], className]}>
+  <a class={styles['top']} href="/">
+    <Image
+      class={styles['icon']}
+      src="/icon.jpg"
+      alt="Kodai のアイコン"
+      width="399"
+      height="399"
+      loading="eager"
+      decoding="async"
+    />
+  </a>
+  <a class={styles['navItem']} href="/contact">連絡先</a>
+  <a class={styles['navItem']} href="/skills">スキル</a>
+  <a class={styles['navItem']} href="/history">自分史</a>
+  <a class={styles['navItem']} href="/hobbies">趣味</a>
+</header>

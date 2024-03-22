@@ -1,0 +1,26 @@
+---
+import styles from './Sidebar.module.css';
+
+import { Image } from 'astro:assets';
+
+const { class: className } = Astro.props;
+---
+
+<nav class:list={[styles['nav'], className]}>
+  <Image
+    class={styles['icon']}
+    src="/icon.jpg"
+    alt="kodai のアイコン"
+    width="399"
+    height="399"
+    loading="eager"
+    decoding="async"
+  />
+  <ul>
+    <li><a href="/"><div>トップページ</div></a></li>
+    <li><a href="/contact"><div>連絡先</div></a></li>
+    <li><a href="/skills"><div>スキル・強み</div></a></li>
+    <li><a href="/history"><div>自分史</div></a></li>
+    <li><a href="/hobbies"><div>趣味</div></a></li>
+  </ul>
+</nav>
