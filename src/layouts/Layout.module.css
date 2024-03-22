@@ -1,0 +1,18 @@
+.main {
+  display: flex;
+}
+
+@media screen and (max-width: 750px) {
+  .main {
+    flex-direction: row;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
+
+.article {
+  flex: 1;
+  padding: 1rem;
+}

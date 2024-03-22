@@ -1,5 +1,6 @@
 ---
 import '../global.css';
+import styles from './Layout.module.css';
 
 import { ViewTransitions } from 'astro:transitions';
 import Sidebar from '../components/Sidebar.astro';
@@ -30,22 +31,12 @@ const { title } = Astro.props;
     <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" />
   </head>
   <body>
-    <main>
-      <Sidebar />
-      <article>
+    <main class={styles['main']}>
+      <Sidebar class={styles['sidebar']} />
+
+      <article class={styles['article']}>
         <slot />
       </article>
     </main>
-
-    <style>
-      main {
-        display: flex;
-      }
-
-      article {
-        flex: 1;
-        padding: 1rem;
-      }
-    </style>
   </body>
 </html>

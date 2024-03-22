@@ -1,10 +1,14 @@
 ---
+import styles from './Sidebar.module.css';
+
 import { Image } from 'astro:assets';
+
+const { class: className } = Astro.props;
 ---
 
-<nav>
+<nav class:list={[styles['nav'], className]}>
   <Image
-    class="icon"
+    class={styles['icon']}
     src="/icon.jpg"
     alt="kodai のアイコン"
     width="399"
@@ -20,38 +24,3 @@ import { Image } from 'astro:assets';
     <li><a href="/contact"><div>連絡先</div></a></li>
   </ul>
 </nav>
-
-<style>
-  nav {
-    background-color: var(--sidebar-bg);
-    color: var(--sidebar-text);
-    width: 18rem;
-    min-height: 100vh;
-  }
-
-  .icon {
-    max-width: 100%;
-    height: auto;
-    padding: 1rem;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  li {
-    &:hover {
-      background-color: var(--sidebar-hovered-bg);
-    }
-
-    a {
-      text-decoration: none;
-
-      div {
-        padding: 0.5rem 1rem;
-      }
-    }
-  }
-</style>
