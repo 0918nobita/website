@@ -3,7 +3,9 @@ import '../global.css';
 import styles from './Layout.module.css';
 
 import { ViewTransitions } from 'astro:transitions';
+
 import Sidebar from '../components/Sidebar.astro';
+import SpHeader from '../components/SpHeader.astro';
 
 const { title } = Astro.props;
 ---
@@ -33,6 +35,8 @@ const { title } = Astro.props;
   <body>
     <main class={styles['main']}>
       <Sidebar class={styles['sidebar']} />
+
+      <SpHeader class={styles['spHeader']} />
 
       <article class={styles['article']}>
         <slot />

@@ -1,18 +1,30 @@
 .main {
   display: flex;
-}
 
-@media screen and (max-width: 750px) {
-  .main {
-    flex-direction: row;
-  }
-
-  .sidebar {
+  .spHeader {
     display: none;
   }
+
+  .article {
+    flex: 1;
+    padding: 1rem;
+  }
 }
 
-.article {
-  flex: 1;
-  padding: 1rem;
+@media (max-width: 750px) {
+  .main {
+    flex-direction: column;
+
+    .sidebar {
+      display: none;
+    }
+
+    .spHeader {
+      display: flex;
+    }
+
+    .article {
+      padding: 0 1rem 1rem 1rem;
+    }
+  }
 }
