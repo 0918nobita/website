@@ -96,9 +96,11 @@ const { title } = Astro.props;
 
       <SpHeader class={styles['spHeader']} />
 
-      <article class={styles['article']}>
-        <slot />
-      </article>
+      <div class={styles['articleWrapper']}>
+        <article class={styles['article']}>
+          <slot />
+        </article>
+      </div>
     </main>
   </body>
 </html>

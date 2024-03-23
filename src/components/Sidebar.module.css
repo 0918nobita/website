@@ -4,7 +4,7 @@
   background-color: var(--sidebar-bg);
   color: var(--sidebar-text);
   width: 18rem;
-  min-height: 100vh;
+  height: 100vh;
 
   .icon {
     max-width: 100%;
