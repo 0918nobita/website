@@ -8,27 +8,23 @@ a {
   color: inherit;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --main-text: #fcfcfc;
-    --main-bg: #363636;
-    --sidebar-text: #fcfcfc;
-    --sidebar-bg: #736279;
-    --sidebar-hovered-bg: #907999;
-  }
+:root {
+  --main-text: #535353;
+  --main-bg: #fcfcfc;
+  --sidebar-text: #535353;
+  --sidebar-bg: #f8e4ff;
+  --sidebar-hovered-bg: #e9d3f1;
+}
+
+:root[data-theme='dark'] {
+  --main-text: #fcfcfc;
+  --main-bg: #363636;
+  --sidebar-text: #fcfcfc;
+  --sidebar-bg: #736279;
+  --sidebar-hovered-bg: #907999;
 
   img {
     filter: grayscale(20%);
-  }
-}
-
-@media not (prefers-color-scheme: dark) {
-  :root {
-    --main-text: #535353;
-    --main-bg: #fcfcfc;
-    --sidebar-text: #535353;
-    --sidebar-bg: #f8e4ff;
-    --sidebar-hovered-bg: #e9d3f1;
   }
 }
 

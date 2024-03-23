@@ -33,8 +33,66 @@ const { title } = Astro.props;
     <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" />
   </head>
   <body>
+    <script is:inline define:vars={{ themeToggleClass: styles['themeToggle'] }}>
+      function getDefaultTheme() {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light';
+      }
+
+      function setTheme(doc) {
+        doc.documentElement.dataset.theme = (() => {
+          if (typeof localStorage === undefined) {
+            return getDefaultTheme();
+          }
+
+          const savedValue = localStorage.getItem('theme');
+
+          if (savedValue === null || savedValue === 'match-system') {
+            localStorage.setItem('theme', 'match-system');
+            return getDefaultTheme();
+          }
+
+          const theme =
+            savedValue === null
+              ? getDefaultTheme()
+              : savedValue === 'dark'
+                ? 'dark'
+                : 'light';
+
+          localStorage.setItem('theme', theme);
+
+          return theme;
+        })();
+      }
+
+      /** @param {Document} doc */
+      function setClickEventListener(doc) {
+        const themeToggle = doc.getElementsByClassName(themeToggleClass)[0];
+
+        themeToggle.addEventListener('change', (ev) => {
+          localStorage.setItem('theme', ev.target.value);
+          setTheme(document);
+        });
+      }
+
+      setTheme(document);
+
+      document.addEventListener('astro:before-swap', (ev) => {
+        setTheme(ev.newDocument);
+        setClickEventListener(ev.newDocument);
+      });
+
+      document.addEventListener('DOMContentLoaded', () => {
+        setClickEventListener(document);
+      });
+    </script>
+
     <main class={styles['main']}>
-      <Sidebar class={styles['sidebar']} />
+      <Sidebar
+        class={styles['sidebar']}
+        themeToggleClass={styles['themeToggle']}
+      />
 
       <SpHeader class={styles['spHeader']} />
 

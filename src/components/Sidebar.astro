@@ -3,7 +3,7 @@ import styles from './Sidebar.module.css';
 
 import { Image } from 'astro:assets';
 
-const { class: className } = Astro.props;
+const { class: className, themeToggleClass } = Astro.props;
 ---
 
 <nav class:list={[styles['nav'], className]}>
@@ -16,6 +16,7 @@ const { class: className } = Astro.props;
     loading="eager"
     decoding="async"
   />
+
   <ul>
     <li><a href="/"><div>トップページ</div></a></li>
     <li><a href="/contact"><div>連絡先</div></a></li>
@@ -23,4 +24,12 @@ const { class: className } = Astro.props;
     <li><a href="/history"><div>自分史</div></a></li>
     <li><a href="/hobbies"><div>趣味</div></a></li>
   </ul>
+
+  <div class={styles['spacer']}></div>
+
+  <select class:list={[styles['themeToggle'], themeToggleClass]}>
+    <option value="match-system">システム設定にあわせる</option>
+    <option value="dark">ダークモードに固定</option>
+    <option value="light">ライトモードに固定</option>
+  </select>
 </nav>
