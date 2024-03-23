@@ -35,19 +35,4 @@
   .spacer {
     flex-grow: 1;
   }
-
-  .themeToggle {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-
-    padding: 0.5rem 1rem;
-    border: none;
-    background-color: var(--sidebar-bg);
-    color: var(--sidebar-text);
-
-    &:hover {
-      background-color: var(--sidebar-hovered-bg);
-    }
-  }
 }

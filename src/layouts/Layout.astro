@@ -66,25 +66,12 @@ const { title } = Astro.props;
         })();
       }
 
-      /** @param {Document} doc */
-      function setClickEventListener(doc) {
-        const themeToggle = doc.getElementsByClassName(themeToggleClass)[0];
-
-        themeToggle.addEventListener('change', (ev) => {
-          localStorage.setItem('theme', ev.target.value);
-          setTheme(document);
-        });
-      }
-
       setTheme(document);
+
+      window.setTheme = setTheme;
 
       document.addEventListener('astro:before-swap', (ev) => {
         setTheme(ev.newDocument);
-        setClickEventListener(ev.newDocument);
-      });
-
-      document.addEventListener('DOMContentLoaded', () => {
-        setClickEventListener(document);
       });
     </script>
 

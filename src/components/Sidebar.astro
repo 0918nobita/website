@@ -3,7 +3,9 @@ import styles from './Sidebar.module.css';
 
 import { Image } from 'astro:assets';
 
-const { class: className, themeToggleClass } = Astro.props;
+import ThemeToggle from './ThemeToggle.svelte';
+
+const { class: className } = Astro.props;
 ---
 
 <nav class:list={[styles['nav'], className]}>
@@ -27,9 +29,5 @@ const { class: className, themeToggleClass } = Astro.props;
 
   <div class={styles['spacer']}></div>
 
-  <select class:list={[styles['themeToggle'], themeToggleClass]}>
-    <option value="match-system">システム設定にあわせる</option>
-    <option value="dark">ダークモードに固定</option>
-    <option value="light">ライトモードに固定</option>
-  </select>
+  <ThemeToggle client:only="svelte" />
 </nav>
