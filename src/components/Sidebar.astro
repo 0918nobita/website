@@ -10,7 +10,7 @@ const { class: className } = Astro.props;
 
 <nav class:list={[styles['nav'], className]}>
   <Image
-    class={styles['icon']}
+    class:list={[styles['icon']]}
     src="/icon.jpg"
     alt="kodai のアイコン"
     width="399"
@@ -27,7 +27,7 @@ const { class: className } = Astro.props;
     <li><a href="/hobbies"><div>趣味</div></a></li>
   </ul>
 
-  <div class={styles['spacer']}></div>
+  <div class:list={[styles['spacer']]}></div>
 
   <ThemeToggle client:only="svelte" />
 </nav>

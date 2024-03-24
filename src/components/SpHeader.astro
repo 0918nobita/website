@@ -7,9 +7,9 @@ const { class: className } = Astro.props;
 ---
 
 <header class:list={[styles['header'], className]}>
-  <a class={styles['top']} href="/">
+  <a class:list={[styles['top']]} href="/">
     <Image
-      class={styles['icon']}
+      class:list={[styles['icon']]}
       src="/icon.jpg"
       alt="Kodai のアイコン"
       width="399"
@@ -18,9 +18,9 @@ const { class: className } = Astro.props;
       decoding="async"
     />
   </a>
-  <a class={styles['navItem']} href="/">トップ</a>
-  <a class={styles['navItem']} href="/contact">連絡先</a>
-  <a class={styles['navItem']} href="/skills">スキル</a>
-  <a class={styles['navItem']} href="/history">自分史</a>
-  <a class={styles['navItem']} href="/hobbies">趣味</a>
+  <a class:list={[styles['navItem']]} href="/">トップ</a>
+  <a class:list={[styles['navItem']]} href="/contact">連絡先</a>
+  <a class:list={[styles['navItem']]} href="/skills">スキル</a>
+  <a class:list={[styles['navItem']]} href="/history">自分史</a>
+  <a class:list={[styles['navItem']]} href="/hobbies">趣味</a>
 </header>
