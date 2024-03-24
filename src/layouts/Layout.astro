@@ -34,44 +34,63 @@ const { title } = Astro.props;
   </head>
   <body>
     <script is:inline define:vars={{ themeToggleClass: styles['themeToggle'] }}>
-      function getDefaultTheme() {
+      function osThemeSetting() {
         return window.matchMedia('(prefers-color-scheme: dark)').matches
           ? 'dark'
           : 'light';
       }
 
-      function setTheme(doc) {
-        doc.documentElement.dataset.theme = (() => {
-          if (typeof localStorage === undefined) {
-            return getDefaultTheme();
+      /** @param {Document} doc */
+      function applyTheme(doc) {
+        const theme = (() => {
+          if (typeof localStorage === undefined) return osThemeSetting();
+
+          const storedTheme = localStorage.getItem('theme');
+
+          switch (true) {
+            case storedTheme === 'dark':
+              return 'dark';
+            case storedTheme === 'light':
+              return 'light';
+            case storedTheme !== null:
+              localStorage.removeItem('theme');
+            default:
+              return osThemeSetting();
           }
-
-          const savedValue = localStorage.getItem('theme');
-
-          if (savedValue === null || savedValue === 'match-system') {
-            localStorage.setItem('theme', 'match-system');
-            return getDefaultTheme();
-          }
-
-          const theme =
-            savedValue === null
-              ? getDefaultTheme()
-              : savedValue === 'dark'
-                ? 'dark'
-                : 'light';
-
-          localStorage.setItem('theme', theme);
-
-          return theme;
         })();
+
+        doc.documentElement.dataset['theme'] = theme;
       }
 
-      setTheme(document);
+      /**
+       * @param {Document} doc
+       * @param {'match-system' | 'dark' | 'light'} theme
+       */
+      function changeTheme(doc, theme) {
+        if (typeof localStorage === undefined) return;
 
-      window.setTheme = setTheme;
+        switch (theme) {
+          case 'dark':
+            localStorage.setItem('theme', 'dark');
+            break;
+
+          case 'light':
+            localStorage.setItem('theme', 'light');
+            break;
+
+          default:
+            localStorage.removeItem('theme');
+        }
+
+        applyTheme(doc);
+      }
+
+      applyTheme(document);
+
+      window.changeTheme = changeTheme;
 
       document.addEventListener('astro:before-swap', (ev) => {
-        setTheme(ev.newDocument);
+        applyTheme(ev.newDocument);
       });
     </script>
 

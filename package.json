@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "@astrojs/svelte": "^5.2.0",
-    "nanostores": "^0.10.0",
     "svelte": "^4.2.12"
   }
 }

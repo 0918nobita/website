@@ -1,18 +1,41 @@
 <script lang="ts">
-  import { theme } from '../themeStore';
+  function osThemeSetting(): 'dark' | 'light' {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light';
+  }
 
-  let currentTheme: 'dark' | 'light' | 'match-system' = $theme;
+  let themeSetting: 'match-system' | 'dark' | 'light' = 'match-system';
 
-  function onChange() {
-    if (typeof localStorage !== 'undefined')
-      localStorage.setItem('theme', currentTheme);
+  let actualTheme: 'dark' | 'light';
 
-    window.setTheme(document);
+  if (typeof localStorage !== 'undefined') {
+    const storedTheme = localStorage.getItem('theme');
+
+    switch (storedTheme) {
+      case 'dark':
+        themeSetting = actualTheme = 'dark';
+        break;
+
+      case 'light':
+        themeSetting = actualTheme = 'light';
+        break;
+
+      default:
+        themeSetting = 'match-system';
+        actualTheme = osThemeSetting();
+    }
+  }
+
+  function onChange(): void {
+    window.changeTheme(document, themeSetting);
+
+    actualTheme = osThemeSetting();
   }
 </script>
 
 <div>
-  {#if $theme === 'light'}
+  {#if actualTheme === 'light'}
     <svg
       class="sunOrMoon"
       xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +48,7 @@
     </svg>
   {/if}
 
-  {#if $theme === 'dark' || $theme === 'match-system'}
+  {#if actualTheme === 'dark'}
     <svg
       class="sunOrMoon"
       xmlns="http://www.w3.org/2000/svg"
@@ -39,10 +62,10 @@
     </svg>
   {/if}
 
-  <select bind:value={currentTheme} on:change={onChange}>
-    <option value="match-system">システム設定にあわせる</option>
-    <option value="dark">ダークモードに固定</option>
-    <option value="light">ライトモードに固定</option>
+  <select bind:value={themeSetting} on:change={onChange}>
+    <option value="match-system">テーマ：システム設定にあわせる</option>
+    <option value="dark">テーマ：ダークモードに固定</option>
+    <option value="light">テーマ：ライトモードに固定</option>
   </select>
 </div>
 

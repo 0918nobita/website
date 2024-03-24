@@ -1,5 +1,8 @@
 /// <reference types="astro/client" />
 
 interface Window {
-    setTheme: (doc: Document) => void;
+    changeTheme: (
+        doc: Document,
+        theme: 'match-system' | 'dark' | 'light',
+    ) => void;
 }
