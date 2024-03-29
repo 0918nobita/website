@@ -38,4 +38,6 @@ body {
   color: var(--main-text);
   font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN',
     'Hiragino Sans', Meiryo, sans-serif, 'Segoe UI Emoji';
+  font-size: 17px;
+  line-height: 30px;
 }
