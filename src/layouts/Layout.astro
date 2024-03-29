@@ -7,7 +7,7 @@ import { ViewTransitions } from 'astro:transitions';
 import Sidebar from '../components/Sidebar.astro';
 import SpHeader from '../components/SpHeader.astro';
 
-const { title } = Astro.props;
+const { title } = Astro.props['frontmatter'] || Astro.props;
 ---
 
 <!doctype html>
