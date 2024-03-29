@@ -35,6 +35,10 @@
 
       .article {
         padding: 0 1rem 1rem 1rem;
+
+        ul {
+          padding-left: 20px;
+        }
       }
     }
   }
