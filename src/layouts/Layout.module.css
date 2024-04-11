@@ -12,10 +12,11 @@
     overflow-y: auto;
 
     .article {
-      padding: 1rem 1rem 5rem 1rem;
+      padding: 1rem 2rem 5rem 2rem;
       max-width: 970px;
       width: 100%;
       margin: 0 auto;
+      text-align: justify;
     }
   }
 }
