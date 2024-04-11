@@ -1,0 +1,8 @@
+---
+import ExternalLinkIcon from './ExternalLinkIcon.svelte';
+
+const { url, label } = Astro.props;
+---
+
+<a href={url} rel="noopener noreferrer" target="_blank">{label}</a>
+<ExternalLinkIcon client:only="svelte" />

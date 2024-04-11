@@ -1,0 +1,46 @@
+---
+import AnchorLinkIcon from './AnchorLinkIcon.svelte';
+
+const { id } = Astro.props;
+---
+
+<div class="heading">
+  <h2 {id}><slot /></h2>
+  <a
+    class="anchor-link"
+    href={`#${id}`}
+    aria-label={`「${id}」へのアンカーリンク`}
+  >
+    <AnchorLinkIcon className="anchor-link-icon" client:only="svelte" />
+  </a>
+</div>
+
+<style>
+  .heading {
+    margin-top: 1.5rem;
+  }
+
+  h2 {
+    display: inline;
+  }
+
+  a {
+    display: inline-block;
+  }
+
+  :global(.anchor-link-icon) {
+    fill: var(--main-text);
+    width: 1rem;
+    height: 1rem;
+  }
+
+  @media (hover: hover) {
+    :global(.anchor-link-icon) {
+      opacity: 0;
+    }
+
+    .heading:hover :global(.anchor-link-icon) {
+      opacity: 1;
+    }
+  }
+</style>

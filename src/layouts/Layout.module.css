@@ -13,6 +13,9 @@
 
     .article {
       padding: 1rem;
+      max-width: 970px;
+      width: 100%;
+      margin: 0 auto;
     }
   }
 }
