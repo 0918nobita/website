@@ -12,7 +12,7 @@
     overflow-y: auto;
 
     .article {
-      padding: 1rem;
+      padding: 1rem 1rem 5rem 1rem;
       max-width: 970px;
       width: 100%;
       margin: 0 auto;
@@ -37,7 +37,7 @@
       overflow-y: visible;
 
       .article {
-        padding: 0 1rem 1rem 1rem;
+        padding: 0 1rem 3rem 1rem;
 
         ul {
           padding-left: 20px;
