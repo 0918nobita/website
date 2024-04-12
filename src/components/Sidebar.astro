@@ -1,6 +1,4 @@
 ---
-import styles from './Sidebar.module.css';
-
 import { Image } from 'astro:assets';
 
 import ThemeToggle from './ThemeToggle.svelte';
@@ -8,9 +6,9 @@ import ThemeToggle from './ThemeToggle.svelte';
 const { class: className } = Astro.props;
 ---
 
-<nav class:list={[styles['nav'], className]}>
+<nav class:list={[className]}>
   <Image
-    class:list={[styles['icon']]}
+    class:list={['icon']}
     src="/icon.jpg"
     alt="kodai のアイコン"
     width="399"
@@ -20,14 +18,53 @@ const { class: className } = Astro.props;
   />
 
   <ul>
-    <li><a href="/"><div>トップページ</div></a></li>
-    <li><a href="/contact"><div>連絡先</div></a></li>
-    <li><a href="/skills"><div>スキル・強み</div></a></li>
-    <li><a href="/history"><div>自分史</div></a></li>
-    <li><a href="/hobbies"><div>趣味</div></a></li>
+    <li><a href="/">トップページ</a></li>
+    <li><a href="/contact">連絡先</a></li>
+    <li><a href="/skills">スキル・強み</a></li>
+    <li><a href="/history">自分史</a></li>
+    <li><a href="/hobbies">趣味</a></li>
   </ul>
 
-  <div class:list={[styles['spacer']]}></div>
+  <div class:list={['spacer']}></div>
 
   <ThemeToggle client:only="svelte" />
 </nav>
+
+<style>
+  nav {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    width: 18rem;
+    height: 100vh;
+  }
+
+  .icon {
+    max-width: 100%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      &:hover {
+        background-color: var(--sidebar-hovered-bg);
+      }
+
+      a {
+        display: block;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .spacer {
+    flex-grow: 1;
+  }
+</style>

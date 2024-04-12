@@ -1,15 +1,13 @@
 ---
-import styles from './SpHeader.module.css';
-
 import { Image } from 'astro:assets';
 
 const { class: className } = Astro.props;
 ---
 
-<header class:list={[styles['header'], className]}>
-  <a class:list={[styles['top']]} href="/">
+<header class:list={[className]}>
+  <a class:list={['top']} href="/">
     <Image
-      class:list={[styles['icon']]}
+      class:list={['icon']}
       src="/icon.jpg"
       alt="Kodai のアイコン"
       width="399"
@@ -18,9 +16,41 @@ const { class: className } = Astro.props;
       decoding="async"
     />
   </a>
-  <a class:list={[styles['navItem']]} href="/">トップ</a>
-  <a class:list={[styles['navItem']]} href="/contact">連絡先</a>
-  <a class:list={[styles['navItem']]} href="/skills">スキル</a>
-  <a class:list={[styles['navItem']]} href="/history">自分史</a>
-  <a class:list={[styles['navItem']]} href="/hobbies">趣味</a>
+  <a class:list={['navItem']} href="/">トップ</a>
+  <a class:list={['navItem']} href="/contact">連絡先</a>
+  <a class:list={['navItem']} href="/skills">スキル</a>
+  <a class:list={['navItem']} href="/history">自分史</a>
+  <a class:list={['navItem']} href="/hobbies">趣味</a>
 </header>
+
+<style>
+  header {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 3rem;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+  }
+
+  .top {
+    height: 100%;
+
+    .icon {
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  .navItem {
+    display: grid;
+    place-items: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    text-decoration: none;
+
+    &:hover {
+      background-color: var(--sidebar-hovered-bg);
+    }
+  }
+</style>
