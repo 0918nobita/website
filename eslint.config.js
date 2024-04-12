@@ -20,7 +20,12 @@ export default [
     },
 
     {
-        ignores: ['.prettierrc.mjs', '*.config.{js,mjs}', '**/*.astro'],
+        ignores: [
+            '.astro/*',
+            '.prettierrc.mjs',
+            '*.config.{js,mjs}',
+            '**/*.astro',
+        ],
         plugins: {
             '@typescript-eslint': ts,
         },

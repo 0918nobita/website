@@ -1,0 +1,97 @@
+---
+import type { MarkdownInstance } from 'astro';
+import { getCollection } from 'astro:content';
+
+import Layout from '../layouts/Layout.astro';
+import Heading from '../components/Heading.astro';
+
+type Content = MarkdownInstance<{}>['Content'];
+
+const yearNumToTitle = (year: number): string => {
+  switch (year) {
+    case 2017:
+      return '高校３年生';
+    case 2016:
+      return '高校２年生';
+    case 2015:
+      return '高校１年生';
+    case 2014:
+      return '中学３年生';
+    case 2013:
+      return '中学２年生';
+  }
+
+  return `${year}年`;
+};
+
+const historyCollection = await getCollection('history');
+
+type PerYearItem = {
+  title: string;
+  a?: Content;
+  b?: Content;
+  c?: Content;
+};
+
+const addContent = (
+  perYearItem: PerYearItem,
+  priority: 'A' | 'B' | 'C',
+  renderResult: Content,
+): PerYearItem => {
+  if (priority === 'A') {
+    return { ...perYearItem, a: renderResult };
+  }
+
+  if (priority === 'B') {
+    return { ...perYearItem, b: renderResult };
+  }
+
+  return { ...perYearItem, c: renderResult };
+};
+
+const perYearMap = new Map<number, PerYearItem>();
+
+for (const entry of historyCollection) {
+  const { year, priority } = entry.data;
+
+  const entries = perYearMap.get(year);
+
+  const renderResult = await entry.render();
+
+  if (entries === undefined) {
+    const perYearItem: PerYearItem = { title: yearNumToTitle(year) };
+    perYearMap.set(
+      year,
+      addContent(perYearItem, priority, renderResult.Content),
+    );
+    continue;
+  }
+
+  perYearMap.set(year, addContent(entries, priority, renderResult.Content));
+}
+
+const perYear = [...perYearMap.entries()];
+
+perYear.sort(([yearA], [yearB]) => yearB - yearA);
+---
+
+<Layout title="自分史 | Kodai のウェブサイト">
+  <h1>自分史</h1>
+  準備中…
+  {
+    perYear.map(([year, item]) => (
+      <>
+        <Heading id={year}>{item.title}</Heading>
+        {item.a && <item.a />}
+        {item.b && <item.b />}
+        {item.c && <item.c />}
+      </>
+    ))
+  }
+
+  <script
+    is:inline
+    src="https://platform.twitter.com/widgets.js"
+    charset="utf-8"
+    crossorigin="anonymous"></script>
+</Layout>
