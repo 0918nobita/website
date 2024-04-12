@@ -1,0 +1,20 @@
+---
+import Heading from '../Heading.astro';
+import HistoryA from '../HistoryA.svelte';
+import HistoryB from '../HistoryB.svelte';
+import HistorySection from '../HistorySection.astro';
+---
+
+<HistorySection>
+  <Heading id="2021">2021年</Heading>
+
+  <HistoryA client:load>
+    <h3>放送大学教養学部教養学科情報コースに入学した</h3>
+    <h3>GitHub Actions 等を連携させ、バックエンドのデプロイを効率化した</h3>
+  </HistoryA>
+
+  <HistoryB client:load>
+    <h3>Rust から Vulkan を利用し、グラデーション付きの三角形描画に成功した</h3>
+    <h3>Kotlin・Android に関する様々なライブラリを学んだ</h3>
+  </HistoryB>
+</HistorySection>

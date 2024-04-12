@@ -1,0 +1,81 @@
+---
+import ExternalLink from '../ExternalLink.astro';
+import Heading from '../Heading.astro';
+import HistoryA from '../HistoryA.svelte';
+import HistoryC from '../HistoryC.svelte';
+import HistorySection from '../HistorySection.astro';
+---
+
+<HistorySection>
+  <Heading id="2018">2018年</Heading>
+
+  <HistoryA client:load>
+    <h3>立命館大学情報理工学部に入学 (4月)</h3>
+    <h3>
+      LINE サマーインターンシップ・エンジニアスクールコースに参加 (8〜9月)
+    </h3>
+    <p>Android 向けメッセンジャーアプリをチームで開発しました。</p>
+    <p>
+      紹介記事：
+      <ExternalLink
+        url="https://line-hr.jp/archives/52596047.html"
+        label="サマーインターンシップ2018、各コースの様子をご紹介します : LINE HR BLOG"
+      />
+    </p>
+    <p>
+      バックエンドは Kotlin, Spring, MyBatis, Tyrus (WebSocket)
+      を用いて開発しました。
+      <br />
+      <ExternalLink
+        url="https://github.com/line-school2018summer/kyotob_api"
+        label="(GitHub) line-school2018summer/kyotob_api"
+      />
+    </p>
+    <p>
+      Android アプリ側は Kotlin, Retrofit, Tyrus を用いて開発しました。
+      <br />
+      <ExternalLink
+        url="https://github.com/line-school2018summer/kyotob_android"
+        label="(GitHub) line-school2018summer/kyotob_android"
+      />
+    </p>
+    <h3>Webアプリ「Tsundoku」の開発</h3>
+    <p>
+      技術書典で購入した「Ionic と Firebase
+      でゼロからはじめるアプリ開発」という技術同人誌を参考にしつつ、 Firebase
+      Authentication, Cloud Firestore, Cloud Functions, Cloud Storage
+      を活用して積読管理用 Web アプリ「Tsundoku」を自主開発していました。
+    </p>
+    <p>
+      <ExternalLink
+        url="https://github.com/0918nobita/Tsundoku"
+        label="(GitHub) 0918nobita/Tsundoku"
+      />
+    </p>
+    <h3>その他</h3>
+    <ul>
+      <li>TypeScript に入門し、その型システムについての認識を深めた</li>
+      <li>
+        Vue.js 公式ドキュメントの翻訳に貢献した
+        <ExternalLink
+          url="https://github.com/vuejs/jp.vuejs.org/pull/981"
+          label="vuejs/jp.vuejs.org #981"
+        />
+      </li>
+      <li>
+        ng-kyoto Angular Meetup や FRONTEND CONFERENCE 2018
+        など様々な技術者向け勉強会・カンファレンスに参加してフロントエンドの実際の開発ノウハウを学んだ
+      </li>
+    </ul>
+  </HistoryA>
+
+  <HistoryC client:load>
+    <h3>技術書典5に一般参加して技術同人誌を色々と買った</h3>
+    <p>
+      <ExternalLink
+        url="https://twitter.com/0918nobita/status/1049286050613346312"
+        label="戦利品報告ツイート"
+      />
+    </p>
+  </HistoryC>
+</HistorySection>

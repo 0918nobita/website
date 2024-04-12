@@ -1,0 +1,48 @@
+---
+import ExternalLink from '../ExternalLink.astro';
+import Heading from '../Heading.astro';
+import HistoryA from '../HistoryA.svelte';
+import HistorySection from '../HistorySection.astro';
+---
+
+<HistorySection>
+  <Heading id="2017">高校３年生</Heading>
+
+  <HistoryA client:load>
+    <h3>
+      立命館大学主催プログラミングコンテスト「あいちゃれグローバル」に参加
+    </h3>
+    <p>
+      オリジナルのプログラミング言語「Xemime」の処理系(インタプリタ)を開発して応募し、立命館大学でプレゼンをして<b
+        >最優秀賞とワークスアプリケーションズ賞を受賞しました。</b
+      >
+    </p>
+    <p>
+      応募したプログラムのリポジトリ：
+      <ExternalLink
+        url="https://github.com/xemime-lang/xemime"
+        label="xemime-lang/xemime"
+      />
+    </p>
+    <ul>
+      <li>
+        <ExternalLink
+          url="https://twitter.com/0918nobita/status/910868736025833473"
+          label="(Twitter) Xemime の if-else 式"
+        />
+      </li>
+      <li>
+        <ExternalLink
+          url="https://twitter.com/0918nobita/status/910870986513252352"
+          label="(Twitter) Xemime のアロー関数"
+        />
+      </li>
+      <li>
+        <ExternalLink
+          url="https://twitter.com/0918nobita/status/912808387263344640"
+          label="(Twitter) Xemime に while 文を追加した"
+        />
+      </li>
+    </ul>
+  </HistoryA>
+</HistorySection>

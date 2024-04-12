@@ -1,0 +1,33 @@
+---
+import Heading from '../Heading.astro';
+import HistoryA from '../HistoryA.svelte';
+import HistoryB from '../HistoryB.svelte';
+import HistoryC from '../HistoryC.svelte';
+import HistorySection from '../HistorySection.astro';
+---
+
+<HistorySection>
+  <Heading id="2023">2023年</Heading>
+
+  <HistoryA client:load>
+    <h3>
+      gRPC・GraphQL を介して Rust・Node.js・Svelte を繋ぐサンプルを作成した
+    </h3>
+    <h3>
+      中国語学習支援の Obsidian プラグイン「Obsidian Zhongwen
+      Block」を開発・公開した
+    </h3>
+  </HistoryA>
+
+  <HistoryB client:load>
+    <h3>
+      YouTube ライブのチャットを VOICEVOX で読み上げるツールを Rust
+      で自作・運用した
+    </h3>
+    <h3>NeoVim を Lua でカスタマイズすることにハマった</h3>
+  </HistoryB>
+
+  <HistoryC client:load>
+    <h3>中国語を独学で学び始めた</h3>
+  </HistoryC>
+</HistorySection>

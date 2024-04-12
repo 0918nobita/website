@@ -1,0 +1,26 @@
+---
+import Heading from '../Heading.astro';
+import HistoryA from '../HistoryA.svelte';
+import HistoryB from '../HistoryB.svelte';
+import HistorySection from '../HistorySection.astro';
+---
+
+<HistorySection>
+  <Heading id="2022">2022年</Heading>
+
+  <HistoryA client:load>
+    <h3>Svelte に入門した</h3>
+    <h3>WebRTC を用いて異なる端末間で映像共有するサンプルを作成した</h3>
+    <h3>TypeScript で MVU フレームワークと VDOM ランタイムを自作した</h3>
+  </HistoryA>
+
+  <HistoryB client:load>
+    <h3>Rust で自作言語用の言語サーバを開発した</h3>
+    <h3>Rust の手続きマクロについて詳しく学んだ</h3>
+    <h3>
+      Twitter のハッシュタグ付き新着ツイートを VOICEVOX で読み上げるツールを
+      Rust で自作・運用した
+    </h3>
+    <h3>Godot に入門した</h3>
+  </HistoryB>
+</HistorySection>

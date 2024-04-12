@@ -1,0 +1,16 @@
+---
+import Heading from '../Heading.astro';
+import HistoryB from '../HistoryB.svelte';
+import HistorySection from '../HistorySection.astro';
+---
+
+<HistorySection>
+  <Heading id="2015">高校１年生</Heading>
+
+  <HistoryB client:load>
+    <ul>
+      <li>Linuxを使い始めた</li>
+      <li>C言語に入門し、手動メモリ管理やポインタについて学んだ</li>
+    </ul>
+  </HistoryB>
+</HistorySection>

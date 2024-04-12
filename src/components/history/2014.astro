@@ -1,0 +1,36 @@
+---
+import Heading from '../Heading.astro';
+import HistoryA from '../HistoryA.svelte';
+import HistoryB from '../HistoryB.svelte';
+import HistorySection from '../HistorySection.astro';
+---
+
+<HistorySection>
+  <Heading id="2014">中学３年生</Heading>
+
+  <HistoryA client:load>
+    <ul>
+      <li>マイパソコンを手にして、さらにプログラミングに夢中になった</li>
+      <li>Git・GitHub と様々なプログラミング言語に入門した</li>
+      <li>
+        初めて PHPで Web サービスを開発し、GitHub を介して共同開発を経験した
+      </li>
+    </ul>
+  </HistoryA>
+
+  <HistoryB client:load>
+    <ul>
+      <li>
+        Java に入門した
+        <ul>
+          <li>
+            「スッキリわかる Java 入門 (インプレスジャパン,
+            2011)」という本を参考にした
+          </li>
+          <li>クラスベースオブジェクト指向の基本を学んだ</li>
+        </ul>
+      </li>
+      <li>Ruby で基礎的なアルゴリズム問題を解いていた</li>
+    </ul>
+  </HistoryB>
+</HistorySection>
