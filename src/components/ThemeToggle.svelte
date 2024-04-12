@@ -30,7 +30,18 @@
   function onChange(): void {
     window.changeTheme(document, themeSetting);
 
-    actualTheme = osThemeSetting();
+    switch (themeSetting) {
+      case 'dark':
+        actualTheme = 'dark';
+        break;
+
+      case 'light':
+        actualTheme = 'light';
+        break;
+
+      default:
+        actualTheme = osThemeSetting();
+    }
   }
 </script>
 

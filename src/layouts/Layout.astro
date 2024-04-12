@@ -95,12 +95,9 @@ const { title } = Astro.props['frontmatter'] || Astro.props;
     </script>
 
     <main class:list={styles['main']}>
-      <Sidebar
-        class:list={styles['sidebar']}
-        themeToggleClass={styles['themeToggle']}
-      />
+      <Sidebar className={styles['sidebar']!} />
 
-      <SpHeader class:list={[styles['spHeader']]} />
+      <SpHeader className={styles['spHeader']!} />
 
       <div class:list={[styles['articleWrapper']]}>
         <article class:list={[styles['article']]}>

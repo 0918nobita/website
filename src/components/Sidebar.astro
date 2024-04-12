@@ -3,7 +3,11 @@ import { Image } from 'astro:assets';
 
 import ThemeToggle from './ThemeToggle.svelte';
 
-const { class: className } = Astro.props;
+interface Props {
+  className: string;
+}
+
+const { className } = Astro.props;
 ---
 
 <nav class:list={[className]}>

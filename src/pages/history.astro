@@ -81,7 +81,7 @@ perYear.sort(([yearA], [yearB]) => yearB - yearA);
   {
     perYear.map(([year, item]) => (
       <>
-        <Heading id={year}>{item.title}</Heading>
+        <Heading id={String(year)}>{item.title}</Heading>
         {item.a && <item.a />}
         {item.b && <item.b />}
         {item.c && <item.c />}
@@ -95,3 +95,5 @@ perYear.sort(([yearA], [yearB]) => yearB - yearA);
     charset="utf-8"
     crossorigin="anonymous"></script>
 </Layout>
+
+<script></script>
