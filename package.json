@@ -30,6 +30,7 @@
   "dependencies": {
     "@astrojs/mdx": "^2.2.2",
     "@astrojs/svelte": "^5.2.0",
+    "nanostores": "^0.10.3",
     "svelte": "^4.2.12"
   }
 }
