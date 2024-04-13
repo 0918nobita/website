@@ -1,33 +1,47 @@
 ---
 import Heading from '../Heading.astro';
+import Card from './Card.svelte';
 import HistoryA from './HistoryA.svelte';
 import HistoryB from './HistoryB.svelte';
 import HistoryC from './HistoryC.svelte';
+import HistoryCards from './HistoryCards.svelte';
 import HistorySection from './HistorySection.astro';
 ---
 
 <HistorySection>
   <Heading id="2023">2023年</Heading>
 
-  <HistoryA client:load>
-    <h3>
-      gRPC・GraphQL を介して Rust・Node.js・Svelte を繋ぐサンプルを作成した
-    </h3>
-    <h3>
-      中国語学習支援の Obsidian プラグイン「Obsidian Zhongwen
-      Block」を開発・公開した
-    </h3>
-  </HistoryA>
-
-  <HistoryB client:load>
-    <h3>
-      YouTube ライブのチャットを VOICEVOX で読み上げるツールを Rust
-      で自作・運用した
-    </h3>
-    <h3>NeoVim を Lua でカスタマイズすることにハマった</h3>
-  </HistoryB>
-
-  <HistoryC client:load>
-    <h3>中国語を独学で学び始めた</h3>
-  </HistoryC>
+  <HistoryCards client:load>
+    <HistoryA client:load>
+      <Card
+        client:load
+        title="gRPC・GraphQL を介して Rust・Node.js・Svelte を繋ぐサンプルを作成した"
+        desc="準備中…"
+      />
+      <Card
+        client:load
+        title="Obsidian プラグインを自作して公開した"
+        desc="中国語学習を支援する Obsidian プラグイン「Obsidian Zhongwen Block」を開発・公開しました。"
+      />
+    </HistoryA>
+    <HistoryB client:load>
+      <Card
+        client:load
+        title="YouTube ライブのチャットを VOICEVOX で読み上げるツールを Rust で自作・運用した"
+        desc="準備中…"
+      />
+      <Card
+        client:load
+        title="NeoVim を Lua でカスタマイズすることにハマった"
+        desc="準備中…"
+      />
+    </HistoryB>
+    <HistoryC client:load>
+      <Card
+        client:load
+        title="中国語を独学で学び始めた"
+        desc="大陸版アークナイツがきっかけで中国語学習を開始しました。"
+      />
+    </HistoryC>
+  </HistoryCards>
 </HistorySection>

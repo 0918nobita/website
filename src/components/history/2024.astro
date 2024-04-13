@@ -1,25 +1,37 @@
 ---
-import ExternalLink from '../ExternalLink.astro';
+import Card from './Card.svelte';
+// import ExternalLink from '../ExternalLink.astro';
 import Heading from '../Heading.astro';
 import HistoryB from './HistoryB.svelte';
 import HistoryC from './HistoryC.svelte';
+import HistoryCards from './HistoryCards.svelte';
 import HistorySection from './HistorySection.astro';
 ---
 
 <HistorySection>
   <Heading id="2024">2024年</Heading>
 
-  <HistoryB client:load>
-    <h3>Gleam 言語に入門した</h3>
-  </HistoryB>
-
-  <HistoryC client:load>
-    <h3>HSK２級に合格した</h3>
-    <p>
-      <ExternalLink
-        url="https://twitter.com/0918nobita/status/1772130838777376928"
-        label="合格報告ツイート"
+  <HistoryCards client:load>
+    <HistoryB client:load>
+      <Card
+        client:load
+        title="Gleam 言語に入門した"
+        desc="Gleam は Rust に近い文法と関数型言語由来の言語機能を備えたシンプルなプログラミング言語です。"
       />
-    </p>
-  </HistoryC>
+    </HistoryB>
+    <HistoryC client:load>
+      <Card
+        client:load
+        title="HSK２級に合格した"
+        desc="2023年から独学していた中国語の習得度を確認するために受験し、合格しました。"
+      />
+    </HistoryC>
+  </HistoryCards>
+
+  <!--
+    <ExternalLink
+      url="https://twitter.com/0918nobita/status/1772130838777376928"
+      label="合格報告ツイート"
+    />
+  -->
 </HistorySection>

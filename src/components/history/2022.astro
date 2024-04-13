@@ -1,26 +1,50 @@
 ---
 import Heading from '../Heading.astro';
+import Card from './Card.svelte';
 import HistoryA from './HistoryA.svelte';
 import HistoryB from './HistoryB.svelte';
+import HistoryCards from './HistoryCards.svelte';
 import HistorySection from './HistorySection.astro';
 ---
 
 <HistorySection>
   <Heading id="2022">2022年</Heading>
 
-  <HistoryA client:load>
-    <h3>Svelte に入門した</h3>
-    <h3>WebRTC を用いて異なる端末間で映像共有するサンプルを作成した</h3>
-    <h3>TypeScript で MVU フレームワークと VDOM ランタイムを自作した</h3>
-  </HistoryA>
-
-  <HistoryB client:load>
-    <h3>Rust で自作言語用の言語サーバを開発した</h3>
-    <h3>Rust の手続きマクロについて詳しく学んだ</h3>
-    <h3>
-      Twitter のハッシュタグ付き新着ツイートを VOICEVOX で読み上げるツールを
-      Rust で自作・運用した
-    </h3>
-    <h3>Godot に入門した</h3>
-  </HistoryB>
+  <HistoryCards client:load>
+    <HistoryA client:load>
+      <Card
+        client:load
+        title="Svelte に入門した"
+        desc="個人の Web 開発で特によく使っているフレームワークです"
+      />
+      <Card
+        client:load
+        title="WebRTC を用いて異なる端末間で映像共有するサンプルを作成した"
+        desc="準備中…"
+      />
+      <Card
+        client:load
+        title="MVU フレームワークと VDOM ランタイムを自作した"
+        desc="TypeScript を用いて、Elm のように Model, View, Update を定義して SPA を効率的に実装できる MVU フレームワークと VDOM ランタイムを自作しました。"
+      />
+    </HistoryA>
+    <HistoryB client:load>
+      <Card
+        client:load
+        title="Rust で自作言語用の言語サーバを開発した"
+        desc="自作プログラミング言語でソースコードを記述しているときにエディタ上にエラーを表示するための、LSP 準拠言語サーバを Rust で実装しました。"
+      />
+      <Card
+        client:load
+        title="Rust の手続きマクロについて詳しく学んだ"
+        desc="コンパイル時に呼び出され、AST を操作・出力する手続きマクロを初めて自作しました。"
+      />
+      <Card
+        client:load
+        title="Twitter のハッシュタグ付き新着ツイートを VOICEVOX で読み上げるツールを Rust で自作・運用した"
+        desc="準備中…"
+      />
+      <Card client:load title="Godot に入門した" desc="準備中…" />
+    </HistoryB>
+  </HistoryCards>
 </HistorySection>

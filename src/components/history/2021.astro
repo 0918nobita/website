@@ -1,20 +1,39 @@
 ---
 import Heading from '../Heading.astro';
+import Card from './Card.svelte';
 import HistoryA from './HistoryA.svelte';
 import HistoryB from './HistoryB.svelte';
+import HistoryCards from './HistoryCards.svelte';
 import HistorySection from './HistorySection.astro';
 ---
 
 <HistorySection>
   <Heading id="2021">2021年</Heading>
 
-  <HistoryA client:load>
-    <h3>放送大学教養学部教養学科情報コースに入学した</h3>
-    <h3>GitHub Actions 等を連携させ、バックエンドのデプロイを効率化した</h3>
-  </HistoryA>
-
-  <HistoryB client:load>
-    <h3>Rust から Vulkan を利用し、グラデーション付きの三角形描画に成功した</h3>
-    <h3>Kotlin・Android に関する様々なライブラリを学んだ</h3>
-  </HistoryB>
+  <HistoryCards client:load>
+    <HistoryA client:load>
+      <Card
+        client:load
+        title="放送大学教養学部教養学科情報コースに入学した"
+        desc="準備中…"
+      />
+      <Card
+        client:load
+        title="GitHub Actions 等を連携させ、バックエンドのデプロイを効率化した"
+        desc="準備中…"
+      />
+    </HistoryA>
+    <HistoryB client:load>
+      <Card
+        client:load
+        title="Rust から Vulkan を利用し、グラデーション付きの三角形描画に成功した"
+        desc="準備中…"
+      />
+      <Card
+        client:load
+        title="Kotlin・Android に関する様々なライブラリを学んだ"
+        desc="準備中…"
+      />
+    </HistoryB>
+  </HistoryCards>
 </HistorySection>

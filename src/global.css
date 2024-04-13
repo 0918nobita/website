@@ -17,6 +17,9 @@ a {
   --sidebar-text: #535353;
   --sidebar-bg: #f8e4ff;
   --sidebar-hovered-bg: #e9d3f1;
+  --card-bg-color: #af9eaf6b;
+  --card-border-color: #af9eaf6b;
+  --card-box-shadow: 0 2rem 2rem -2rem #d3d3d3;
 }
 
 :root[data-theme='dark'] {
@@ -28,6 +31,9 @@ a {
   --sidebar-text: #fcfcfc;
   --sidebar-bg: #736279;
   --sidebar-hovered-bg: #907999;
+  --card-bg-color: #7e707e6b;
+  --card-border-color: #7e707e6b;
+  --card-box-shadow: 0 2rem 2rem -2rem rgb(10 10 10);
 
   img {
     filter: grayscale(20%);
