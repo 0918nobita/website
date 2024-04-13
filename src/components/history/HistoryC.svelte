@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { history } from '../store';
+  import { history } from '../../store';
 </script>
 
 {#if $history.c}
