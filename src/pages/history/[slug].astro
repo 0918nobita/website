@@ -1,0 +1,21 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const historyDetails = await getCollection('historyDetail');
+  return historyDetails.map((historyDetail) => ({
+    params: { slug: historyDetail.slug },
+    props: historyDetail,
+  }));
+}
+
+type Props = CollectionEntry<'historyDetail'>;
+
+const historyDetail = Astro.props;
+const { Content } = await historyDetail.render();
+---
+
+<Layout title={`${historyDetail.data.title} | Kodai のウェブサイト`}>
+  <Content />
+</Layout>

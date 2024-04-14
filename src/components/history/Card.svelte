@@ -1,22 +1,14 @@
 <script lang="ts">
   export let title: string;
   export let desc: string;
-
-  export let hasDialog = false;
-
-  function onClick() {
-    if (!hasDialog) {
-      return;
-    }
-    // console.log('clicked');
-  }
+  export let link: undefined | string = undefined;
 </script>
 
-{#if hasDialog}
-  <button type="button" on:click={onClick}>
+{#if link !== undefined}
+  <a href={link}>
     <div class="title"><h3>{title}</h3></div>
     <p>{desc}</p>
-  </button>
+  </a>
 {:else}
   <article>
     <div class="title"><h3>{title}</h3></div>
@@ -25,7 +17,9 @@
 {/if}
 
 <style>
-  button {
+  a {
+    text-decoration: none;
+
     display: grid;
     grid-template-rows: subgrid;
     grid-row: span 2;
@@ -33,13 +27,8 @@
     border-radius: 7px;
     border: 2px solid var(--card-border-color);
     box-shadow: var(--card-box-shadow);
-    background: transparent;
-    appearance: none;
-    padding: 0;
-    color: var(--main-text);
     font-size: 15px;
     line-height: 1.5;
-    text-align: start;
   }
 
   article {
