@@ -26,6 +26,8 @@
     "allowUnusedLabels": false,
     "allowUnreachableCode": false,
 
-    "skipLibCheck": true
+    "skipLibCheck": true,
+
+    "jsx": "preserve"
   }
 }

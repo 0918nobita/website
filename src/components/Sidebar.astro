@@ -1,6 +1,8 @@
 ---
 import { Image } from 'astro:assets';
 
+import * as styles from './Sidebar.css';
+
 import ThemeToggle from './ThemeToggle.svelte';
 
 interface Props {
@@ -10,9 +12,9 @@ interface Props {
 const { className } = Astro.props;
 ---
 
-<nav class:list={[className]}>
+<nav class:list={[className, styles.nav]}>
   <Image
-    class:list={['icon']}
+    class:list={[styles.icon]}
     src="/icon.jpg"
     alt="kodai のアイコン"
     width="399"
@@ -21,54 +23,25 @@ const { className } = Astro.props;
     decoding="async"
   />
 
-  <ul>
-    <li><a href="/">トップページ</a></li>
-    <li><a href="/contact">連絡先</a></li>
-    <li><a href="/skills">スキル・強み</a></li>
-    <li><a href="/history">自分史</a></li>
-    <li><a href="/hobbies">趣味</a></li>
+  <ul class:list={[styles.navList]}>
+    <li class:list={[styles.navItem]}>
+      <a class:list={[styles.navItemLink]} href="/"> トップページ </a>
+    </li>
+    <li class:list={[styles.navItem]}>
+      <a class:list={[styles.navItemLink]} href="/contact">連絡先</a>
+    </li>
+    <li class:list={[styles.navItem]}>
+      <a class:list={[styles.navItemLink]} href="/skills">スキル・強み</a>
+    </li>
+    <li class:list={[styles.navItem]}>
+      <a class:list={[styles.navItemLink]} href="/history">自分史</a>
+    </li>
+    <li class:list={[styles.navItem]}>
+      <a class:list={[styles.navItemLink]} href="/hobbies">趣味</a>
+    </li>
   </ul>
 
-  <div class:list={['spacer']}></div>
+  <div class:list={[styles.spacer]}></div>
 
   <ThemeToggle client:only="svelte" />
 </nav>
-
-<style>
-  nav {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--sidebar-bg);
-    color: var(--sidebar-text);
-    width: 18rem;
-    height: 100vh;
-  }
-
-  .icon {
-    max-width: 100%;
-    height: auto;
-    padding: 1rem;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-
-    li {
-      &:hover {
-        background-color: var(--sidebar-hovered-bg);
-      }
-
-      a {
-        display: block;
-        padding: 0.5rem 1rem;
-        text-decoration: none;
-      }
-    }
-  }
-
-  .spacer {
-    flex-grow: 1;
-  }
-</style>

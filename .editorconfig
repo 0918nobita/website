@@ -7,3 +7,6 @@ insert_final_newline = true
 
 [*.{astro,css,json,svelte,yml}]
 indent_size = 2
+
+[*.css.ts]
+indent_size = 2

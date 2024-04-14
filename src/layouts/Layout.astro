@@ -1,13 +1,22 @@
 ---
 import '../global.css';
-import styles from './Layout.module.css';
+
+import * as styles from './Layout.css';
 
 import { ViewTransitions } from 'astro:transitions';
 
 import Sidebar from '../components/Sidebar.astro';
-import SpHeader from '../components/SpHeader.astro';
+import { SpHeader } from '../components/SpHeader';
 
-const { title } = Astro.props['frontmatter'] || Astro.props;
+interface Props {
+  frontmatter?: {
+    title: string;
+  };
+
+  title?: string;
+}
+
+const { title } = Astro.props.frontmatter ?? Astro.props;
 ---
 
 <!doctype html>
@@ -33,7 +42,7 @@ const { title } = Astro.props['frontmatter'] || Astro.props;
     <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" />
   </head>
   <body>
-    <script is:inline define:vars={{ themeToggleClass: styles['themeToggle'] }}>
+    <script is:inline>
       function osThemeSetting() {
         return window.matchMedia('(prefers-color-scheme: dark)').matches
           ? 'dark'
@@ -94,13 +103,13 @@ const { title } = Astro.props['frontmatter'] || Astro.props;
       });
     </script>
 
-    <main class:list={styles['main']}>
-      <Sidebar className={styles['sidebar']!} />
+    <main class:list={[styles.main]}>
+      <Sidebar className={styles.sidebar} />
 
-      <SpHeader className={styles['spHeader']!} />
+      <SpHeader className={styles.spHeader} />
 
-      <div class:list={[styles['articleWrapper']]}>
-        <article class:list={[styles['article']]}>
+      <div class:list={[styles.articleWrapper]}>
+        <article class:list={[styles.article]}>
           <slot />
         </article>
       </div>

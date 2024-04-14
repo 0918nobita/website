@@ -5,11 +5,12 @@ import astro from 'eslint-plugin-astro';
 import svelte from 'eslint-plugin-svelte';
 import globals from 'globals';
 import svelteParser from 'svelte-eslint-parser';
+import astroParser from 'astro-eslint-parser';
 
 /** @type {import('typescript-eslint').Config} */
 export default [
     {
-        ignores: ['dist'],
+        ignores: ['dist', '.astro/*'],
     },
     {
         languageOptions: {
@@ -19,13 +20,32 @@ export default [
         },
     },
 
+    ...astro.configs['flat/all'],
+    ...astro.configs['flat/jsx-a11y-strict'],
+
     {
-        ignores: [
-            '.astro/*',
-            '.prettierrc.mjs',
-            '*.config.{js,mjs}',
-            '**/*.astro',
-        ],
+        files: ['**/*.astro'],
+        plugins: {
+            '@typescript-eslint': ts,
+            astro,
+        },
+        languageOptions: {
+            parser: astroParser,
+            parserOptions: {
+                project: './tsconfig.json',
+                parser: tsParser,
+                extraFileExtensions: ['.astro'],
+                sourceType: 'module',
+            },
+        },
+        rules: {
+            ...ts.configs['strict-type-checked'].rules,
+            ...ts.configs['stylistic-type-checked'].rules,
+        },
+    },
+
+    {
+        ignores: ['**/*.astro', '.prettierrc.mjs', '*.config.{js,mjs}'],
         plugins: {
             '@typescript-eslint': ts,
         },
@@ -33,7 +53,7 @@ export default [
             parser: tsParser,
             parserOptions: {
                 project: './tsconfig.json',
-                parser: '@typescript-eslint/parser',
+                parser: tsParser,
                 extraFileExtensions: ['.svelte'],
             },
         },
@@ -53,7 +73,7 @@ export default [
             parser: svelteParser,
             parserOptions: {
                 project: './tsconfig.json',
-                parser: '@typescript-eslint/parser',
+                parser: tsParser,
                 extraFileExtensions: ['.svelte'],
             },
         },
@@ -62,7 +82,4 @@ export default [
             ...svelte.configs.recommended.rules,
         },
     },
-
-    ...astro.configs['flat/all'],
-    ...astro.configs['flat/jsx-a11y-strict'],
 ];
