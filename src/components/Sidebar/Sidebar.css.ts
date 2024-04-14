@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { component } from '../layer.css';
+import { component } from '../../layer.css';
 
 export const nav = style({
   '@layer': {
