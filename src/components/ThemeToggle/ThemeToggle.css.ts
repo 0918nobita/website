@@ -1,18 +1,18 @@
 import { componentLayer } from '~/layer.css';
-import { sidebar } from '~/variable.css';
+import { vars } from '~/theme.css';
 
 export const container = componentLayer({
   display: 'flex',
   borderTopWidth: '1px',
   borderTopStyle: 'solid',
-  borderTopColor: sidebar.foreground,
+  borderTopColor: vars.sidebar.foreground,
 });
 
 export const sunOrMoon = componentLayer({
   width: '2rem',
   height: '2rem',
   padding: '0.5rem',
-  fill: sidebar.foreground,
+  fill: vars.sidebar.foreground,
 });
 
 export const selector = componentLayer({
@@ -24,13 +24,13 @@ export const selector = componentLayer({
   WebkitAppearance: 'none',
   appearance: 'none',
 
-  backgroundColor: sidebar.background.default,
-  color: sidebar.foreground,
+  backgroundColor: vars.sidebar.background.default,
+  color: vars.sidebar.foreground,
 
   '@media': {
     '(hover: hover)': {
       ':hover': {
-        backgroundColor: sidebar.background.hovered,
+        backgroundColor: vars.sidebar.background.hovered,
       },
     },
   },

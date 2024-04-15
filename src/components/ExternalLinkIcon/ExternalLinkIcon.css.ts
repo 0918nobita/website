@@ -1,8 +1,8 @@
 import { componentLayer } from '~/layer.css';
-import { main } from '~/variable.css';
+import { vars } from '~/theme.css';
 
 export const icon = componentLayer({
-  fill: main.foreground,
+  fill: vars.main.foreground,
   width: '0.8rem',
   height: '0.8rem',
 });

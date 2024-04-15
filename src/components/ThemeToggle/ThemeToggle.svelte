@@ -47,4 +47,4 @@
   }
 </script>
 
-<ThemeToggleDisplay {currentTheme} {themeSetting} {onChange} />
+<ThemeToggleDisplay {currentTheme} bind:themeSetting {onChange} />

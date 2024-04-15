@@ -1,11 +1,11 @@
 import { componentLayer } from '~/layer.css';
-import { sidebar } from '~/variable.css';
+import { vars } from '~/theme.css';
 
 export const nav = componentLayer({
   display: 'flex',
   flexDirection: 'column',
-  backgroundColor: sidebar.background.default,
-  color: sidebar.foreground,
+  backgroundColor: vars.sidebar.background.default,
+  color: vars.sidebar.foreground,
   width: '18rem',
   height: '100vh',
 });
@@ -26,7 +26,7 @@ export const navItem = componentLayer({
   '@media': {
     '(hover: hover)': {
       ':hover': {
-        backgroundColor: sidebar.background.hovered,
+        backgroundColor: vars.sidebar.background.hovered,
       },
     },
   },

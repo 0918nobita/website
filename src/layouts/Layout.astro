@@ -7,6 +7,7 @@ import { Sidebar } from '~/components/Sidebar';
 import { SpHeader } from '~/components/SpHeader';
 
 import * as styles from './Layout.css';
+import { dark, light } from '~/theme.css';
 
 interface Props {
   frontmatter?: {
@@ -42,7 +43,7 @@ const { title } = Astro.props.frontmatter ?? Astro.props;
     <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" />
   </head>
   <body>
-    <script is:inline>
+    <script is:inline define:vars={{ dark, light }}>
       function osThemeSetting() {
         return window.matchMedia('(prefers-color-scheme: dark)').matches
           ? 'dark'
@@ -68,7 +69,13 @@ const { title } = Astro.props.frontmatter ?? Astro.props;
           }
         })();
 
-        doc.documentElement.dataset['theme'] = theme;
+        if (theme === 'dark') {
+          doc.documentElement.classList.remove(light);
+          doc.documentElement.classList.add(dark);
+        } else {
+          doc.documentElement.classList.remove(dark);
+          doc.documentElement.classList.add(light);
+        }
       }
 
       /**

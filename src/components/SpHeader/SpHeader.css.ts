@@ -1,13 +1,13 @@
 import { componentLayer } from '~/layer.css';
-import { spHeader } from '~/variable.css';
+import { vars } from '~/theme.css';
 
 export const header = componentLayer({
   display: 'flex',
   flexDirection: 'row',
   width: '100vw',
   height: '3rem',
-  backgroundColor: spHeader.background.default,
-  color: spHeader.foreground,
+  backgroundColor: vars.spHeader.background.default,
+  color: vars.spHeader.foreground,
 });
 
 export const iconWrapper = componentLayer({
@@ -29,7 +29,7 @@ export const navItem = componentLayer({
   '@media': {
     '(hover: hover)': {
       ':hover': {
-        backgroundColor: spHeader.background.hovered,
+        backgroundColor: vars.spHeader.background.hovered,
       },
     },
   },

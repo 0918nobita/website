@@ -1,5 +1,5 @@
 import { componentLayer } from '~/layer.css';
-import { card } from '~/variable.css';
+import { vars } from '~/theme.css';
 
 export const clickableCard = componentLayer({
   textDecoration: 'none',
@@ -9,8 +9,8 @@ export const clickableCard = componentLayer({
   gridRow: 'span 2',
   gap: '0',
   borderRadius: '7px',
-  border: card.border,
-  boxShadow: card.boxShadow,
+  border: vars.card.border,
+  boxShadow: vars.card.boxShadow,
   fontSize: '15px',
   lineHeight: '1.5',
 });
@@ -21,8 +21,8 @@ export const nonClickableCard = componentLayer({
   gridRow: 'span 2',
   gap: '0',
   borderRadius: '7px',
-  border: card.border,
-  boxShadow: card.boxShadow,
+  border: vars.card.border,
+  boxShadow: vars.card.boxShadow,
   fontSize: '15px',
   lineHeight: '1.5',
 });
@@ -33,7 +33,7 @@ export const titleWrapper = componentLayer({
   margin: '0',
   padding: '0.5rem 0.7rem',
 
-  backgroundColor: card.background,
+  backgroundColor: vars.card.background,
 });
 
 export const title = componentLayer({
