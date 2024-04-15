@@ -8,6 +8,10 @@ export default defineConfig({
     site: 'https://kodai.engineer',
     integrations: [svelte(), mdx()],
     vite: {
-        plugins: [vanillaExtractPlugin()],
+        plugins: [
+            vanillaExtractPlugin({
+                identifiers: 'debug',
+            }),
+        ],
     },
 });
