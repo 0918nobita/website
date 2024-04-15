@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  import { history } from '../store';
+  import { history } from '~/store';
 
   onMount(() => {
     const a = localStorage.getItem('historyA') === null;

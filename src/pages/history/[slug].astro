@@ -1,9 +1,11 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
+
+import Layout from '~/layouts/Layout.astro';
 
 export async function getStaticPaths() {
   const historyDetails = await getCollection('historyDetail');
+
   return historyDetails.map((historyDetail) => ({
     params: { slug: historyDetail.slug },
     props: historyDetail,
@@ -13,6 +15,7 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<'historyDetail'>;
 
 const historyDetail = Astro.props;
+
 const { Content } = await historyDetail.render();
 ---
 

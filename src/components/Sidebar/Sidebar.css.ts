@@ -1,68 +1,43 @@
-import { style } from '@vanilla-extract/css';
+import { componentLayer } from '~/layer.css';
+import { sidebar } from '~/variable.css';
 
-import { component } from '../../layer.css';
-
-export const nav = style({
-  '@layer': {
-    [component]: {
-      display: 'flex',
-      flexDirection: 'column',
-      backgroundColor: 'var(--sidebar-bg)',
-      color: 'var(--sidebar-text)',
-      width: '18rem',
-      height: '100vh',
-    },
-  },
+export const nav = componentLayer({
+  display: 'flex',
+  flexDirection: 'column',
+  backgroundColor: sidebar.background.default,
+  color: sidebar.foreground,
+  width: '18rem',
+  height: '100vh',
 });
 
-export const icon = style({
-  '@layer': {
-    [component]: {
-      maxWidth: '100%',
-      height: 'auto',
-      padding: '1rem',
-    },
-  },
+export const icon = componentLayer({
+  maxWidth: '100%',
+  height: 'auto',
+  padding: '1rem',
 });
 
-export const navList = style({
-  '@layer': {
-    [component]: {
-      listStyleType: 'none',
-      margin: '0',
-      padding: '0',
-    },
-  },
+export const navList = componentLayer({
+  listStyleType: 'none',
+  margin: '0',
+  padding: '0',
 });
 
-export const navItem = style({
-  '@layer': {
-    [component]: {
-      '@media': {
-        '(hover: hover)': {
-          ':hover': {
-            backgroundColor: 'var(--sidebar-hovered-bg)',
-          },
-        },
+export const navItem = componentLayer({
+  '@media': {
+    '(hover: hover)': {
+      ':hover': {
+        backgroundColor: sidebar.background.hovered,
       },
     },
   },
 });
 
-export const navItemLink = style({
-  '@layer': {
-    [component]: {
-      display: 'block',
-      padding: '0.5rem 1rem',
-      textDecoration: 'none',
-    },
-  },
+export const navItemLink = componentLayer({
+  display: 'block',
+  padding: '0.5rem 1rem',
+  textDecoration: 'none',
 });
 
-export const spacer = style({
-  '@layer': {
-    [component]: {
-      flexGrow: 1,
-    },
-  },
+export const spacer = componentLayer({
+  flexGrow: 1,
 });

@@ -28,6 +28,11 @@
 
     "skipLibCheck": true,
 
-    "jsx": "preserve"
+    "jsx": "preserve",
+
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    }
   }
 }

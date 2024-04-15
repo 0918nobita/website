@@ -1,5 +1,6 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import ExternalLink from '~/components/ExternalLink.astro';
+import Layout from '~/layouts/Layout.astro';
 ---
 
 <Layout title="Kodai のウェブサイト">
@@ -16,5 +17,37 @@ import Layout from '../layouts/Layout.astro';
 
   <p>計算機とプログラミング言語が好きです！</p>
 
-  <p>このウェブサイトは Astro で開発されています。</p>
+  <p>
+    このウェブサイトは
+    <ul>
+      <li>
+        <ExternalLink
+          url="https://www.typescriptlang.org/"
+          label="TypeScript"
+        />
+      </li>
+      <li><ExternalLink url="https://astro.build/" label="Astro" /></li>
+      <li><ExternalLink url="https://svelte.dev/" label="Svelte" /></li>
+      <li>
+        <ExternalLink
+          url="https://vanilla-extract.style/"
+          label="Vanilla Extract CSS"
+        />
+      </li>
+      <li>
+        <ExternalLink
+          url="https://pages.cloudflare.com/"
+          label="Cloudflare Pages"
+        />
+      </li>
+    </ul>
+    等を用いて開発・デプロイされています。
+  </p>
+  <p>
+    ソースコード：
+    <ExternalLink
+      url="https://github.com/0918nobita/website"
+      label="(GitHub) 0918nobita/website"
+    />
+  </p>
 </Layout>

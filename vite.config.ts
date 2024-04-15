@@ -4,4 +4,9 @@ import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 
 export default defineConfig({
     plugins: [svelte(), vanillaExtractPlugin()],
+    resolve: {
+        alias: {
+            '~/': `${import.meta.dirname}/src/`,
+        },
+    },
 });
