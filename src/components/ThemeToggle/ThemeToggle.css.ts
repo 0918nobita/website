@@ -4,9 +4,11 @@ import { vars } from '~/theme.css';
 
 export const container = componentLayer({
   display: 'flex',
+  alignItems: 'center',
   borderTopWidth: '1px',
   borderTopStyle: 'solid',
   borderTopColor: vars.sidebar.foreground,
+  backgroundColor: vars.sidebar.background.default,
 });
 
 export const sunOrMoon = componentLayer({
@@ -18,8 +20,9 @@ export const sunOrMoon = componentLayer({
 
 export const selector = componentLayer({
   flex: '1',
-  padding: '0.5rem',
   border: 'none',
+  fontSize: '0.95rem',
+  padding: '0.5rem',
 
   MozAppearance: 'none',
   WebkitAppearance: 'none',
