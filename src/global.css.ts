@@ -1,17 +1,16 @@
-import { globalStyle } from '@vanilla-extract/css';
-
+import { baseLayerGlobalStyle } from '~/layer.css';
 import { vars, dark } from './theme.css';
 
-globalStyle('*, *::before, *::after', {
+baseLayerGlobalStyle('*, *::before, *::after', {
   boxSizing: 'border-box',
 });
 
-globalStyle('a', {
+baseLayerGlobalStyle('a', {
   color: 'inherit',
   textDecorationColor: vars.underline,
 });
 
-globalStyle('body', {
+baseLayerGlobalStyle('body', {
   margin: '0',
 
   backgroundColor: vars.main.background,
@@ -21,14 +20,14 @@ globalStyle('body', {
   lineHeight: '30px',
 });
 
-globalStyle('h2', {
+baseLayerGlobalStyle('h2', {
   color: vars.heading.h2,
 });
 
-globalStyle('h3', {
+baseLayerGlobalStyle('h3', {
   color: vars.heading.h3,
 });
 
-globalStyle(`${dark} img`, {
+baseLayerGlobalStyle(`${dark} img`, {
   filter: 'grayscale(20%)',
 });
