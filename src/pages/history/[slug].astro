@@ -19,6 +19,9 @@ const historyDetail = Astro.props;
 const { Content } = await historyDetail.render();
 ---
 
-<Layout title={`${historyDetail.data.title} | Kodai のウェブサイト`}>
+<Layout
+  title={`${historyDetail.data.title} | Kodai のウェブサイト`}
+  description={historyDetail.data.description}
+>
   <Content />
 </Layout>

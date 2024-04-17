@@ -12,12 +12,14 @@ import { dark, light } from '~/theme.css';
 interface Props {
   frontmatter?: {
     title: string;
+    description: string;
   };
 
-  title?: string;
+  title: string;
+  description: string;
 }
 
-const { title } = Astro.props.frontmatter ?? Astro.props;
+const { title, description } = Astro.props.frontmatter ?? Astro.props;
 ---
 
 <!doctype html>
@@ -27,11 +29,9 @@ const { title } = Astro.props.frontmatter ?? Astro.props;
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="og:title" content="Kodai のウェブサイト" />
-    <meta
-      name="og:description"
-      content="Kodai の経歴・連作先・制作物等を掲載しています"
-    />
+    <meta name="og:title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="og:description" content={description} />
     <meta name="og:locale" content="ja_JP" />
     <meta name="og:url" content="https://kodai.engineer" />
     <meta name="og:image" content="https://kodai.engineer/icon.jpg" />
