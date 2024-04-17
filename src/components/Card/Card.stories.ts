@@ -12,7 +12,11 @@ const meta = {
         desc: {
             control: { type: 'text' },
         },
-        link: { control: false },
+    },
+    parameters: {
+        controls: {
+            exclude: ['link'],
+        },
     },
 } satisfies Meta<Card>;
 

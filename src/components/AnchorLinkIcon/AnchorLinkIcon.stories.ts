@@ -7,6 +7,12 @@ const meta = {
     component: AnchorLinkIcon,
     args: {
         className: '',
+        textLabel: 'テキストラベル',
+    },
+    argTypes: {
+        textLabel: {
+            control: { type: 'text' },
+        },
     },
     parameters: {
         controls: {

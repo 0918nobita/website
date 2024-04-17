@@ -14,8 +14,10 @@ const meta = {
             options: ['match-system', 'dark', 'light'],
             control: { type: 'select' },
         },
-        onChange: {
-            control: false,
+    },
+    parameters: {
+        controls: {
+            exclude: ['onChange'],
         },
     },
 } satisfies Meta<ThemeToggleDisplay>;
