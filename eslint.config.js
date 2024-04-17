@@ -7,6 +7,19 @@ import globals from 'globals';
 import svelteParser from 'svelte-eslint-parser';
 import astroParser from 'astro-eslint-parser';
 
+const tsRules = {
+    ...ts.configs['strict-type-checked'].rules,
+    ...ts.configs['stylistic-type-checked'].rules,
+
+    '@typescript-eslint/array-type': [
+        'error',
+        {
+            default: 'array-simple',
+            readonly: 'array-simple',
+        },
+    ],
+};
+
 /** @type {import('typescript-eslint').Config} */
 export default [
     {
@@ -38,10 +51,7 @@ export default [
                 sourceType: 'module',
             },
         },
-        rules: {
-            ...ts.configs['strict-type-checked'].rules,
-            ...ts.configs['stylistic-type-checked'].rules,
-        },
+        rules: tsRules,
     },
 
     {
@@ -57,10 +67,7 @@ export default [
                 extraFileExtensions: ['.svelte'],
             },
         },
-        rules: {
-            ...ts.configs['strict-type-checked'].rules,
-            ...ts.configs['stylistic-type-checked'].rules,
-        },
+        rules: tsRules,
     },
 
     {
