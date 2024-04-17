@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
 
+import { Breadcrumb } from '~/components/Breadcrumb';
 import Layout from '~/layouts/Layout.astro';
 
 export async function getStaticPaths() {
@@ -23,5 +24,14 @@ const { Content } = await historyDetail.render();
   title={`${historyDetail.data.title} | Kodai のウェブサイト`}
   description={historyDetail.data.description}
 >
+  <Breadcrumb
+    path={[
+      { label: '自分史', link: '/history' },
+      {
+        label: historyDetail.data.title,
+        link: `/history/${historyDetail.slug}`,
+      },
+    ]}
+  />
   <Content />
 </Layout>
