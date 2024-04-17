@@ -1,3 +1,4 @@
+import { hover } from '~/helper.css';
 import { componentLayer } from '~/layer.css';
 import { vars } from '~/theme.css';
 
@@ -23,13 +24,9 @@ export const navList = componentLayer({
 });
 
 export const navItem = componentLayer({
-  '@media': {
-    '(hover: hover)': {
-      ':hover': {
-        backgroundColor: vars.sidebar.background.hovered,
-      },
-    },
-  },
+  ...hover({
+    backgroundColor: vars.sidebar.background.hovered,
+  }),
 });
 
 export const navItemLink = componentLayer({

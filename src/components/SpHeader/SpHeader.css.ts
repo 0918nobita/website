@@ -1,3 +1,4 @@
+import { hover } from '~/helper.css';
 import { componentLayer } from '~/layer.css';
 import { vars } from '~/theme.css';
 
@@ -26,11 +27,7 @@ export const navItem = componentLayer({
   paddingRight: '0.5rem',
   textDecoration: 'none',
 
-  '@media': {
-    '(hover: hover)': {
-      ':hover': {
-        backgroundColor: vars.spHeader.background.hovered,
-      },
-    },
-  },
+  ...hover({
+    backgroundColor: vars.spHeader.background.hovered,
+  }),
 });

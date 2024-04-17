@@ -1,3 +1,4 @@
+import { hover } from '~/helper.css';
 import { componentLayer } from '~/layer.css';
 import { vars } from '~/theme.css';
 
@@ -27,11 +28,7 @@ export const selector = componentLayer({
   backgroundColor: vars.sidebar.background.default,
   color: vars.sidebar.foreground,
 
-  '@media': {
-    '(hover: hover)': {
-      ':hover': {
-        backgroundColor: vars.sidebar.background.hovered,
-      },
-    },
-  },
+  ...hover({
+    backgroundColor: vars.sidebar.background.hovered,
+  }),
 });
