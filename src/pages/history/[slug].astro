@@ -1,6 +1,8 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
 
+import dayjs from 'dayjs';
+
 import { Breadcrumb } from '~/components/Breadcrumb';
 import Layout from '~/layouts/Layout.astro';
 
@@ -33,5 +35,8 @@ const { Content } = await historyDetail.render();
       },
     ]}
   />
+  <p>
+    最終更新日：{dayjs(historyDetail.data.modifiedAt).format('YYYY年MM月DD日')}
+  </p>
   <Content />
 </Layout>

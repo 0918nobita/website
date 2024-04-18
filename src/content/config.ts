@@ -6,7 +6,7 @@ export const historyDetail = defineCollection({
         title: z.string(),
         description: z.string(),
         tags: z.array(z.string()),
-        thumbnail: z.string().url().optional(),
+        modifiedAt: z.date(),
     }),
 });
 

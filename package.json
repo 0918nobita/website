@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "@vanilla-extract/css": "^1.14.2",
+    "dayjs": "^1.11.10",
     "nanostores": "^0.10.3",
     "svelte": "^4.2.14"
   }

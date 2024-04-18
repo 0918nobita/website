@@ -20,6 +20,10 @@ baseLayerGlobalStyle('body', {
   lineHeight: '30px',
 });
 
+baseLayerGlobalStyle('h1', {
+  lineHeight: '1.5',
+});
+
 baseLayerGlobalStyle('h2', {
   color: vars.heading.h2,
 });
