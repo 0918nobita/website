@@ -1,9 +1,8 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
 
-import dayjs from 'dayjs';
-
 import { Breadcrumb } from '~/components/Breadcrumb';
+import { ModifiedAt } from '~/components/ModifiedAt';
 import Layout from '~/layouts/Layout.astro';
 
 export async function getStaticPaths() {
@@ -35,8 +34,6 @@ const { Content } = await historyDetail.render();
       },
     ]}
   />
-  <p>
-    最終更新日：{dayjs(historyDetail.data.modifiedAt).format('YYYY年MM月DD日')}
-  </p>
+  <ModifiedAt date={historyDetail.data.modifiedAt} />
   <Content />
 </Layout>

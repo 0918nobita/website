@@ -7,6 +7,9 @@ export const breadcrumb = componentLayer({
   flexWrap: 'wrap',
   listStyleType: 'none',
   padding: '0',
+  margin: '0.5rem 0',
+
+  fontSize: '0.9rem',
 });
 
 globalStyle(`${breadcrumb} li:not(:last-of-type)::after`, {
