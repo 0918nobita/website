@@ -3,6 +3,8 @@
 
   import { history } from '~/store';
 
+  import HistoryPageConfigDisplay from './HistoryPageConfigDisplay.svelte';
+
   onMount(() => {
     const a = localStorage.getItem('historyA') === null;
 
@@ -53,33 +55,11 @@
   }
 </script>
 
-<input
-  id="toggle-a"
-  type="checkbox"
-  checked={$history.a}
-  on:change={onChangeA}
+<HistoryPageConfigDisplay
+  aChecked={$history.a}
+  bChecked={$history.b}
+  cChecked={$history.c}
+  {onChangeA}
+  {onChangeB}
+  {onChangeC}
 />
-
-<label for="toggle-a">キャリア・Web 開発と関係のある内容を表示する</label>
-
-<br />
-
-<input
-  id="toggle-b"
-  type="checkbox"
-  checked={$history.b}
-  on:change={onChangeB}
-/>
-
-<label for="toggle-b">その他の技術的な内容を表示する</label>
-
-<br />
-
-<input
-  id="toggle-c"
-  type="checkbox"
-  checked={$history.c}
-  on:change={onChangeC}
-/>
-
-<label for="toggle-c">技術的でない内容を表示する</label>
