@@ -1,0 +1,42 @@
+---
+slug: psyche
+year: 2019
+type: secondary
+hasDetail: true
+title: OCaml を用いてパーサコンビネータやコンパイラを自作していた
+modifiedAt: 2024-04-23
+---
+
+<script>
+  import { ExternalLink } from '~/components';
+</script>
+
+<ExternalLink
+  url="https://github.com/0918nobita/psyche"
+  label="(GitHub) 0918nobita/psyche"
+/>
+
+OCaml で自作言語 Psyche のコンパイラを作成していました。
+
+ターゲットは WebAssembly (バイナリ形式) です。名前束縛 (let), 関数定義と WASM モジュールでのエクスポートを実装し、フィボナッチ数を求める関数が定義できるようになりました。
+
+OCaml の関数型プログラミング言語としての性質を活かしたパーサコンビネータの実装について深く知る機会になりました。
+
+また、WASM の命令の仕様について深く知るため、仕様書を読んだり既存の WASM バイナリを逆アセンブルして解析したりしていました。
+
+- <ExternalLink
+    url="https://twitter.com/0918nobita/status/1147417073523408896"
+    label="(Twitter) パーサコンビネータを作成している様子"
+  />
+- <ExternalLink
+    url="https://twitter.com/0918nobita/status/1132488447610900483"
+    label="(Twitter) 比較演算子を実装してから論理演算子, if 式を実装するまでの一連のツイート"
+  />
+- <ExternalLink
+    url="https://twitter.com/0918nobita/status/1154716848614625280"
+    label="(Twitter) 関数定義/呼び出しを実装したときのツイート"
+  />
+- <ExternalLink
+    url="https://twitter.com/0918nobita/status/1147715930148839424"
+    label="(Twitter) WASM モジュールでのエクスポートを実装したときのツイート"
+  />

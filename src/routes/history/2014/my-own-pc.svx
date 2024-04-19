@@ -1,0 +1,19 @@
+---
+slug: my-own-pc
+year: 2014
+type: secondary
+hasDetail: true
+title: マイパソコンを手にして、さらにプログラミングに夢中になった
+modifiedAt: 2024-04-23
+---
+
+<script>
+  import { ExternalLink } from '~/components';
+</script>
+
+初めてのマイパソコンとして、ASUS TAICHI 21 を購入しました。
+通常の薄型 PC のディスプレイの裏側にもう１枚タッチ対応フルHD液晶ディスプレイが追加されており、畳めばタブレットのように使える変態 PC です。
+
+(参考記事) <ExternalLink url="https://www.itmedia.co.jp/pcuser/articles/1212/06/news052.html" label="“2画面Ultrabook”はまるで未来のガジェット？――「TAICHI21」徹底検証：11.6型フルHD液晶デュアルの衝撃（1/6 ページ） - ITmedia PC USER" />
+
+それまで利用していた家族用 PC よりも容量が多く、何より自分の思い通りにソフトウェアを導入できるので、さらに本格的なプログラミングにのめり込むことになりました。

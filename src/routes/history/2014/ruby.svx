@@ -1,0 +1,7 @@
+---
+slug: ruby
+year: 2014
+type: secondary
+hasDetail: false
+title: Ruby で基礎的なアルゴリズム問題を解いていた
+---

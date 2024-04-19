@@ -1,0 +1,7 @@
+---
+slug: godot
+year: 2022
+type: secondary
+hasDetail: false
+title: Godot に入門した
+---

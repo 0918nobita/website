@@ -1,0 +1,20 @@
+---
+slug: obsidian-plugin-dev
+year: 2023
+type: secondary
+hasDetail: true
+title: 中国語学習を支援する Obsidian プラグインを開発して公開した
+modifiedAt: 2024-04-22
+---
+
+<script>
+  import { ExternalLink } from '~/components';
+</script>
+
+リポジトリ：<ExternalLink url="https://github.com/0918nobita/obsidian-zhongwen-block" label="(GitHub) 0918nobita/obsidian-zhongwen-block" />
+
+私は <ExternalLink url="https://obsidian.md/" label="Obsidian" /> を用いて Markdown 形式で中国語に関するノートを取っています。  
+当初は簡体字表記に対応するピンインを調べて入力するのが面倒で、ピンイン無しで文を正しく読めるか自己テストするのにも不便だったので、
+独自の `zh-cn` コードブロックのなかの中国語の文に対して自動でルビとしてピンインを付与するプラグインを自作して公開しました。
+
+デフォルト設定ではピンインはホバー時にのみ表示されますが、プラグイン設定からピンインを常に表示するように設定変更できます。

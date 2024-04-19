@@ -1,0 +1,46 @@
+---
+slug: tsundoku
+year: 2018
+type: primary
+hasDetail: true
+title: Firebase を用いてプログレッシブWebアプリ「Tsundoku」を開発した
+modifiedAt: 2024-04-23
+---
+
+<script>
+  import { ExternalLink } from '~/components';
+</script>
+
+技術書典で購入した「Ionic と Firebase でゼロからはじめるアプリ開発」という技術同人誌を参考にしつつ、
+
+- Firebase Authentication
+- Firebase Cloud Firestore
+- Cloud Functions for Firebase
+- Firebase Cloud Storage
+
+を活用して積読管理用 Web アプリ「Tsundoku」を自主開発していました。
+
+<ExternalLink
+  url="https://github.com/0918nobita/Tsundoku"
+  label="(GitHub) 0918nobita/Tsundoku"
+/>
+
+プログレッシブWebアプリとして開発しており、ホーム画面からネイティブアプリのように起動できます。
+
+スマホでもPCでも扱いやすいUIデザインを考え、Ionic を利用して効率的に実装しました。  
+また、初めて状態管理ライブラリを採用して状態遷移・非同期処理を含むロジックを整理しつつ実装しました。
+
+その他、利用した技術：
+
+- TypeScript
+- Angular
+- NgRx (状態管理)
+- RxJS (NgRx のストアと結びついた非同期処理の管理)
+- Algolia (全文検索)
+- Netlify (デプロイ)
+
+
+Tsundoku の開発進捗ツイート：
+
+- <ExternalLink url="https://twitter.com/0918nobita/status/1024276966252277760" label="(Twitter) サムネイルの表示に成功" />
+- <ExternalLink url="https://twitter.com/0918nobita/status/1039322704296337410" label="(Twitter) Google Books API で取得した本の情報を IndexedDB でキャッシュすることに成功した" />

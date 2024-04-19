@@ -1,0 +1,10 @@
+---
+slug: elm
+year: 2020
+type: secondary
+hasDetail: true
+title: Elm 言語に入門し、The Elm Architecture について学んだ
+modifiedAt: 2024-04-23
+---
+
+Elm に関しては「The Elm Architecture(Model, View, Update, Cmd, Sub) で状態変化・副作用のある SPA を効率的に実装するという目的にあわせて洗練された言語」として認識し活用しており、その考え方は他の言語・フレームワーク・ライブラリを用いた Web フロントエンド開発においても役立っています。

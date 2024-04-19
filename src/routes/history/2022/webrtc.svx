@@ -1,0 +1,8 @@
+---
+slug: webrtc
+year: 2022
+type: primary
+hasDetail: false
+title: WebRTC を用いて異なる端末間で映像共有するサンプルを作成した
+externalLink: https://twitter.com/0918nobita/status/1518831286038646784
+---

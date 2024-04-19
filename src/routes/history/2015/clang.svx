@@ -1,0 +1,7 @@
+---
+slug: clang
+year: 2015
+type: secondary
+hasDetail: false
+title: C言語に入門し、手動メモリ管理やポインタについて学んだ
+---

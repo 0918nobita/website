@@ -1,0 +1,7 @@
+---
+slug: rust-proc-macros
+year: 2022
+type: secondary
+hasDetail: false
+title: Rust の手続きマクロについて詳しく学んだ
+---

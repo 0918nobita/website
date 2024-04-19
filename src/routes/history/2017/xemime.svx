@@ -1,0 +1,35 @@
+---
+slug: xemime
+year: 2017
+type: primary
+hasDetail: true
+title: プログラミングコンテスト「あいちゃれグローバル」で最優秀賞を受賞した
+modifiedAt: 2024-04-23
+---
+
+<script>
+  import { ExternalLink } from '~/components';
+</script>
+
+この時期にはプログラミング言語処理系の開発に興味を持ち、「いまどきのプログラム言語の作り方 (randy 著)」という技術書を参考にしつつ Java でインタプリタを実装していました。  
+最初は整数の四則演算の式を入力して答えを求めるだけの電卓のようなプログラムでしたが、
+変数と代入の機能を追加して、条件分岐ができるようにして、繰り返しも実現して…という風に段階的に拡張してプログラミング言語として成長させていく過程がとても楽しく感じて、熱中していました。  
+最終的にはプロトタイプベースオブジェクト指向言語として完成させ、オブジェクトを作成したりメソッドを呼び出したりプロパティにアクセスしたりできるようにしました。
+
+また、それまでのプログラミング言語に関する経験を元にして、独自に拡張して
+
+- ラムダ式
+- 関数名をバッククォートで挟んで中置関数化する機能
+
+などを盛り込み、**Xemime** と名付けました。
+これを立命館大学主催のプログラミングコンテスト「あいちゃれグローバル2017」に応募し、立命館大学びわこ・くさつキャンパスでプレゼンを行って最終的にワークスアプリケーションズ賞と最優秀賞をいただきました。
+
+<ExternalLink url="https://www.youtube.com/watch?v=v2wuH6c1KNs" label="(YouTube) プレゼンの様子" />
+
+応募したプログラムのリポジトリ：<ExternalLink url="https://github.com/xemime-lang/xemime" label="(GitHub) xemime-lang/xemime" />
+
+当時の関連ツイート：
+
+- <ExternalLink url="https://twitter.com/0918nobita/status/910868736025833473" label="(Twitter) Xemime の if-else 式" />
+- <ExternalLink url="https://twitter.com/0918nobita/status/910870986513252352" label="(Twitter) Xemime のアロー関数" />
+- <ExternalLink url="https://twitter.com/0918nobita/status/912808387263344640" label="(Twitter) Xemime に while 文を追加した" />

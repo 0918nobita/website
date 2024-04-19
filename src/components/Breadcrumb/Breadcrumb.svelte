@@ -1,5 +1,5 @@
 <script lang="ts">
-  import * as styles from './Breadcrumb.css';
+  import * as styles from './style.css';
 
   export let path: Array<{ label: string; link: string }>;
 </script>

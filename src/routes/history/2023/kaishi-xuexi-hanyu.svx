@@ -1,0 +1,8 @@
+---
+slug: kaishi-xuexi-hanyu
+year: 2023
+type: tertiary
+hasDetail: false
+title: アークナイツがきっかけで中国語に入門した
+externalLink: https://0918nobita.hateblo.jp/entry/2023/05/03/192857
+---

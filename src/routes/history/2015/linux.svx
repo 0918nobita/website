@@ -1,0 +1,18 @@
+---
+slug: linux
+year: 2015
+type: secondary
+hasDetail: true
+title: Linux を使い始めた
+modifiedAt: 2024-04-23
+---
+
+Linux という OS に興味を持ち、最寄りの書店にあった「日経 Linux」という雑誌を購入しました。  
+付属していた Ubuntu 16.04 LTS 日本語 Remix インストール用ディスクを用いて、
+[自分のノートPC](/history/2014/my-own-pc)で Windows 8 と Ubuntu 16.04 LTS のデュアルブートを設定しようとしました。
+
+しかし誤って Windows を消し飛ばして Ubuntu をフルインストールしてしまい、突然 Ubuntu しか使えない状況になりました。
+修復もうまく行かず、結局そのまま使い続けることにしました。
+
+スマホで deb パッケージのインストール方法やコマンドの使い方を調べつつ少しずつ Linux に慣れていきました。
+後に、GUI がかっこいいと感じた Linux Mint Cinnamon に乗り換えました。

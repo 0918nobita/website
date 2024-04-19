@@ -1,12 +1,13 @@
+import path from 'node:path';
 import { defineConfig } from 'vite';
-import { svelte } from '@sveltejs/vite-plugin-svelte';
+import { sveltekit } from '@sveltejs/kit/vite';
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 
 export default defineConfig({
-    plugins: [svelte(), vanillaExtractPlugin({ identifiers: 'debug' })],
+    plugins: [sveltekit(), vanillaExtractPlugin({ identifiers: 'debug' })],
     resolve: {
         alias: {
-            '~/': `${import.meta.dirname}/src/`,
+            '~': path.join(import.meta.dirname, 'src'),
         },
     },
 });
