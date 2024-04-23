@@ -1,6 +1,6 @@
 # Kodai のウェブサイト
 
-Astro, Svelte, Vanilla Extract CSS を用いて開発しています。
+SvelteKit, Vanilla Extract CSS を用いて開発しています。
 
 ## 依存パッケージのインストール
 

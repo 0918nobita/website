@@ -1,0 +1,7 @@
+---
+slug: art-club
+year: 2013
+type: tertiary
+hasDetail: false
+title: 中学校で美術部に所属してアクリル画を沢山描いていた
+---

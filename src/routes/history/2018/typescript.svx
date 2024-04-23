@@ -1,0 +1,16 @@
+---
+slug: typescript
+year: 2018
+type: secondary
+hasDetail: true
+title: TypeScript に入門し、その型システムについての認識を深めた
+modifiedAt: 2024-04-23
+---
+
+<script>
+  import { ExternalLink } from '~/components';
+</script>
+
+TypeScript の構造的部分型や Mapped Types, Conditional Types といった機能について学び、型レベル自然数とその演算を定義したりしていました。
+
+<ExternalLink url="https://twitter.com/0918nobita/status/1062020304547930112" label="関連ツイート" />

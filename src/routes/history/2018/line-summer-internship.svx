@@ -1,0 +1,23 @@
+---
+slug: line-summer-internship
+year: 2018
+type: primary
+hasDetail: true
+title: LINE サマーインターンシップ・エンジニアスクールコースに参加
+modifiedAt: 2024-04-23
+---
+
+<script>
+  import { ExternalLink } from '~/components';
+</script>
+
+サマーインターンシップ・エンジニアスクールコースに参加し、京都オフィスに毎週通って複数人で Kotlin, Spring を用いて Android 向けメッセンジャーアプリを開発しました。  
+DB の設計やチーム開発の基本についても、講師の方に協力していただきつつ実践を通して学ぶことができました。
+
+紹介記事：<ExternalLink url="https://line-hr.jp/archives/52596047.html" label="サマーインターンシップ2018、各コースの様子をご紹介します : LINE HR BLOG" />
+
+バックエンドは Kotlin, Spring, MyBatis, Tyrus (WebSocket) を用いて開発しました。  
+バックエンド用のリポジトリ：<ExternalLink url="https://github.com/line-school2018summer/kyotob_api" label="(GitHub) line-school2018summer/kyotob_api" />
+
+Android アプリ側は Kotlin, Retrofit, Tyrus を用いて開発しました。  
+Android アプリ用のリポジトリ：<ExternalLink url="https://github.com/line-school2018summer/kyotob_android" label="(GitHub) line-school2018summer/kyotob_android" />

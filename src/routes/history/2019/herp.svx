@@ -1,0 +1,11 @@
+---
+slug: herp
+year: 2019
+type: primary
+hasDetail: true
+title: HERP 就業型インターンシップに参加 (現在も継続中)
+modifiedAt: 2024-04-23
+---
+
+2019年10月に参加し、現在も継続しています。
+TypeScript, Cycle.js, fp-ts, OpenAPI, GraphQL について学びつつWebフロントエンド、BFF、Node.js バックエンドの開発に関わっています。

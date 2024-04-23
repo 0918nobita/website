@@ -1,0 +1,18 @@
+---
+slug: impl-mvu-vdom
+year: 2022
+type: primary
+hasDetail: true
+title: MVU フレームワークと VDOM ランタイムを自作した
+modifiedAt: 2024-04-22
+---
+
+<script>
+  import { ExternalLink } from '~/components';
+</script>
+
+TypeScript を用いて MVU (Model, View, Update) に沿って SPA を効率的に実装するためのフレームワークと VDOM ランタイムを開発し、それを用いて様々な SPA を作成して動作確認をしていました。実装方法をインターネットで調べているなかで、SPA を支えているランタイムの動作原理について理解を深めることができました。
+
+- <ExternalLink url="https://twitter.com/0918nobita/status/1605494324795674624" label="MVU フレームワークを開発しているときのツイート" />
+
+- <ExternalLink url="https://twitter.com/0918nobita/status/1606949773168504832" label="自作 MVU フレームワーク・VDOM ランタイムを用いて作成した SPA に関するスレッド" />

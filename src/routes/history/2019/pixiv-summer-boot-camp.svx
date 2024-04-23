@@ -1,0 +1,17 @@
+---
+slug: pixiv-summer-boot-camp
+year: 2019
+type: primary
+hasDetail: true
+title: pixiv 就業型インターンシップ「SUMMER BOOT CAMP 2019」に参加
+modifiedAt: 2024-04-23
+---
+
+<script>
+  import { ExternalLink } from '~/components';
+</script>
+
+2019年9月4日～13日に pixiv SUMMER BOOT CAMP 2019 就業型インターンシップに参加し、pixivFACTORY というサービスの Web フロントエンドの実際の開発に関わりました。
+体験記をブログ記事として公開しています。
+
+インターン体験記：<ExternalLink url="https://0918nobita.hateblo.jp/entry/2019/10/02/163408" label="ピクシブの就業インターンに参加しました - 名残" />

@@ -1,11 +1,9 @@
-import eslint from '@eslint/js';
+import js from '@eslint/js';
 import ts from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
-import astro from 'eslint-plugin-astro';
 import svelte from 'eslint-plugin-svelte';
 import globals from 'globals';
 import svelteParser from 'svelte-eslint-parser';
-import astroParser from 'astro-eslint-parser';
 
 const tsRules = {
     ...ts.configs['strict-type-checked'].rules,
@@ -22,8 +20,10 @@ const tsRules = {
 
 /** @type {import('typescript-eslint').Config} */
 export default [
+    js.configs.recommended,
+
     {
-        ignores: ['dist', '.astro/*'],
+        ignores: ['dist', '.svelte-kit'],
     },
     {
         languageOptions: {
@@ -33,29 +33,8 @@ export default [
         },
     },
 
-    ...astro.configs['flat/all'],
-    ...astro.configs['flat/jsx-a11y-strict'],
-
     {
-        files: ['**/*.astro'],
-        plugins: {
-            '@typescript-eslint': ts,
-            astro,
-        },
-        languageOptions: {
-            parser: astroParser,
-            parserOptions: {
-                project: './tsconfig.json',
-                parser: tsParser,
-                extraFileExtensions: ['.astro'],
-                sourceType: 'module',
-            },
-        },
-        rules: tsRules,
-    },
-
-    {
-        ignores: ['**/*.astro', '.prettierrc.mjs', '*.config.{js,mjs}'],
+        ignores: ['.prettierrc.mjs', '*.config.{js,mjs}'],
         plugins: {
             '@typescript-eslint': ts,
         },

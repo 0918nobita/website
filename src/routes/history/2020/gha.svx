@@ -1,0 +1,30 @@
+---
+slug: gha
+year: 2020
+type: secondary
+hasDetail: true
+title: GitHub Actions を活用した CI/CD について学び、自作アクションを公開した
+modifiedAt: 2024-04-23
+---
+
+<script>
+  import { ExternalLink } from '~/components';
+</script>
+
+## GitHub Actions ワークフローの利用 (1)
+
+GitHub Actionns, Contentful, Zeit Now を活用して、Contentful 側の変更にあわせて GitHub Actions ワークフローを実行して静的サイトを再ビルド・デブロイするサンプルを作成した。
+
+<ExternalLink url="https://twitter.com/0918nobita/status/1237399114955911169" label="関連ツイート" />
+
+## GitHub Actions ワークフローの利用 (2)
+
+GitHub Actions を活用して、Debian/macOS/Windows に対するインストーラの生成を自動化することに成功しました。生成されたインストーラは artifact としてアップロードされ利用可能になります。
+
+<ExternalLink url="https://github.com/0918nobita/xemime2/blob/main/.github/workflows/build.yml" label="(GitHub) ワークフロー定義" />
+
+## 自作アクションの公開
+
+setup-cljstyle という自作アクションをマーケットプレイスで公開しています。
+
+<ExternalLink url="https://github.com/0918nobita/setup-cljstyle" label="(GitHub) 0918nobita/setup-cljstyle" />

@@ -1,0 +1,16 @@
+---
+slug: prog-semantics
+year: 2019
+type: secondary
+hasDetail: true
+title: プログラミング言語の意味論や型システムについて学んだ
+modifiedAt: 2024-04-23
+---
+
+<script>
+  import { ExternalLink } from '~/components';
+</script>
+
+プログラミング言語の理論的な側面 (数理論理学, 操作的意味論, 表示的意味論) に興味を持ち、プログラミング言語処理系の実装を進めながらいろいろな文献を漁った時期でもありました。
+
+「プログラミング言語の基礎概念」(通称 CoPL) という本で OCaml の操作的意味論について学び、そこで出題される導出木に関する問題を自動で解くプログラム (<ExternalLink url="https://twitter.com/0918nobita/status/1083243313820385280" label="関連ツイート" />) を OCaml で作成することで理解を深めました。

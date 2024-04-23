@@ -1,0 +1,7 @@
+---
+slug: ritsumeikan
+year: 2018
+type: primary
+hasDetail: false
+title: 立命館大学情報理工学部に入学
+---

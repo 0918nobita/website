@@ -1,0 +1,11 @@
+---
+slug: java
+year: 2014
+type: secondary
+hasDetail: true
+title: Java に入門した
+modifiedAt: 2024-04-23
+---
+
+「スッキリわかる Java 入門 (インプレスジャパン, 2011)」という本を参考にして Java 言語に入門しました。
+CLI アプリケーションを作りながら、クラスベースオブジェクト指向の基本を学びました。

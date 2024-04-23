@@ -1,0 +1,17 @@
+---
+slug: first-php
+year: 2014
+type: secondary
+hasDetail: true
+title: 初めて PHPで Web サービスを開発し、GitHub を介して共同開発を経験した
+modifiedAt: 2024-04-23
+---
+
+Web サイト制作に関して、静的な HTML, CSS, JavaScript アセットだけでなく会員登録機能やコメント投稿機能を実装してみたくなり、PHP に挑戦しました。
+
+まず「いきなりはじめる PHP ~ワクワク・ドキドキの入門教室」という技術書を参考にして PHP の基本を学びつつ、デジタル単語帳共有WEBサービスを自主開発しました。
+このとき Git, GitHub の使い方についても学び、Twitter で繋がっていた方と GitHub リポジトリを介して初めて共同開発をしました。
+
+当時は Sublime Text 3 というテキストエディタを利用し、XAMPP でローカル開発環境を構築して実行していました。
+テンプレートエンジンとしては Smarty を採用し、DB には MySQL を採用しました。ログイン状況は `$_SESSION` で管理し、
+PDO を通じて DB にクエリを投げるようにしました。

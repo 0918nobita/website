@@ -1,0 +1,18 @@
+---
+slug: yt-chat-tts
+year: 2023
+type: secondary
+hasDetail: true
+title: YouTube ライブのチャットを VOICEVOX で読み上げるツールを Rust で自作・運用した
+modifiedAt: 2024-04-22
+---
+
+<script>
+  import { ExternalLink } from '~/components';
+</script>
+
+YouTube でコーディングの様子をライブ配信しつつ、チャット読み上げツールを Rust で開発し完成させました。非同期ランタイム tokio や、tracing によるロギングへの理解が深まりました。
+
+リポジトリ：<ExternalLink url="https://github.com/0918nobita/yt-chat-tts" label="(GitHub) 0918nobita/yt-chat-tts" />
+
+<ExternalLink url="https://www.youtube.com/watch?v=Wj-UJ8_abLI&list=PLEJrj0Y1pnek3crNMiy5wGnwz8_eoFsS5" label="(YouTube) コーディング配信アーカイブ" />

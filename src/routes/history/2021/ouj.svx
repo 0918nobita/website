@@ -1,0 +1,7 @@
+---
+slug: ouj
+year: 2021
+type: primary
+hasDetail: false
+title: 放送大学教養学部教養学科情報コースに入学した
+---

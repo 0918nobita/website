@@ -1,0 +1,21 @@
+---
+slug: ca-tech-job
+year: 2019
+type: primary
+hasDetail: true
+title: CyberAgent 就業型インターンシップ「CA Tech JOB」に参加
+modifiedAt: 2024-04-23
+---
+
+2019年2月下旬から3月末までの1ヶ月間、就業型インターンシップ「CA Tech JOB」に参加して AbemaTV の Web フロントエンドの開発に関わり、
+
+- TypeScript
+- React
+- RxJS によるリアクティブプログラミング
+- SPA の状態管理
+- サーバーサイドレンダリング
+- VDOM のスナップショットテスト
+
+についての理解を深めることができました。
+
+また、タスク管理ツールとナレッジベースを活用した大規模チーム開発に参加する貴重な機会となりました。

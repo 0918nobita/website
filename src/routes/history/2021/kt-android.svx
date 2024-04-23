@@ -1,0 +1,23 @@
+---
+slug: kt-android
+year: 2021
+type: secondary
+hasDetail: true
+title: Kotlin, Android に関して、Coroutines Flow, Arrow-kt, Dagger Hilt 等を学んだ
+modifiedAt: 2024-04-22
+---
+
+<script>
+  import { ExternalLink } from '~/components';
+</script>
+
+過去に LINE インターンで Kotlin を用いて Android アプリとバックエンドを開発したことがありましたが、
+Twitter でのエンジニアの方々との交流のなかで Coroutines Flow を知って、
+RxJS 等のリアクティブプログラミングとの関連が気になって再び Kotlin に触れることにしました。
+
+Kotlin で言語処理系を作るという作業の過程で、Coroutine, Sealed interface, data class といった言語機能と、
+Flow, Arrow-kt といったライブラリについての認識を深めることができました。
+
+- <ExternalLink url="https://twitter.com/0918nobita/status/1450131978385170437" label="Flow 入門当初のスレッド" />
+- <ExternalLink url="https://twitter.com/0918nobita/status/1450332316379668481" label="SafeContinuation についてのツイート" />
+- <ExternalLink url="https://twitter.com/0918nobita/status/1438038674197733377" label="Android アプリ開発で NDK, ViewModel, Flow, Dagger Hilt 等を使ってみているスレッド" />

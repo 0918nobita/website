@@ -1,0 +1,7 @@
+---
+slug: gha
+year: 2021
+type: secondary
+hasDetail: false
+title: GitHub Actions, Google Container Registry, Cloud Run を連携させ、バックエンドのデプロイを効率化した
+---

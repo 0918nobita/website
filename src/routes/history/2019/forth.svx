@@ -1,0 +1,19 @@
+---
+slug: forth
+year: 2019
+type: secondary
+hasDetail: true
+title: FORTH 言語にハマり、技術同人誌を執筆・頒布した
+modifiedAt: 2024-04-23
+---
+
+<script>
+  import { ExternalLink } from '~/components';
+</script>
+
+Lisp からの繋がりで FORTH 言語に興味を持ち、色々な文献を漁りながらサンプルコードを書いて独学で学習を進めました。
+そしてそのなかで得られた知見を技術同人誌「DARK FORTH - Prologue」にまとめ、技術書点7にサークル参加して頒布しました。
+現在も <ExternalLink url="https://booth.pm/ja/items/1569164" label="BOOTH" /> にて PDF 版を無料でダウンロードできます。
+
+- <ExternalLink url="https://twitter.com/0918nobita/status/1175218041560240129" label="自サークルの宣伝ツイート" />
+- <ExternalLink url="https://twitter.com/0918nobita/status/1175586298922323968" label="実際に頒布している場所の写真を載せたツイート" />

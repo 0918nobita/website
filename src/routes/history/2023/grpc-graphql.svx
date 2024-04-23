@@ -1,0 +1,30 @@
+---
+slug: grpc-graphql
+year: 2023
+type: primary
+hasDetail: true
+title: gRPC・GraphQL の両方を用いたサンプルを作成した
+modifiedAt: 2024-04-18
+---
+
+<script>
+  import { ExternalLink } from '~/components';
+</script>
+
+<ExternalLink
+  url="https://twitter.com/0918nobita/status/1663913297962254338"
+  label="関連ツイート・スクリーンショット"
+/>
+
+gRPC と GraphQL に関しては別々の機会で仕事のために触れたことがありましたが、今回は個人開発のために両方を同時に採用して
+
+- gRPC：Rust で作成したバックエンドと Node.js(TypeScript) 製 BFF とで通信する
+- GraphQL：BFF と Svelte 製フロントエンドとで通信する
+
+のような構成にしてみました。バックエンド・BFF・フロントエンドそれぞれでスキーマから型定義・実装を生成しているので、スキーマを変更すればそれに伴って修正が必要な箇所がすべてコンパイルエラーでわかるようになってとても快適でした。
+
+ソースコード：<ExternalLink url="https://github.com/0918nobita/chinese-trainer/tree/493f6cfc0984042db861066b4037033d098828fa" label="(GitHub) 0918nobita/chinese-trainer" />
+
+セットアップ方法：<ExternalLink url="https://github.com/0918nobita/chinese-trainer/blob/493f6cfc0984042db861066b4037033d098828fa/docs/development.md" label="(GitHub) development.md・0918nobita/chinese-trainer" />
+
+Protobuf から Rust のコードを生成するためのクレート：<ExternalLink url="https://github.com/hyperium/tonic" label="(GitHub) hyperium/tonic" />

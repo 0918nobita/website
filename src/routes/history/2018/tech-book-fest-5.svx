@@ -1,0 +1,8 @@
+---
+slug: tech-book-fest-5
+year: 2018
+type: tertiary
+hasDetail: false
+title: 技術書典5に一般参加して色々な技術同人誌を買った
+externalLink: https://twitter.com/0918nobita/status/1049286050613346312
+---

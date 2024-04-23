@@ -1,0 +1,17 @@
+---
+slug: vulkan
+year: 2021
+type: secondary
+hasDetail: true
+title: Vulkan の Rust 向けバインディング ash と GLSL を利用して、グラデーション付きの三角形を描画することに成功した
+modifiedAt: 2024-04-23
+---
+
+<script>
+  import { ExternalLink } from '~/components';
+</script>
+
+Fadis 氏の技術同人誌「 <ExternalLink label="3DグラフィックスAPI Vulkan を出来るだけやさしく解説する本" url="https://techbookfest.org/product/5078992340123648?productVariantID=6740057192923136" /> 」を参考にしつつ、Rust から Vulkan を利用するための薄い (unsafe) バインディングである ash を利用して、グラデーション付きの三角形を描画するところまで自力で進めました。物理デバイスの取得、論理デバイス・バッファの作成・シェーダの登録など実際の描画ループを始めるまでに準備すべきことが多く、関連する概念を学ぶのにかなり苦労しましたが、CG に対する理解を深めるとても良い機会になりました。
+
+- <ExternalLink url="https://twitter.com/0918nobita/status/1413516551945261063" label="(Twitter) Vulkan についてのノート" />
+- <ExternalLink url="https://twitter.com/0918nobita/status/1415917887299018752" label="(Twitter) 三角形を描画できたときのツイート" />

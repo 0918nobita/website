@@ -1,7 +1,7 @@
 <script lang="ts">
   import dayjs from 'dayjs';
 
-  import * as styles from './ModifiedAt.css';
+  import * as styles from './style.css';
 
   export let date: Date;
 </script>

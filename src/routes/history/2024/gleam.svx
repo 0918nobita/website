@@ -1,0 +1,26 @@
+---
+slug: gleam
+year: 2024
+type: tertiary
+hasDetail: true
+title: Gleam 言語に入門した
+modifiedAt: 2024-04-17
+---
+
+<script>
+  import { ExternalLink } from '~/components';
+</script>
+
+Twitter で Gleam というプログラミング言語について知り、公式サイトでのチュートリアル・ドキュメントを参考にして入門しました。
+
+<ExternalLink url="https://gleam.run/" label="Gleam 公式サイト" />
+
+入門してまず思ったことは、「言語機能がとてもシンプル」だということです。  
+過去に触ったことのあるプログラミング言語のなかでは、Elm 言語が特に似ていると思います。
+
+チュートリアルを済ませた後、自分の Twitter でのツイート履歴をクォーター毎に分割して CSV として書き出すサンプルを作ってみました。
+
+<ExternalLink
+  url="https://github.com/0918nobita/list_tweets"
+  label="(GitHub) 0918nobita/list_tweets"
+/>

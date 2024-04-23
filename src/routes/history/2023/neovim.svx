@@ -1,0 +1,19 @@
+---
+slug: neovim
+year: 2023
+type: secondary
+hasDetail: true
+title: Neovim を Lua でカスタマイズすることにハマった
+modifiedAt: 2024-04-22
+---
+
+<script>
+  import { ExternalLink } from '~/components';
+</script>
+
+<ExternalLink url="https://github.com/0918nobita/nvim-config" label="(GitHub) 0918nobita/nvim-config" />
+
+Neovim 自体は以前から使っていましたが、その設定に関しては Vim のための設定 (Vim script) を流用しているだけでした。
+
+Lua 言語でより快適に Neovim をカスタマイズできるということを Twitter, Zenn 等で知り、すべての設定を `~/.config/nvim/init.lua` に書き直しました。
+パッケージマネージャに関しては dein から lazy.nvim に乗り換えました。

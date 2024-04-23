@@ -1,0 +1,12 @@
+---
+slug: homepage-first-challenge
+year: 2013
+type: secondary
+hasDetail: true
+title: ホームページ制作に初めて挑戦した
+modifiedAt: 2024-04-23
+---
+
+書店で HTML, CSS 入門書を入手し、家族用の PC に TeraPad というテキストエディタを導入してホームページを制作し始めました。作成した .html, .css ファイルは FFFTP という FTP クライアントを通じて fc2 ホームページにアップロードすることで一般公開していました。
+
+その後、動きのあるウェブサイトを作ってみたくなり、Schoo というオンライン学習プラットフォームで JavaScript の基礎や jQuery について学んでホームページ制作に活かしました。

@@ -1,0 +1,8 @@
+---
+slug: twitter-space-tts
+year: 2022
+type: secondary
+hasDetail: false
+title: Twitter のハッシュタグ付き新着ツイートを VOICEVOX で読み上げるツールを Rust で自作・運用した
+externalLink: https://github.com/0918nobita/twitter-space-tts/tree/50d378232469dde0dcfa428c085754602fd32011
+---

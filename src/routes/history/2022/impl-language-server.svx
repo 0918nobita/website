@@ -1,0 +1,20 @@
+---
+slug: impl-language-server
+year: 2022
+type: secondary
+hasDetail: true
+title: 自作プログラミング言語のための言語サーバを自作した
+modifiedAt: 2024-04-22
+---
+
+<script>
+  import { ExternalLink } from '~/components';
+</script>
+
+- <ExternalLink url="https://github.com/0918nobita/mylang" label="(GitHub) ソースコード" />
+- <ExternalLink url="https://github.com/0918nobita/mylang/tree/22cf3b7c8f09abc84b3407a199027733036a2462/crates/lsp_server" label="(GitHub) 言語サーバについてのドキュメント" />
+
+もともと自作プログラミング言語のバイトコードインタプリタを先に Rust で実装してありました。  
+その自作プログラミング言語で実際にプログラムを作成するときに、
+インタプリタで実行しなくともエディタ上で字句解析/構文解析エラーを確認できるように、LSP準拠の言語サーバを実装しました。  
+その過程で JSON RPC についても学ぶことができました。

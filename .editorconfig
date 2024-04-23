@@ -5,7 +5,7 @@ indent_size = 4
 indent_style = space
 insert_final_newline = true
 
-[*.{astro,css,json,svelte,yml}]
+[*.{css,html,json,svelte,svx,yml}]
 indent_size = 2
 
 [*.css.ts]
