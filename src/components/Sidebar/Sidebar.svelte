@@ -28,4 +28,6 @@
   </ul>
 
   <div class={styles.spacer} />
+
+  <slot />
 </nav>
