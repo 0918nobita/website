@@ -21,7 +21,7 @@
   <li>JavaScript / TypeScript</li>
   <li>Vanilla Extract CSS</li>
   <li>Zod</li>
-  <li>Svelte</li>
+  <li>Svelte, SvelteKit</li>
   <li>Astro</li>
   <li>React</li>
   <li>Redux, redux-thunk, redux-saga</li>
