@@ -4,6 +4,7 @@ import { vars } from '~/style/theme.css';
 export const container = componentLayer({
   display: 'flex',
   alignItems: 'center',
+  height: '2rem',
   borderTopWidth: '1px',
   borderTopStyle: 'solid',
   borderTopColor: vars.sidebar.foreground,
@@ -19,9 +20,10 @@ export const sunOrMoon = componentLayer({
 
 export const selector = componentLayer({
   flex: '1',
+  height: '100%',
   border: 'none',
   fontSize: '0.95rem',
-  padding: '0.5rem',
+  padding: '0 0.5rem',
 
   MozAppearance: 'none',
   WebkitAppearance: 'none',

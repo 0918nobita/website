@@ -17,6 +17,10 @@ export const vars = createThemeContract({
       hovered: null,
     },
   },
+  themeToggle: {
+    background: null,
+    borderColor: null,
+  },
   spHeader: {
     foreground: null,
     background: {
@@ -61,6 +65,10 @@ createGlobalTheme(`.${light}`, vars, {
       hovered: '#e9d3f1',
     },
   },
+  themeToggle: {
+    background: '#f8e4ff',
+    borderColor: '#535353',
+  },
   spHeader: {
     foreground: '#fcfcfc',
     background: {
@@ -104,6 +112,10 @@ createGlobalTheme(`.${dark}`, vars, {
       default: '#736279',
       hovered: '#907999',
     },
+  },
+  themeToggle: {
+    background: '#736279',
+    borderColor: '#fcfcfc',
   },
   spHeader: {
     foreground: '#fcfcfc',
