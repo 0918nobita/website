@@ -4,10 +4,18 @@
   import { Breadcrumb, ModifiedAt } from '~/components';
 
   export let data: PageData;
+
+  const title = `${data.metadata.title} | Kodai のウェブサイト`;
 </script>
 
 <svelte:head>
-  <title>{data.metadata.title} | Kodai のウェブサイト</title>
+  <title>{title}</title>
+  <meta name="og:title" content={title} />
+  <meta
+    name="og:url"
+    content="https://kodai.engineer/history/{data.metadata.year}/{data.metadata
+      .slug}"
+  />
 </svelte:head>
 
 <Breadcrumb

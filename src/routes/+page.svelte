@@ -1,9 +1,16 @@
 <script lang="ts">
   import { ExternalLink } from '~/components';
+
+  const title = 'Kodai のウェブサイト';
+  const description = 'Kodai の経歴・連作先・制作物等を掲載しています。';
 </script>
 
 <svelte:head>
-  <title>Kodai のウェブサイト</title>
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="og:title" content={title} />
+  <meta name="og:description" content={description} />
+  <meta name="og:url" content="https://kodai.engineer" />
 </svelte:head>
 
 <h1>Kodai のウェブサイト</h1>

@@ -1,10 +1,18 @@
 <script lang="ts">
   import { ExternalLink } from '~/components';
+
+  const title = '趣味 | Kodai のウェブサイト';
+  const description = 'Kodai の趣味について掲載しています。';
 </script>
 
 <svelte:head>
-  <title>趣味 | Kodai のウェブサイト</title>
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="og:title" content={title} />
+  <meta name="og:description" content={description} />
+  <meta name="og:url" content="https://kodai.engineer/hobbies" />
 </svelte:head>
+
 <h1>趣味</h1>
 <h2>技術</h2>
 <ul>
