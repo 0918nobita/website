@@ -1,4 +1,5 @@
 import { baseLayerGlobalStyle } from './helper.css';
+import { sp } from './responsive.css';
 import { vars } from './theme.css';
 
 baseLayerGlobalStyle('*, *::before, *::after', {
@@ -30,4 +31,10 @@ baseLayerGlobalStyle('h2', {
 
 baseLayerGlobalStyle('h3', {
   color: vars.heading.h3,
+});
+
+baseLayerGlobalStyle('ul', {
+  ...sp({
+    paddingLeft: '20px',
+  }),
 });
