@@ -1,5 +1,15 @@
+<script lang="ts">
+  const title = 'スキル・強み | Kodai のウェブサイト';
+  const description =
+    'Kodai のスキル・強みについてジャンル毎に掲載しています。';
+</script>
+
 <svelte:head>
-  <title>スキル・強み | Kodai のウェブサイト</title>
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="og:title" content={title} />
+  <meta name="og:description" content={description} />
+  <meta name="og:url" content="https://kodai.engineer/skills" />
 </svelte:head>
 
 <h1>スキル・強み</h1>
