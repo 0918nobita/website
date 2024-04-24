@@ -13,5 +13,11 @@ export default {
         alias: {
             '~/*': 'src',
         },
+        prerender: {
+            handleHttpError: ({ path, message }) => {
+                if (path === '/sitemap.xml') return;
+                throw new Error(message);
+            },
+        },
     },
 };
