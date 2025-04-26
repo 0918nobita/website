@@ -1,12 +1,16 @@
 <script lang="ts">
-  import type { PageData } from './$types';
+import type { PageData } from './$types';
 
-  import { Timeline } from '~/components';
+import { Timeline } from '~/components';
 
-  export let data: PageData;
+interface Props {
+  data: PageData;
+}
 
-  const title = '自分史 | Kodai のウェブサイト';
-  const description = 'Kodai の経歴についてまとめています。';
+const { data }: Props = $props();
+
+const title = '自分史 | Kodai のウェブサイト';
+const description = 'Kodai の経歴についてまとめています。';
 </script>
 
 <svelte:head>

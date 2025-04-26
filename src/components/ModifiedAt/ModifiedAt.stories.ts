@@ -10,11 +10,11 @@ const meta = {
             control: { type: 'date' },
         },
     },
-} satisfies Meta<ModifiedAt>;
+} satisfies Meta<typeof ModifiedAt>;
 
 export default meta;
 
-type Story = StoryObj<ModifiedAt>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {

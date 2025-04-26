@@ -1,0 +1,10 @@
+---
+slug: full-time-job
+year: 2025
+type: primary
+hasDetail: true
+title: 正社員のWebフロントエンドエンジニアとして入社
+modifiedAt: 2025-04-27
+---
+
+高知の実家から東京に移住し、秋葉原のエンタメ系IT企業にWebフロントエンドエンジニアとして入社しました。

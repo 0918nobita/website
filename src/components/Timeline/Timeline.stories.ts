@@ -46,10 +46,10 @@ const meta = {
             },
         ],
     },
-} satisfies Meta<Timeline>;
+} satisfies Meta<typeof Timeline>;
 
 export default meta;
 
-type Story = StoryObj<Timeline>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};

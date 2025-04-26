@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { ExternalLink } from '~/components';
+import { ExternalLink } from '~/components';
 
-  const title = '趣味 | Kodai のウェブサイト';
-  const description = 'Kodai の趣味について掲載しています。';
+const title = '趣味 | Kodai のウェブサイト';
+const description = 'Kodai の趣味について掲載しています。';
 </script>
 
 <svelte:head>

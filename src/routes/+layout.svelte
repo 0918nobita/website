@@ -1,18 +1,18 @@
 <script lang="ts">
-  import '~/style/global.css';
-  import '~/style/layer.css';
+import '~/style/global.css';
+import '~/style/layer.css';
 
-  import { Sidebar, SpHeader, ThemeToggleSkeleton } from '~/components';
+import { Sidebar, SpHeader, ThemeToggleSkeleton } from '~/components';
 
-  import { useThemeToggle } from './useThemeToggle';
-  import { useViewTransition } from './useViewTransition';
+import { useThemeToggle } from './useThemeToggle';
+import { useViewTransition } from './useViewTransition';
 
-  import * as styles from './layout.css';
+import * as styles from './layout.css';
 
-  const { themeTogglePromise, currentlyAppliedTheme, themeSetting, onChange } =
-    useThemeToggle();
+const { themeTogglePromise, currentlyAppliedTheme, themeSetting, onChange } =
+  useThemeToggle();
 
-  useViewTransition();
+useViewTransition();
 </script>
 
 <main class={styles.main}>

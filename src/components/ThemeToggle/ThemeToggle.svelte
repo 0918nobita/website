@@ -1,11 +1,17 @@
 <script lang="ts">
-  import * as styles from './style.css';
+import * as styles from './style.css';
 
-  export let currentlyAppliedTheme: 'dark' | 'light';
+interface Props {
+  currentlyAppliedTheme: 'dark' | 'light';
+  themeSetting: 'dark' | 'light' | 'match-system';
+  onChange: () => void;
+}
 
-  export let themeSetting: 'dark' | 'light' | 'match-system';
-
-  export let onChange: () => void;
+let {
+  currentlyAppliedTheme,
+  onChange,
+  themeSetting = $bindable(),
+}: Props = $props();
 </script>
 
 <aside class={styles.container}>
@@ -37,12 +43,13 @@
     </svg>
   {/if}
 
-  <label for="theme-toggle" aria-label="テーマ設定" />
+  <label for="theme-toggle" aria-label="テーマ設定"></label>
+
   <select
     id="theme-toggle"
     class={styles.selector}
     bind:value={themeSetting}
-    on:change={onChange}
+    onchange={onChange}
   >
     <option value="match-system">テーマ：システム設定にあわせる</option>
     <option value="dark">テーマ：ダークモードに固定</option>

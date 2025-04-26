@@ -1,7 +1,11 @@
 <script lang="ts">
-  import * as styles from './style.css';
+import * as styles from './style.css';
 
-  export let path: Array<{ label: string; link: string }>;
+interface Props {
+  path: ReadonlyArray<{ label: string; link: string }>;
+}
+
+const { path }: Props = $props();
 </script>
 
 <ol class={styles.breadcrumb}>

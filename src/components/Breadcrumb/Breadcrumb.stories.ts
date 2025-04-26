@@ -5,7 +5,7 @@ import Breadcrumb from './Breadcrumb.svelte';
 const meta = {
     title: 'Breadcrumb',
     component: Breadcrumb,
-} satisfies Meta<Breadcrumb>;
+} satisfies Meta<typeof Breadcrumb>;
 
 export default meta;
 

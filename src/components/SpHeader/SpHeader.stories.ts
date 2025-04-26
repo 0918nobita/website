@@ -13,10 +13,10 @@ const meta = {
             exclude: ['className'],
         },
     },
-} satisfies Meta<SpHeader>;
+} satisfies Meta<typeof SpHeader>;
 
 export default meta;
 
-type Story = StoryObj<SpHeader>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};

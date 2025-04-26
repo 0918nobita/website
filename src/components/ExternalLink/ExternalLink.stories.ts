@@ -17,7 +17,7 @@ const meta = {
         url: 'https://svelte.dev',
         label: 'Svelte',
     },
-} satisfies Meta<ExternalLink>;
+} satisfies Meta<typeof ExternalLink>;
 
 export default meta;
 

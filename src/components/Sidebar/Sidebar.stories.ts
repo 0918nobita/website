@@ -13,10 +13,10 @@ const meta = {
             exclude: ['className'],
         },
     },
-} satisfies Meta<Sidebar>;
+} satisfies Meta<typeof Sidebar>;
 
 export default meta;
 
-type Story = StoryObj<Sidebar>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};

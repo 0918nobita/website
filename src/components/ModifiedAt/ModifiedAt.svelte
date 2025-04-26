@@ -1,9 +1,13 @@
 <script lang="ts">
-  import dayjs from 'dayjs';
+import dayjs from 'dayjs';
 
-  import * as styles from './style.css';
+import * as styles from './style.css';
 
-  export let date: Date;
+interface Props {
+  date: Date;
+}
+
+const { date }: Props = $props();
 </script>
 
 <aside class={styles.modifiedAt}>

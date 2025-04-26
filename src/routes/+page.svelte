@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { ExternalLink } from '~/components';
+import { ExternalLink } from '~/components';
 
-  const title = 'Kodai のウェブサイト';
-  const description = 'Kodai の経歴・連作先・制作物等を掲載しています。';
+const title = 'Kodai のウェブサイト';
+const description = 'Kodai の経歴・連作先・制作物等を掲載しています。';
 </script>
 
 <svelte:head>
@@ -17,10 +17,11 @@
 <p>本名：松本 幸大 (まつもと こうだい)</p>
 
 <ul>
-  <li>2000年2月16日生まれ (現在24歳)</li>
-  <li>25卒</li>
+  <li>2000年2月16日生まれ (現在25歳)</li>
   <li>男性</li>
-  <li>高知県出身・在住</li>
+  <li>高知県出身</li>
+  <li>東京都在住</li>
+  <li>Webフロントエンドエンジニア</li>
 </ul>
 
 <p>計算機とプログラミング言語が好きです！</p>

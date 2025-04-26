@@ -5,29 +5,29 @@ SvelteKit, Vanilla Extract CSS を用いて開発しています。
 ## 依存パッケージのインストール
 
 ```bash
-$ npm i
+$ bun i
 ```
 
 ## ビルド
 
 ```bash
-$ npm run build
+$ bun run build
 ```
 
 ## Lint
 
 ```bash
-$ npm run lint
+$ bun run lint
 ```
 
 ## フォーマット
 
 ```bash
-$ npm run format
+$ bun run format
 ```
 
 ## Storybook を起動する
 
 ```bash
-$ npm run storybook
+$ bun run storybook
 ```

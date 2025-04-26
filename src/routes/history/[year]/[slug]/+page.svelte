@@ -1,11 +1,17 @@
 <script lang="ts">
-  import type { PageData } from './$types';
+import type { PageData } from './$types';
 
-  import { Breadcrumb, ModifiedAt } from '~/components';
+import { Breadcrumb, ModifiedAt } from '~/components';
 
-  export let data: PageData;
+interface Props {
+  data: PageData;
+}
 
-  const title = `${data.metadata.title} | Kodai のウェブサイト`;
+let { data }: Props = $props();
+
+const Content = $derived(data.content);
+
+const title = `${data.metadata.title} | Kodai のウェブサイト`;
 </script>
 
 <svelte:head>
@@ -32,4 +38,4 @@
 
 <h1>{data.metadata.title}</h1>
 
-<svelte:component this={data.content} />
+<Content />

@@ -1,0 +1,8 @@
+---
+slug: hsk3
+year: 2025
+type: tertiary
+hasDetail: false
+title: HSK３級に満点合格した
+externalLink: https://x.com/0918nobita/status/1836272119359115348
+---

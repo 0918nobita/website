@@ -5,8 +5,7 @@ export const useViewTransition = () => {
         if (document.startViewTransition === undefined) return;
 
         return new Promise((resolve) => {
-            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-            document.startViewTransition!(async () => {
+            document.startViewTransition?.(async () => {
                 resolve();
                 await navigation.complete;
             });

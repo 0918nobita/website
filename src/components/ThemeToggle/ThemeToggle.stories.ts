@@ -18,16 +18,17 @@ const meta = {
     args: {
         currentlyAppliedTheme: 'light',
         themeSetting: 'match-system',
+        onChange: () => {},
     },
     parameters: {
         controls: {
             exclude: ['onChange'],
         },
     },
-} satisfies Meta<ThemeToggle>;
+} satisfies Meta<typeof ThemeToggle>;
 
 export default meta;
 
-type Story = StoryObj<ThemeToggle>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
