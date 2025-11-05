@@ -1,0 +1,23 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "unicorn",
+    "typescript",
+    "oxc"
+  ],
+  "categories": {
+    "correctness": "error",
+    "nursery": "error",
+    "pedantic": "error"
+  },
+  "env": {
+    "builtin": true,
+    "browser": true
+  },
+  "globals": {
+    "$bindable": "readonly",
+    "$derived": "readonly",
+    "$props": "readonly"
+  },
+  "ignorePatterns": []
+}
