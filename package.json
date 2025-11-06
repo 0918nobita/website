@@ -9,8 +9,7 @@
     "build": "vite build",
     "postbuild": "svelte-sitemap --out-dir dist --domain https://kodai.engineer",
     "preview": "vite preview",
-    "lint": "biome lint",
-    "format": "biome format",
+    "lint": "oxlint .",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
