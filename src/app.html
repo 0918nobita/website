@@ -17,24 +17,24 @@
     %sveltekit.head%
     <script>
       function osThemeSetting() {
-        return window.matchMedia('(prefers-color-scheme: dark)').matches
-          ? 'dark'
-          : 'light';
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
       }
 
       function applyTheme() {
         const theme = (() => {
           if (localStorage === undefined) return osThemeSetting();
 
-          const storedTheme = localStorage.getItem('theme');
+          const storedTheme = localStorage.getItem("theme");
 
           switch (true) {
-            case storedTheme === 'dark':
-              return 'dark';
-            case storedTheme === 'light':
-              return 'light';
+            case storedTheme === "dark":
+              return "dark";
+            case storedTheme === "light":
+              return "light";
             case storedTheme !== null:
-              localStorage.removeItem('theme');
+              localStorage.removeItem("theme");
             default:
               return osThemeSetting();
           }
@@ -42,18 +42,16 @@
 
         window.initialTheme = theme;
 
-        if (theme === 'dark') {
-          document.documentElement.classList.remove('light');
-          document.documentElement.classList.add('dark');
+        if (theme === "dark") {
+          document.documentElement.classList.remove("light");
+          document.documentElement.classList.add("dark");
         } else {
-          document.documentElement.classList.remove('dark');
-          document.documentElement.classList.add('light');
+          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.add("light");
         }
       }
 
       applyTheme();
-
-      window.applyTheme = applyTheme;
     </script>
   </head>
   <body>
