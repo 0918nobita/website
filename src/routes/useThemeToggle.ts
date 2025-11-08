@@ -1,10 +1,44 @@
 import { onMount } from "svelte";
-import { writable } from "svelte/store";
+import { writable, type Writable } from "svelte/store";
 
 const osThemeSetting = () =>
     window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
         : "light";
+
+const applyThemeSetting = (
+    newSetting: "dark" | "light" | "match-system",
+    currentlyAppliedTheme: Writable<"dark" | "light">,
+) => {
+    switch (newSetting) {
+        case "dark":
+            document.documentElement.classList.remove("light");
+            document.documentElement.classList.add("dark");
+            currentlyAppliedTheme.set("dark");
+            localStorage.setItem("theme", "dark");
+            return;
+        case "light":
+            document.documentElement.classList.remove("dark");
+            document.documentElement.classList.add("light");
+            currentlyAppliedTheme.set("light");
+            localStorage.setItem("theme", "light");
+            return;
+    }
+
+    localStorage.removeItem("theme");
+
+    const defaultTheme = osThemeSetting();
+
+    if (defaultTheme === "dark") {
+        document.documentElement.classList.remove("light");
+        document.documentElement.classList.add("dark");
+    } else {
+        document.documentElement.classList.remove("dark");
+        document.documentElement.classList.add("light");
+    }
+
+    currentlyAppliedTheme.set(defaultTheme);
+};
 
 export const useThemeToggle = () => {
     const currentlyAppliedTheme = writable<"dark" | "light">("light");
@@ -25,36 +59,9 @@ export const useThemeToggle = () => {
             themeSetting.set("match-system");
         }
 
-        themeSetting.subscribe((newSetting) => {
-            switch (newSetting) {
-                case "dark":
-                    document.documentElement.classList.remove("light");
-                    document.documentElement.classList.add("dark");
-                    currentlyAppliedTheme.set("dark");
-                    localStorage.setItem("theme", "dark");
-                    return;
-                case "light":
-                    document.documentElement.classList.remove("dark");
-                    document.documentElement.classList.add("light");
-                    currentlyAppliedTheme.set("light");
-                    localStorage.setItem("theme", "light");
-                    return;
-            }
-
-            localStorage.removeItem("theme");
-
-            const defaultTheme = osThemeSetting();
-
-            if (defaultTheme === "dark") {
-                document.documentElement.classList.remove("light");
-                document.documentElement.classList.add("dark");
-            } else {
-                document.documentElement.classList.remove("dark");
-                document.documentElement.classList.add("light");
-            }
-
-            currentlyAppliedTheme.set(defaultTheme);
-        });
+        themeSetting.subscribe((newSetting) =>
+            applyThemeSetting(newSetting, currentlyAppliedTheme),
+        );
     });
 
     return {
