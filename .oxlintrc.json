@@ -4,8 +4,11 @@
   "categories": {
     "correctness": "error",
     "suspicious": "error",
+    "pedantic": "error",
+    "perf": "error",
+    "style": "error",
     "nursery": "error",
-    "pedantic": "error"
+    "restriction": "error"
   },
   "env": {
     "builtin": true,
@@ -16,5 +19,85 @@
     "$derived": "readonly",
     "$props": "readonly"
   },
-  "ignorePatterns": []
+  "ignorePatterns": [],
+  "rules": {
+    "curly": ["error", "multi-line"],
+    "default-case": "off",
+    "func-style": "off",
+    "no-async-await": "off",
+    "no-continue": "off",
+    "no-magic-numbers": [
+      "error",
+      {
+        "enforceConst": true
+      }
+    ],
+    "no-null": "off",
+    "no-optional-chaining": "off",
+    "no-rest-spread-properties": "off",
+    "no-ternary": "off",
+    "no-undefined": "off",
+    "sort-imports": "off",
+    "sort-keys": "off",
+    "typescript/array-type": [
+      "error",
+      {
+        "default": "array-simple"
+      }
+    ],
+    "typescript/explicit-function-return-type": [
+      "error",
+      {
+        "allowIIFEs": true
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["src/components/**/*.svelte", "src/components/**/*.ts"],
+      "rules": {
+        "filename-case": [
+          "error",
+          {
+            "case": "pascalCase"
+          }
+        ]
+      }
+    },
+    {
+      "files": ["src/**/use*.ts"],
+      "rules": {
+        "filename-case": [
+          "error",
+          {
+            "case": "camelCase"
+          }
+        ]
+      }
+    },
+    {
+      "files": ["src/components/index.ts"],
+      "rules": {
+        "filename-case": "off"
+      }
+    },
+    {
+      "files": ["src/routes/**/+page.ts"],
+      "rules": {
+        "typescript/explicit-function-return-type": [
+          "error",
+          {
+            "allowedNames": ["load"],
+            "allowIIFEs": true
+          }
+        ],
+        "typescript/explicit-module-boundary-types": [
+          "error",
+          {
+            "allowedNames": ["load"]
+          }
+        ]
+      }
+    }
+  ]
 }

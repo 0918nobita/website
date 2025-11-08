@@ -1,12 +1,12 @@
 <script lang="ts">
-import * as styles from './style.css';
+  import * as styles from "./ExternalLink.css";
 
-interface Props {
-  url: string;
-  label: string;
-}
+  interface Props {
+    url: string;
+    label: string;
+  }
 
-const { url, label }: Props = $props();
+  const { url, label }: Props = $props();
 </script>
 
 <a href={url} target="_blank" rel="noopener noreferrer">{label}</a>

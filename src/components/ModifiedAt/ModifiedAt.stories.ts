@@ -1,13 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/sveltekit';
+import type { Meta, StoryObj } from "@storybook/sveltekit";
 
-import ModifiedAt from './ModifiedAt.svelte';
+import ModifiedAt from "./ModifiedAt.svelte";
 
 const meta = {
-    title: 'ModifiedAt',
+    title: "ModifiedAt",
     component: ModifiedAt,
     argTypes: {
         date: {
-            control: { type: 'date' },
+            control: { type: "date" },
         },
     },
 } satisfies Meta<typeof ModifiedAt>;

@@ -1,28 +1,30 @@
 import { onMount } from "svelte";
 import { writable, type Writable } from "svelte/store";
 
-const osThemeSetting = () =>
-    window.matchMedia("(prefers-color-scheme: dark)").matches
+const osThemeSetting = (): "dark" | "light" =>
+    globalThis.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
         : "light";
 
 const applyThemeSetting = (
     newSetting: "dark" | "light" | "match-system",
     currentlyAppliedTheme: Writable<"dark" | "light">,
-) => {
+): void => {
     switch (newSetting) {
-        case "dark":
+        case "dark": {
             document.documentElement.classList.remove("light");
             document.documentElement.classList.add("dark");
             currentlyAppliedTheme.set("dark");
             localStorage.setItem("theme", "dark");
             return;
-        case "light":
+        }
+        case "light": {
             document.documentElement.classList.remove("dark");
             document.documentElement.classList.add("light");
             currentlyAppliedTheme.set("light");
             localStorage.setItem("theme", "light");
             return;
+        }
     }
 
     localStorage.removeItem("theme");
@@ -40,14 +42,17 @@ const applyThemeSetting = (
     currentlyAppliedTheme.set(defaultTheme);
 };
 
-export const useThemeToggle = () => {
+export const useThemeToggle = (): {
+    currentlyAppliedTheme: Writable<"dark" | "light">;
+    themeSetting: Writable<"dark" | "light" | "match-system">;
+} => {
     const currentlyAppliedTheme = writable<"dark" | "light">("light");
     const themeSetting = writable<"dark" | "light" | "match-system">(
         "match-system",
     );
 
     onMount(() => {
-        currentlyAppliedTheme.set(window.initialTheme);
+        currentlyAppliedTheme.set(globalThis.initialTheme);
 
         const theme = localStorage.getItem("theme");
 

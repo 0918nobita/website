@@ -1,5 +1,5 @@
 <script lang="ts">
-  import * as styles from "./style.css";
+  import * as styles from "./ThemeToggle.css";
 
   interface Props {
     currentlyAppliedTheme: "dark" | "light";

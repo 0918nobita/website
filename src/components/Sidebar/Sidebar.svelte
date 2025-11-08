@@ -1,16 +1,16 @@
 <script lang="ts">
-import type { Snippet } from 'svelte';
+  import type { Snippet } from "svelte";
 
-import * as styles from './style.css';
+  import * as styles from "./Sidebar.css";
 
-import icon from '~/assets/icon.jpg';
+  import icon from "~/assets/icon.jpg";
 
-interface Props {
-  children?: Snippet;
-  className: string;
-}
+  interface Props {
+    children?: Snippet;
+    className: string;
+  }
 
-const { children, className }: Props = $props();
+  const { children, className }: Props = $props();
 </script>
 
 <nav class="{className} {styles.sidebar}">

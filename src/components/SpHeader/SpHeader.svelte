@@ -1,13 +1,13 @@
 <script lang="ts">
-import * as styles from './style.css';
+  import * as styles from "./SpHeader.css";
 
-import icon from '~/assets/icon.jpg';
+  import icon from "~/assets/icon.jpg";
 
-interface Props {
-  className: string;
-}
+  interface Props {
+    className: string;
+  }
 
-const { className }: Props = $props();
+  const { className }: Props = $props();
 </script>
 
 <header class="{className} {styles.header}">
