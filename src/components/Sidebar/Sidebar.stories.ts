@@ -1,18 +1,18 @@
-import type { Meta, StoryObj } from "@storybook/sveltekit";
+import type { Meta, StoryObj } from '@storybook/sveltekit';
 
-import Sidebar from "./Sidebar.svelte";
+import Sidebar from './Sidebar.svelte';
 
 const meta = {
-    title: "Sidebar",
-    component: Sidebar,
-    args: {
-        className: "",
+  title: 'Sidebar',
+  component: Sidebar,
+  args: {
+    className: '',
+  },
+  parameters: {
+    controls: {
+      exclude: ['className'],
     },
-    parameters: {
-        controls: {
-            exclude: ["className"],
-        },
-    },
+  },
 } satisfies Meta<typeof Sidebar>;
 
 export default meta;

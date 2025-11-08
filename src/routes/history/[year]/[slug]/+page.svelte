@@ -1,17 +1,17 @@
 <script lang="ts">
-import type { PageData } from './$types';
+  import type { PageData } from './$types';
 
-import { Breadcrumb, ModifiedAt } from '~/components';
+  import { Breadcrumb, ModifiedAt } from '~/components';
 
-interface Props {
-  data: PageData;
-}
+  interface Props {
+    data: PageData;
+  }
 
-let { data }: Props = $props();
+  let { data }: Props = $props();
 
-const Content = $derived(data.content);
+  const Content = $derived(data.content);
 
-const title = `${data.metadata.title} | Kodai のウェブサイト`;
+  const title = `${data.metadata.title} | Kodai のウェブサイト`;
 </script>
 
 <svelte:head>

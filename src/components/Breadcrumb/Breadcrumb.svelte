@@ -1,5 +1,5 @@
 <script lang="ts">
-  import * as styles from "./Breadcrumb.css";
+  import * as styles from './Breadcrumb.css';
 
   interface Props {
     path: ReadonlyArray<{ label: string; link: string }>;

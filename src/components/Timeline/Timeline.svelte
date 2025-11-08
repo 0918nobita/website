@@ -1,14 +1,14 @@
 <script lang="ts">
-  import { ExternalLink } from "~/components";
+  import { ExternalLink } from '~/components';
 
-  import * as styles from "./Timeline.css";
+  import * as styles from './Timeline.css';
 
   type Link =
-    | { type: "external"; url: string }
-    | { type: "internal"; path: string };
+    | { type: 'external'; url: string }
+    | { type: 'internal'; path: string };
 
   type HistoryDetail = Readonly<{
-    type: "primary" | "secondary" | "tertiary";
+    type: 'primary' | 'secondary' | 'tertiary';
     text: string;
     link?: Link;
   }>;
@@ -42,7 +42,7 @@
             >
               {#if item.link === undefined}
                 {item.text}
-              {:else if item.link.type === "internal"}
+              {:else if item.link.type === 'internal'}
                 <a href={item.link.path}>{item.text}</a>
               {:else}
                 <ExternalLink url={item.link.url} label={item.text} />

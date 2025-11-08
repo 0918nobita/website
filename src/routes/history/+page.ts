@@ -1,103 +1,101 @@
-import { metadataSchema, type Metadata } from "./schema";
+import { metadataSchema, type Metadata } from './schema';
 
 type Article = Readonly<{
-    type: "primary" | "secondary" | "tertiary";
-    text: string;
-    link?:
-        | { type: "external"; url: string }
-        | { type: "internal"; path: string };
+  type: 'primary' | 'secondary' | 'tertiary';
+  text: string;
+  link?: { type: 'external'; url: string } | { type: 'internal'; path: string };
 }>;
 
 export function load() {
-    const articleMetadata = getArticleMetadata();
-    const yearArticlesMap = new Map<number, readonly Article[]>();
+  const articleMetadata = getArticleMetadata();
+  const yearArticlesMap = new Map<number, readonly Article[]>();
 
-    for (const metadata of articleMetadata) {
-        const articles = yearArticlesMap.get(metadata.year) ?? [];
+  for (const metadata of articleMetadata) {
+    const articles = yearArticlesMap.get(metadata.year) ?? [];
 
-        const link = (() => {
-            if (metadata.hasDetail) {
-                return {
-                    type: "internal",
-                    path: `/history/${metadata.year}/${metadata.slug}`,
-                } as const;
-            }
+    const link = (() => {
+      if (metadata.hasDetail) {
+        return {
+          type: 'internal',
+          path: `/history/${metadata.year}/${metadata.slug}`,
+        } as const;
+      }
 
-            if (metadata.externalLink === undefined) return;
+      if (metadata.externalLink === undefined) return;
 
-            return {
-                type: "external",
-                url: metadata.externalLink,
-            } as const;
-        })();
+      return {
+        type: 'external',
+        url: metadata.externalLink,
+      } as const;
+    })();
 
-        yearArticlesMap.set(metadata.year, [
-            ...articles,
-            {
-                type: metadata.type,
-                text: metadata.title,
-                link,
-            },
-        ]);
-    }
+    yearArticlesMap.set(metadata.year, [
+      ...articles,
+      {
+        type: metadata.type,
+        text: metadata.title,
+        link,
+      },
+    ]);
+  }
 
-    for (const year of yearArticlesMap.keys()) {
-        const articles = yearArticlesMap.get(year);
-        if (articles === undefined) continue;
+  for (const year of yearArticlesMap.keys()) {
+    const articles = yearArticlesMap.get(year);
+    if (articles === undefined) continue;
 
-        yearArticlesMap.set(year, sortArticles(articles));
-    }
+    yearArticlesMap.set(year, sortArticles(articles));
+  }
 
-    const entries = [...yearArticlesMap.entries()];
-    entries.sort(([aYear], [bYear]) => bYear - aYear);
+  const entries = [...yearArticlesMap.entries()];
+  entries.sort(([aYear], [bYear]) => bYear - aYear);
 
-    const timelineContents = entries.map(([year, pages]) => ({
-        marker: `${year}年`,
-        items: pages,
-    }));
+  const timelineContents = entries.map(([year, pages]) => ({
+    marker: `${year}年`,
+    items: pages,
+  }));
 
-    return { timelineContents };
+  return { timelineContents };
 }
 
 function getArticleMetadata(): Metadata[] {
-    const globImport = import.meta.glob<{ metadata?: unknown }>("./**/*.svx", {
-        eager: true,
-    });
+  const globImport = import.meta.glob<{ metadata?: unknown }>('./**/*.svx', {
+    eager: true,
+  });
 
-    const metadataList = Object.entries(globImport).map(([, importedContent]) =>
-        metadataSchema.parse(importedContent.metadata),
-    );
+  const metadataList = Object.entries(globImport).map(([, importedContent]) =>
+    metadataSchema.parse(importedContent.metadata)
+  );
 
-    return metadataList;
+  return metadataList;
 }
 
 function sortArticles(articles: readonly Article[]): Article[] {
-    return articles.toSorted((article0, article1) => {
-        if (article0.type === article1.type) {
-            return article0.text.localeCompare(article1.text);
-        }
+  return articles.toSorted((article0, article1) => {
+    if (article0.type === article1.type) {
+      return article0.text.localeCompare(article1.text);
+    }
 
-        const aNum = articleTypeToNum(article0.type);
-        const bNum = articleTypeToNum(article1.type);
+    const aNum = articleTypeToNum(article0.type);
+    const bNum = articleTypeToNum(article1.type);
 
-        return bNum - aNum;
-    });
+    return bNum - aNum;
+  });
 }
 
 const priority = {
-    primary: 2,
-    secondary: 1,
-    tertiary: 0,
+  primary: 2,
+  secondary: 1,
+  tertiary: 0,
 } as const;
 
 function articleTypeToNum(type: keyof typeof priority): number {
-    switch (type) {
-        case "primary": {
-            return priority.primary;
-        }
-        case "secondary": {
-            return priority.secondary;
-        }
+  switch (type) {
+    case 'primary': {
+      return priority.primary;
     }
-    return priority.tertiary;
+    case 'secondary': {
+      return priority.secondary;
+    }
+  }
+  return priority.tertiary;
 }

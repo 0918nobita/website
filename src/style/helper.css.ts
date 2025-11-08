@@ -29,7 +29,7 @@ type GlobalStyleRuleWithoutLayer = NonNullable<
 
 export const baseLayerGlobalStyle = (
   selector: string,
-  rule: GlobalStyleRuleWithoutLayer,
+  rule: GlobalStyleRuleWithoutLayer
 ): void => {
   globalStyle(selector, {
     '@layer': {

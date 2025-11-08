@@ -1,22 +1,22 @@
-import type { Meta, StoryObj } from "@storybook/sveltekit";
+import type { Meta, StoryObj } from '@storybook/sveltekit';
 
-import ExternalLink from "./ExternalLink.svelte";
+import ExternalLink from './ExternalLink.svelte';
 
 const meta = {
-    title: "ExternalLink",
-    component: ExternalLink,
-    argTypes: {
-        url: {
-            control: { type: "text" },
-        },
-        label: {
-            control: { type: "text" },
-        },
+  title: 'ExternalLink',
+  component: ExternalLink,
+  argTypes: {
+    url: {
+      control: { type: 'text' },
     },
-    args: {
-        url: "https://svelte.dev",
-        label: "Svelte",
+    label: {
+      control: { type: 'text' },
     },
+  },
+  args: {
+    url: 'https://svelte.dev',
+    label: 'Svelte',
+  },
 } satisfies Meta<typeof ExternalLink>;
 
 export default meta;

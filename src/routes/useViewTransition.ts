@@ -1,14 +1,14 @@
-import { onNavigate } from "$app/navigation";
+import { onNavigate } from '$app/navigation';
 
 export const useViewTransition = (): void => {
-    onNavigate((navigation) => {
-        if (document.startViewTransition === undefined) return;
+  onNavigate((navigation) => {
+    if (document.startViewTransition === undefined) return;
 
-        return new Promise((resolve) => {
-            document.startViewTransition?.(async () => {
-                resolve();
-                await navigation.complete;
-            });
-        });
+    return new Promise((resolve) => {
+      document.startViewTransition?.(async () => {
+        resolve();
+        await navigation.complete;
+      });
     });
+  });
 };

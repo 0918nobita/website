@@ -1,6 +1,7 @@
 <script lang="ts">
-const title = 'スキル・強み | Kodai のウェブサイト';
-const description = 'Kodai のスキル・強みについてジャンル毎に掲載しています。';
+  const title = 'スキル・強み | Kodai のウェブサイト';
+  const description =
+    'Kodai のスキル・強みについてジャンル毎に掲載しています。';
 </script>
 
 <svelte:head>

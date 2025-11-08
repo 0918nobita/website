@@ -1,5 +1,5 @@
 <script lang="ts">
-  import * as styles from "./ExternalLink.css";
+  import * as styles from './ExternalLink.css';
 
   interface Props {
     url: string;

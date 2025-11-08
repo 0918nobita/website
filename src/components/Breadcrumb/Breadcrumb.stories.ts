@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/sveltekit";
+import type { Meta, StoryObj } from '@storybook/sveltekit';
 
-import Breadcrumb from "./Breadcrumb.svelte";
+import Breadcrumb from './Breadcrumb.svelte';
 
 const meta = {
-    title: "Breadcrumb",
-    component: Breadcrumb,
+  title: 'Breadcrumb',
+  component: Breadcrumb,
 } satisfies Meta<typeof Breadcrumb>;
 
 export default meta;
@@ -12,10 +12,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-    args: {
-        path: [
-            { label: "ページ1", link: "#" },
-            { label: "ページ2", link: "#" },
-        ],
-    },
+  args: {
+    path: [
+      { label: 'ページ1', link: '#' },
+      { label: 'ページ2', link: '#' },
+    ],
+  },
 };

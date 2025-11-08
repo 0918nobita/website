@@ -1,13 +1,13 @@
 <script lang="ts">
-  import "~/style/global.css";
-  import "~/style/layer.css";
+  import '~/style/global.css';
+  import '~/style/layer.css';
 
-  import { Sidebar, SpHeader, ThemeToggle } from "~/components";
+  import { Sidebar, SpHeader, ThemeToggle } from '~/components';
 
-  import { useThemeToggle } from "./useThemeToggle";
-  import { useViewTransition } from "./useViewTransition";
+  import { useThemeToggle } from './useThemeToggle';
+  import { useViewTransition } from './useViewTransition';
 
-  import * as styles from "./layout.css";
+  import * as styles from './layout.css';
 
   const { currentlyAppliedTheme, themeSetting } = useThemeToggle();
 

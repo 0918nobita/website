@@ -1,9 +1,9 @@
 <script lang="ts">
-  import type { Snippet } from "svelte";
+  import type { Snippet } from 'svelte';
 
-  import * as styles from "./Sidebar.css";
+  import * as styles from './Sidebar.css';
 
-  import icon from "~/assets/icon.jpg";
+  import icon from '~/assets/icon.jpg';
 
   interface Props {
     children?: Snippet;

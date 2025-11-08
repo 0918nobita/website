@@ -1,7 +1,7 @@
 <script lang="ts">
-  import * as styles from "./SpHeader.css";
+  import * as styles from './SpHeader.css';
 
-  import icon from "~/assets/icon.jpg";
+  import icon from '~/assets/icon.jpg';
 
   interface Props {
     className: string;
