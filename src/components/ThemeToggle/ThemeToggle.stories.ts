@@ -1,28 +1,27 @@
-import type { Meta, StoryObj } from '@storybook/sveltekit';
+import type { Meta, StoryObj } from "@storybook/sveltekit";
 
-import ThemeToggle from './ThemeToggle.svelte';
+import ThemeToggle from "./ThemeToggle.svelte";
 
 const meta = {
-    title: 'ThemeToggle',
+    title: "ThemeToggle",
     component: ThemeToggle,
     argTypes: {
         currentlyAppliedTheme: {
-            control: { type: 'select' },
-            options: ['dark', 'light'],
+            control: { type: "select" },
+            options: ["dark", "light"],
         },
         themeSetting: {
-            control: { type: 'select' },
-            options: ['dark', 'light', 'match-system'],
+            control: { type: "select" },
+            options: ["dark", "light", "match-system"],
         },
     },
     args: {
-        currentlyAppliedTheme: 'light',
-        themeSetting: 'match-system',
-        onChange: () => {},
+        currentlyAppliedTheme: "light",
+        themeSetting: "match-system",
     },
     parameters: {
         controls: {
-            exclude: ['onChange'],
+            exclude: ["onChange"],
         },
     },
 } satisfies Meta<typeof ThemeToggle>;
