@@ -9,6 +9,7 @@
     "build": "vite build",
     "postbuild": "svelte-sitemap --out-dir dist --domain https://kodai.engineer",
     "preview": "vite preview",
+    "check": "svelte-check",
     "lint": "oxlint .",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -29,6 +30,7 @@
     "storybook": "10.0.4",
     "storybook-dark-mode": "4.0.2",
     "svelte": "5.43.3",
+    "svelte-check": "^4.3.3",
     "svelte-sitemap": "2.7.1",
     "typescript": "5.9.3",
     "vite": "7.2.0",
