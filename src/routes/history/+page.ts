@@ -2,9 +2,14 @@ import { metadataSchema, type Metadata } from './schema';
 
 type Article = Readonly<{
   type: 'primary' | 'secondary' | 'tertiary';
-  text: string;
-  link?: { type: 'external'; url: string } | { type: 'internal'; path: string };
+  slug: string;
+  title: string;
+  link?: Link;
 }>;
+
+type Link =
+  | { type: 'external'; url: string }
+  | { type: 'internal'; path: string };
 
 export function load() {
   const articleMetadata = getArticleMetadata();
@@ -13,28 +18,13 @@ export function load() {
   for (const metadata of articleMetadata) {
     const articles = yearArticlesMap.get(metadata.year) ?? [];
 
-    const link = (() => {
-      if (metadata.hasDetail) {
-        return {
-          type: 'internal',
-          path: `/history/${metadata.year}/${metadata.slug}`,
-        } as const;
-      }
-
-      if (metadata.externalLink === undefined) return;
-
-      return {
-        type: 'external',
-        url: metadata.externalLink,
-      } as const;
-    })();
-
     yearArticlesMap.set(metadata.year, [
       ...articles,
       {
         type: metadata.type,
-        text: metadata.title,
-        link,
+        slug: metadata.slug,
+        title: metadata.title,
+        link: getLinkFromMetadata(metadata),
       },
     ]);
   }
@@ -57,6 +47,22 @@ export function load() {
   return { timelineContents };
 }
 
+function getLinkFromMetadata(metadata: Metadata): Link | undefined {
+  if (metadata.hasDetail) {
+    return {
+      type: 'internal',
+      path: `/history/${metadata.year}/${metadata.slug}`,
+    } as const;
+  }
+
+  if (metadata.externalLink === undefined) return;
+
+  return {
+    type: 'external',
+    url: metadata.externalLink,
+  } as const;
+}
+
 function getArticleMetadata(): Metadata[] {
   const globImport = import.meta.glob<{ metadata?: unknown }>('./**/*.svx', {
     eager: true,
@@ -72,7 +78,7 @@ function getArticleMetadata(): Metadata[] {
 function sortArticles(articles: readonly Article[]): Article[] {
   return articles.toSorted((article0, article1) => {
     if (article0.type === article1.type) {
-      return article0.text.localeCompare(article1.text);
+      return article0.slug.localeCompare(article1.slug);
     }
 
     const aNum = articleTypeToNum(article0.type);

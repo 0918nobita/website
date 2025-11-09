@@ -1,5 +1,5 @@
 ---
-slug: hsk3
+slug: 1-hsk3
 year: 2025
 type: tertiary
 hasDetail: false

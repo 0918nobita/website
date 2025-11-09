@@ -9,7 +9,7 @@
 
   type HistoryDetail = Readonly<{
     type: 'primary' | 'secondary' | 'tertiary';
-    text: string;
+    title: string;
     link?: Link;
   }>;
 
@@ -41,11 +41,11 @@
               }[item.type]}
             >
               {#if item.link === undefined}
-                {item.text}
+                {item.title}
               {:else if item.link.type === 'internal'}
-                <a href={item.link.path}>{item.text}</a>
+                <a href={item.link.path}>{item.title}</a>
               {:else}
-                <ExternalLink url={item.link.url} label={item.text} />
+                <ExternalLink url={item.link.url} label={item.title} />
               {/if}
             </span>
           </li>

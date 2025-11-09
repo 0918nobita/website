@@ -1,0 +1,8 @@
+---
+slug: 0-hsk4
+year: 2025
+type: tertiary
+hasDetail: false
+title: HSK４級に合格した
+externalLink: https://x.com/0918nobita/status/1977953657095434490
+---

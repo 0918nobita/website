@@ -46,7 +46,7 @@
   <li>
     中国語の学習
     <ul>
-      <li>HSK４級取得に向けて独学で勉強中</li>
+      <li>HSK５級取得に向けて独学で勉強中</li>
     </ul>
   </li>
 </ul>
@@ -91,6 +91,7 @@
 <ul>
   <li>アークナイツ</li>
   <li>Arcaea</li>
+  <li>CHUNITHM</li>
   <li>ENDER LILIES</li>
   <li>Turing Complete</li>
   <li>(過去にハマっていたゲーム) ダンボール戦機</li>
@@ -104,6 +105,7 @@
       <li>魔法少女まどか☆マギカ</li>
       <li>PSYCHO-PASS</li>
       <li>ガンダムシリーズ (SEED, 00, 水星の魔女, …)</li>
+      <li>青春ブタ野郎シリーズ</li>
     </ul>
   </li>
   <li>ガンプラ製作 (小学生の頃からずっと)</li>

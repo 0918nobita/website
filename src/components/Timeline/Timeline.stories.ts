@@ -15,11 +15,11 @@ const meta = {
         items: [
           {
             type: 'tertiary',
-            text: 'Gleam 言語に入門した',
+            title: 'Gleam 言語に入門した',
           },
           {
             type: 'tertiary',
-            text: 'HSK２級に合格した',
+            title: 'HSK２級に合格した',
           },
         ],
       },
@@ -28,19 +28,20 @@ const meta = {
         items: [
           {
             type: 'primary',
-            text: 'gRPC・GraphQL の両方を用いたサンプルを作成した',
+            title: 'gRPC・GraphQL の両方を用いたサンプルを作成した',
           },
           {
             type: 'secondary',
-            text: 'Obsidian プラグインを自作して公開した',
+            title: 'Obsidian プラグインを自作して公開した',
           },
           {
             type: 'secondary',
-            text: 'YouTube ライブのチャットを VOICEVOX で読み上げるツールを Rust で自作・運用した',
+            title:
+              'YouTube ライブのチャットを VOICEVOX で読み上げるツールを Rust で自作・運用した',
           },
           {
             type: 'tertiary',
-            text: '中国語を独学で学び始めた',
+            title: '中国語を独学で学び始めた',
           },
         ],
       },
