@@ -1,4 +1,5 @@
-import type { Preview } from '@storybook/svelte';
+import type { Preview } from '@storybook/sveltekit';
+import { withThemeByClassName } from '@storybook/addon-themes';
 
 import '../src/style/global.css';
 import { dark, light } from '../src/style/theme.css';
@@ -11,6 +12,15 @@ const preview: Preview = {
       stylePreview: true,
     },
   },
+  decorators: [
+    withThemeByClassName({
+      themes: {
+        light: 'light',
+        dark: 'dark',
+      },
+      defaultTheme: 'light',
+    }),
+  ],
 };
 
 export default preview;
