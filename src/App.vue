@@ -1,9 +1,21 @@
 <script setup lang="ts" vapor>
-const a = "foo";
+import { computed, ref } from 'vue';
+
+const count = ref(0);
+
+const message = computed(() => `Count: ${count.value}`);
+
+const increment = () => {
+  count.value++;
+};
 </script>
 
 <template>
-  <h2>Hello, world!</h2>
+  <main>
+    <h2>{{ message }}</h2>
+
+    <button @click="increment">Increment</button>
+  </main>
 </template>
 
 <style scoped>
