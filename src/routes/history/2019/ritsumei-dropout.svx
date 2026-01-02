@@ -1,7 +1,0 @@
----
-slug: ritsumei-dropout
-year: 2019
-type: primary
-hasDetail: false
-title: 立命館大学情報理工学部を中退した
----

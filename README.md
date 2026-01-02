@@ -1,5 +1,6 @@
 # Kodai のウェブサイト
 
+<!--
 - TypeScript
 - [SvelteKit](https://svelte.dev/docs/kit/introduction)
 - [Vanilla Extract CSS](https://vanilla-extract.style/) - Zero runtime stylesheets in TypeScript
@@ -7,6 +8,7 @@
 - [mdsvex](https://github.com/pngwn/MDsveX) - Svelte in Markdown
 - [dayjs](https://day.js.org/) - date utility library
 - Storybook v10
+-->
 
 ## 依存パッケージのインストール
 
@@ -14,6 +16,7 @@
 $ pnpm i
 ```
 
+<!--
 ## 型チェック
 
 ```bash
@@ -37,3 +40,4 @@ $ pnpm run lint
 ```bash
 $ pnpm run format
 ```
+-->

@@ -1,7 +1,0 @@
----
-slug: svelte
-year: 2022
-type: primary
-hasDetail: false
-title: Svelte に入門した
----

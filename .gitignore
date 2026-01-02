@@ -1,4 +1,2 @@
-node_modules
 dist
-*storybook.log
-.svelte-kit
+node_modules

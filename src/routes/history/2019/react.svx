@@ -1,7 +1,0 @@
----
-slug: react
-year: 2019
-type: secondary
-hasDetail: false
-title: React に入門した
----
