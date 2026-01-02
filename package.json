@@ -1,18 +1,22 @@
 {
-  "private": true,
-  "type": "module",
   "name": "@0918nobita/website",
   "version": "0.1.0",
+  "private": true,
   "description": "Portfolio website",
+  "license": "UNLICENSED",
+  "author": "Kodai Matsumoto <nobita.0918@gmail.com>",
+  "type": "module",
   "scripts": {
     "build": "vite build",
     "dev": "vite dev",
-    "typecheck": "vue-tsc --noEmit"
+    "typecheck": "vue-tsc --noEmit",
+    "lint": "oxlint",
+    "format": "oxfmt"
   },
-  "author": "Kodai Matsumoto <nobita.0918@gmail.com>",
-  "license": "UNLICENSED",
   "devDependencies": {
     "@vitejs/plugin-vue": "6.0.3",
+    "oxfmt": "0.21.0",
+    "oxlint": "1.36.0",
     "typescript": "5.9.3",
     "vite": "7.3.0",
     "vue": "3.6.0-beta.1",

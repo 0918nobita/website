@@ -1,5 +1,5 @@
 <script setup lang="ts" vapor>
-
+const a = "foo";
 </script>
 
 <template>
@@ -7,7 +7,7 @@
 </template>
 
 <style scoped>
-  h2 {
-    color: #222;
-  }
+h2 {
+  color: #222;
+}
 </style>
