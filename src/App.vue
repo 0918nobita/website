@@ -20,6 +20,7 @@ const increment = () => {
 
 <style scoped>
 h2 {
+  margin: 0;
   color: #222;
 }
 </style>
