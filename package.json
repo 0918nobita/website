@@ -7,6 +7,7 @@
   "author": "Kodai Matsumoto <nobita.0918@gmail.com>",
   "type": "module",
   "scripts": {
+    "prepare": "husky",
     "build": "vite build",
     "dev": "vite dev",
     "typecheck": "vue-tsc --noEmit",
@@ -23,6 +24,12 @@
     "vite": "7.3.0",
     "vue": "3.6.0-beta.1",
     "vue-tsc": "3.2.1"
+  },
+  "lint-staged": {
+    "*.{html,json,ts,vue}": [
+      "oxlint",
+      "oxfmt --check"
+    ]
   },
   "volta": {
     "node": "24.12.0",
