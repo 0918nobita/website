@@ -1,44 +1,17 @@
 {
-  // このファイルの詳細については、https://aka.ms/tsconfig をご覧ください
-  "compilerOptions": {
-    // ファイル レイアウト
-    // "rootDir": "./src",
-    // "outDir": "./dist",
-
-    // 環境の設定
-    // https://aka.ms/tsconfig/module も参照
-    "module": "nodenext",
-    "target": "esnext",
-    "types": [],
-    // Node.js の場合:
-    // "lib": ["esnext"],
-    // "types": ["node"],
-    // および npm install -D @types/node
-
-    // その他の出力
-    // "sourceMap": true,
-    // "declaration": true,
-    // "declarationMap": true,
-
-    // より厳密な型チェック オプション
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-
-    // スタイル オプション
-    "noImplicitReturns": true,
-    "noImplicitOverride": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noPropertyAccessFromIndexSignature": true,
-
-    // 推奨オプション
-    "strict": true,
-    "jsx": "preserve",
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true
-  }
+  "files": [],
+  "references": [
+    {
+      "path": "./.nuxt/tsconfig.app.json"
+    },
+    {
+      "path": "./.nuxt/tsconfig.server.json"
+    },
+    {
+      "path": "./.nuxt/tsconfig.shared.json"
+    },
+    {
+      "path": "./.nuxt/tsconfig.node.json"
+    }
+  ]
 }
