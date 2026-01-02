@@ -11,6 +11,9 @@ importers:
       '@vitejs/plugin-vue':
         specifier: 6.0.3
         version: 6.0.3(vite@7.3.0(yaml@2.8.2))(vue@3.6.0-beta.1(typescript@5.9.3))
+      husky:
+        specifier: 9.1.7
+        version: 9.1.7
       lint-staged:
         specifier: 16.2.7
         version: 16.2.7
@@ -552,6 +555,11 @@ packages:
   get-east-asian-width@1.4.0:
     resolution: {integrity: sha512-QZjmEOC+IT1uk6Rx0sX22V6uHWVwbdbxf1faPqJ1QhLdGgsRGCZoyaQBm/piRdJy/D2um6hM1UP7ZEeQ4EkP+Q==}
     engines: {node: '>=18'}
+
+  husky@9.1.7:
+    resolution: {integrity: sha512-5gs5ytaNjBrh5Ow3zrvdUUY+0VxIuWVL4i9irt6friV+BqdCfmV11CQTWMiBYWHbXhco+J1kHfTOUkePhCDvMA==}
+    engines: {node: '>=18'}
+    hasBin: true
 
   is-fullwidth-code-point@5.1.0:
     resolution: {integrity: sha512-5XHYaSyiqADb4RnZ1Bdad6cPp8Toise4TzEjcOYDHZkTCbKgiUl7WTUCpNWHuxmDt91wnsZBc9xinNzopv3JMQ==}
@@ -1167,6 +1175,8 @@ snapshots:
     optional: true
 
   get-east-asian-width@1.4.0: {}
+
+  husky@9.1.7: {}
 
   is-fullwidth-code-point@5.1.0:
     dependencies:
