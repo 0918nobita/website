@@ -26,7 +26,12 @@
     "vue-tsc": "3.2.1"
   },
   "lint-staged": {
-    "*.{html,json,ts,vue}": [
+    "*.{css,html,json}": [
+      "oxlint",
+      "oxfmt --check"
+    ],
+    "*.{ts,vue}": [
+      "vue-tsc --noEmit",
       "oxlint",
       "oxfmt --check"
     ]
