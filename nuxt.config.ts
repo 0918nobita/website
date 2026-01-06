@@ -1,15 +1,6 @@
 export default defineNuxtConfig({
   compatibilityDate: '2026-01-03',
-  css: ['~/assets/css/global.css'],
   modules: ['@nuxtjs/i18n'],
-  i18n: {
-    defaultLocale: 'ja',
-    locales: [
-      { code: 'ja', file: 'ja.json' },
-      { code: 'en', file: 'en.json' },
-      { code: 'zh-CN', file: 'zh-CN.json' },
-    ],
-  },
   experimental: {
     typedPages: true,
     viewTransition: true,
@@ -17,4 +8,18 @@ export default defineNuxtConfig({
   imports: {
     scan: false,
   },
+  components: {
+    dirs: [],
+  },
+  i18n: {
+    strategy: 'no_prefix',
+    baseUrl: 'kodai.engineer',
+    defaultLocale: 'ja',
+    locales: [
+      { code: 'ja', file: 'ja.json', language: 'ja' },
+      { code: 'en', file: 'en.json', language: 'en' },
+      { code: 'zh-CN', file: 'zh-CN.json', language: 'zh-CN' },
+    ],
+  },
+  css: ['~/assets/css/global.css'],
 });

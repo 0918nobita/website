@@ -19,3 +19,18 @@
     </ul>
   </nav>
 </template>
+
+<style scoped>
+ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+}
+</style>

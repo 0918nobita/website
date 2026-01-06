@@ -1,9 +1,12 @@
-body {
-  margin: 0;
+:root {
+  --color-gray-50: oklch(98.5% 0.002 247.839);
+  --color-gray-700: oklch(37.3% 0.034 259.733);
+
+  --text-color-default: var(--color-gray-700);
 }
 
-ul {
+body {
   margin: 0;
-  padding: 0;
-  list-style: none;
+  background-color: var(--color-gray-50);
+  color: var(--text-color-default);
 }
